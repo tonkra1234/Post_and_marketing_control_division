@@ -88,6 +88,7 @@ $pdf->AddPage('');
 $pdf->SetFont('Arial','B',15);
 // Checklist
 $pdf->cell(190,10,'Inspection checklist',0,1,'L');
+$pdf->Ln('5');
 $pdf->SetFont('Arial','B',12);
 // header
 $pdf->cell(10,7,'S/N',1,0,'C');
@@ -101,8 +102,8 @@ $pdf->SetFont('Arial','',12);
 $results = json_decode($detail['check_list']) ;
 $no =1;
 $pdf->SetWidths(array(10, 140, 20, 20));
-foreach ($results as $detail) {
-    $pdf->Row(array($no,html_entity_decode($detail[2]),$detail[0], html_entity_decode($detail[1])));
+foreach ($results as $details) {
+    $pdf->Row(array($no,html_entity_decode($details[2]),$details[0], html_entity_decode($details[1])));
     $no++;
 }
 
@@ -117,7 +118,8 @@ $pdf->Ln('40');
 $pdf->cell(120,7,'Signature of CP with date',0,0,'L');
 $pdf->cell(70,7,'Signature of Inspector with date',0,0,'L');
 
-$pdf->Output();
+$filename = $detail['Name_of_Premise'].'.pdf';
+$pdf->Output('',$filename);
 
 
 ?>
