@@ -1,0 +1,10 @@
+#Mynav {
+    background-image: url('../image/Head_Web.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.each_inspect_detail{
+    background-color: rgb(203, 209, 255);
+}

@@ -1,0 +1,23 @@
+#Mynav {
+    background-image: url('../image/Head_Web.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.each_inspect_detail{
+    background-color: rgb(203, 209, 255);
+}
+
+.each_inspect_edit{
+    background-color: rgb(255, 230, 185);
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    background-color: #F9F9F9;
+    color: #000000;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #fff;
+}
