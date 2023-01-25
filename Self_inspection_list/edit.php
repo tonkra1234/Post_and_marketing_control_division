@@ -107,24 +107,23 @@ $detail = $db->read_detail($id);
                             </thead>
                             <tbody>
                                 <?php 
-                            $results = $db->read_question();
-                            $answer = json_decode($detail['check_list']);
+                            $answers = json_decode($detail['check_list']);
                             $number = 1;
-                            foreach ($results as $result) {
+                            foreach ($answers as $answer) {
                             ?>
                                 <tr>
                                     <th scope="row" class="text-center"><?php echo $number; ?></th>
-                                    <td><?php echo $result['question'];?></td>
+                                    <td><?php echo $answer[2];?></td>
                                     <td>
                                         <select name="select<?php echo $number;?>" id="select<?php echo $number;?>"
                                             class="form-select">
-                                            <option value="<?php echo $answer[$number-1][0];?>"><?php echo $answer[$number-1][0];?></option>
+                                            <option value="<?php echo $answer[0];?>"><?php echo $answer[0];?></option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
                                             <option value="NA">N/A</option>
                                         </select>
                                     </td>
-                                    <td><textarea rows="1" class="form-control" name="text<?php echo $number;?>" id="text<?php echo $number;?>"><?php echo $answer[$number-1][1];?></textarea></td>
+                                    <td><textarea rows="1" class="form-control" name="text<?php echo $number;?>" id="text<?php echo $number;?>"><?php echo $answer[1];?></textarea></td>
                                 </tr>
                                 <?php
                             $number++;

@@ -12,36 +12,45 @@
                 <div class="row mb-3 border">
                     <div class="col-md-4 col-12 border">
                         <span class="fw-bold">
-                             <i class="fa-solid fa-building"></i> Name of premises :
+                            <i class="fa-solid fa-building"></i> Name of premises :
                         </span>
                         <span><?php echo $result['Name_of_Premise']?></span>
                     </div>
                     <div class="col-md-4 col-12 border">
-                        <span class="fw-bold"><i class="fa-brands fa-unity"></i> Department : </span><span><?php echo $result['Department']?></span>
+                        <span class="fw-bold"><i class="fa-brands fa-unity"></i> Department :
+                        </span><span><?php echo $result['Department']?></span>
                     </div>
                     <div class="col-md-4 col-12 border">
-                        <span class="fw-bold"><i class="fa-solid fa-location-dot"></i> Dzongkhag : </span><span><?php echo $result['Dzongkhag']?></span>
+                        <span class="fw-bold"><i class="fa-solid fa-location-dot"></i> Dzongkhag :
+                        </span><span><?php echo $result['Dzongkhag']?></span>
                     </div>
                     <div class="col-md-4 col-12 border">
-                        <span class="fw-bold"><i class="fa-solid fa-calendar-days"></i> Date of self inspection : </span><span><?php echo $result['Date_self_inspection']?></span>
+                        <span class="fw-bold"><i class="fa-solid fa-calendar-days"></i> Date of self inspection :
+                        </span><span><?php echo $result['Date_self_inspection']?></span>
                     </div>
                     <div class="col-md-8 col-12 border">
-                        <span class="fw-bold"><i class="fa-solid fa-map-location"></i> Address : </span><span><?php echo $result['Address']?></span>
+                        <span class="fw-bold"><i class="fa-solid fa-map-location"></i> Address :
+                        </span><span><?php echo $result['Address']?></span>
                     </div>
                     <div class="col-md-4 col-12 border">
-                        <span class="fw-bold"><i class="fa-regular fa-id-badge"></i> Name : </span><span><?php echo $result['Name']?></span>
+                        <span class="fw-bold"><i class="fa-regular fa-id-badge"></i> Name :
+                        </span><span><?php echo $result['Name']?></span>
                     </div>
                     <div class="col-md-4 col-12 border">
-                        <span class="fw-bold"><i class="fa-solid fa-ticket"></i> BMHC No : </span><span><?php echo $result['BMHC_No']?></span>
+                        <span class="fw-bold"><i class="fa-solid fa-ticket"></i> BMHC No :
+                        </span><span><?php echo $result['BMHC_No']?></span>
                     </div>
                     <div class="col-md-4 col-12 border">
-                        <span class="fw-bold"><i class="fa-solid fa-at"></i> Email : </span><span><?php echo $result['Email']?></span>
+                        <span class="fw-bold"><i class="fa-solid fa-at"></i> Email :
+                        </span><span><?php echo $result['Email']?></span>
                     </div>
                     <div class="col-md-4 col-12 border">
-                        <span class="fw-bold"><i class="fa-solid fa-phone"></i> Contact Number : </span><span><?php echo $result['Contact_Number']?></span>
+                        <span class="fw-bold"><i class="fa-solid fa-phone"></i> Contact Number :
+                        </span><span><?php echo $result['Contact_Number']?></span>
                     </div>
                     <div class="col-md-8 col-12 border">
-                        <span class="fw-bold"><i class="fa-solid fa-note-sticky"></i> Note: </span><span><?php echo $result['Note']?></span>
+                        <span class="fw-bold"><i class="fa-solid fa-note-sticky"></i> Note:
+                        </span><span><?php echo $result['Note']?></span>
                     </div>
                 </div>
                 <h4>Check list detail</h4>
@@ -53,25 +62,6 @@
                     <div class="col-3 border fw-bold">ANS</div>
                     <div class="col-4 border fw-bold">Note</div>
                 </div>
-                <!-- <?php 
-                $no = 1;
-                $answer = json_decode($result['check_list']);
-                foreach ($questions as $question) {
-                ?>
-                <div class="row">
-                    <div class="col-1 border">
-                        <div class="d-flex justify-content-center align-items-center"><?php echo $no; ?></div>
-                    </div>
-                    <div class="col-4 border"><?php echo $question['question'];?></div>
-
-                    <div class="col-3 border"><?php echo $answer[$no-1][0];?></div>
-                    <div class="col-4 border"><?php echo $answer[$no-1][1];?></div>
-
-                </div>
-                <?php
-                $no++;
-                }
-                ?> -->
                 <?php 
                 $no = 1;
                 $answers = json_decode($result['check_list']);
