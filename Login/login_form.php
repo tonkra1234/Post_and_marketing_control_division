@@ -19,12 +19,12 @@ if(isset($_POST['submit'])){
 
       if($result['user_type'] == 'admin'){
 
-          $_SESSION['user_name_self'] = $result['name'];
+          $_SESSION['user_name_pmcd'] = $result['name'];
           header('location:admin_page.php');
 
       }elseif($result['user_type'] == 'user'){
 
-          $_SESSION['user_name_self'] = $result['name'];
+          $_SESSION['user_name_pmcd'] = $result['name'];
           header('location:../main.php');
       }
 
