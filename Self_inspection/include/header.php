@@ -43,7 +43,7 @@ $_SESSION['user_name_self'] = $user_name;
 
     <link rel="stylesheet" href="./css/style.css">
 
-    <title>GMP list</title>
+    <title>Self inspection</title>
 </head>
 
 <body style="background-color: #EFEFEF ;">

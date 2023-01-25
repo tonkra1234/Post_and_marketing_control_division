@@ -48,7 +48,7 @@ $_SESSION['user_name_pmcd'] = $user_name;
 
     <link rel="stylesheet" href="./css/style.css">
 
-    <title>GMP list</title>
+    <title>Self inspection list</title>
 </head>
 
 <body style="background-color: #EFEFEF ;">

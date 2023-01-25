@@ -27,6 +27,7 @@ $db = new Database();
                     <th scope="col">Dzongkhag</th>
                     <th scope="col">More detail</th>
                     <th scope="col">Edit</th>
+                    <th scope="col">Report</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,15 +48,17 @@ $db = new Database();
                     <td><?php echo $result['Date_self_inspection']?></td>
                     <td><?php echo $result['BMHC_No']?></td>
                     <td><?php echo $result['Dzongkhag']?></td>
-                    <!-- <td><?php echo json_decode($result['check_list'])[0][0] ;?></td> -->
                     <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-info" data-bs-toggle="modal"
                             data-bs-target="#detailModal<?php echo $number;?>">
                             Detail
                         </button>
                     </td>
                     <td>
                         <a class="btn btn-warning" href="./edit.php?id=<?php echo $result['id']?>" role="button">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="./report.php?id=<?php echo $result['id']?>" role="button">Report</a>
                     </td>
                 </tr>
                 <?php 
