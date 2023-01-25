@@ -1,8 +1,8 @@
 <?php
 
-require './FPDF/multicellTable.php';
+require_once './FPDF/multicellTable.php';
 
-require './db.php';
+require_once './db.php';
 
 $id= (isset($_GET['id']))?$_GET['id']:'';
 
@@ -12,6 +12,7 @@ $detail = $db->read_detail($id);
 
 // $pdf=new FPDF();
 $pdf = new PDF_MC_Table();
+$pdf-> SetTitle('Self report/'.$detail['Name_of_Premise']);
 $pdf->AddPage('');
   
 $pdf->SetFont('Arial','B',13);

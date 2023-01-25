@@ -58,7 +58,7 @@ $db = new Database();
                         <a class="btn btn-warning" href="./edit.php?id=<?php echo $result['id']?>" role="button">Edit</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="./report.php?id=<?php echo $result['id']?>" role="button">Report</a>
+                        <a class="btn btn-primary" href="./self_report.php?id=<?php echo $result['id']?>" role="button">Report</a>
                     </td>
                 </tr>
                 <?php 
