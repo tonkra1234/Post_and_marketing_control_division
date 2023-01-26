@@ -59,7 +59,8 @@
                         <div class="d-flex justify-content-center align-items-center">No</div>
                     </div>
                     <div class="col-4 border fw-bold">Question</div>
-                    <div class="col-3 border fw-bold">ANS</div>
+                    <div class="col-1 border fw-bold">Weight</div>
+                    <div class="col-2 border fw-bold">ANS</div>
                     <div class="col-4 border fw-bold">Note</div>
                 </div>
                 <?php 
@@ -72,8 +73,8 @@
                         <div class="d-flex justify-content-center align-items-center"><?php echo $no; ?></div>
                     </div>
                     <div class="col-4 border"><?php echo $answer[2];?></div>
-
-                    <div class="col-3 border"><?php echo $answer[0];?></div>
+                    <div class="col-1 border"><?php echo $answer[3];?></div>
+                    <div class="col-2 border"><?php echo $answer[0];?></div>
                     <div class="col-4 border"><?php echo $answer[1];?></div>
 
                 </div>

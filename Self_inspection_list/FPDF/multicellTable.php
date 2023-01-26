@@ -1,5 +1,5 @@
 <?php
-require('fpdf.php');
+include 'C:\xampp\htdocs\Post_and_marketing_control_division\Self_inspection_list\FPDF\fpdf.php';
 
 class PDF_MC_Table extends FPDF
 {

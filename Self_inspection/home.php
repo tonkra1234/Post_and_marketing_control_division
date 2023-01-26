@@ -111,6 +111,8 @@ $db = new Database();
                                     <td><?php echo $result['question'];?></td>
                                     <input type="hidden" class="form-control" id="question<?php echo $number; ?>" name="question<?php echo $number; ?>"
                                             value="<?php echo $result['question']; ?>">
+                                    <input type="hidden" class="form-control" id="level<?php echo $number; ?>" name="level<?php echo $number; ?>"
+                                            value="<?php echo $result['level']; ?>">
                                     <td>
                                         <select name="select<?php echo $number;?>" id="select<?php echo $number;?>"
                                             class="form-select">

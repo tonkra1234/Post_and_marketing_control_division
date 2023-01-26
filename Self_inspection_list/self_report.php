@@ -1,8 +1,12 @@
 <?php
 
-require_once './FPDF/multicellTable.php';
+session_start();
 
-require_once './db.php';
+if(!isset($_SESSION['user_name_pmcd'])){
+   header('location:../Login/login_form.php');
+}
+
+include './db.php';
 
 $id= (isset($_GET['id']))?$_GET['id']:'';
 
@@ -10,12 +14,15 @@ $db = new Database();
 
 $detail = $db->read_detail($id);
 
+include './FPDF/multicellTable.php';
+
 // $pdf=new FPDF();
 $pdf = new PDF_MC_Table();
-$pdf-> SetTitle('Self report/'.$detail['Name_of_Premise']);
+$pdf-> SetTitle('Self-inspect/'.$detail['Name_of_Premise'].'('.$detail['Date_self_inspection'].')');
 $pdf->AddPage('');
   
 $pdf->SetFont('Arial','B',13);
+
 
 $image1 = "./image/Report_logo.png";
 
@@ -119,8 +126,7 @@ $pdf->Ln('40');
 $pdf->cell(120,7,'Signature of CP with date',0,0,'L');
 $pdf->cell(70,7,'Signature of Inspector with date',0,0,'L');
 
-$filename = $detail['Name_of_Premise'].'.pdf';
+$filename = $detail['Name_of_Premise'].'('.$detail['Date_self_inspection'].')'.'.pdf';
 $pdf->Output('',$filename);
-
 
 ?>

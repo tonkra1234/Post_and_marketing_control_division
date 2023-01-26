@@ -116,6 +116,8 @@ $detail = $db->read_detail($id);
                                     <td><?php echo $answer[2];?></td>
                                     <input type="hidden" class="form-control" id="question<?php echo $number; ?>" name="question<?php echo $number; ?>"
                                             value="<?php echo $answer[2]; ?>">
+                                    <input type="hidden" class="form-control" id="level<?php echo $number; ?>" name="level<?php echo $number; ?>"
+                                            value="<?php echo $answer[3]; ?>">
                                     <td>
                                         <select name="select<?php echo $number;?>" id="select<?php echo $number;?>"
                                             class="form-select">

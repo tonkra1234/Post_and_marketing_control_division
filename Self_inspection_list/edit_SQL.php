@@ -47,6 +47,7 @@ for ($question=1; $question <= $number_question[0]['total_question']; $question+
     ${'text'.$question} =  $util->testInput($_POST['text'."$question"]);
     ${'select'.$question} =  $util->testInput($_POST['select'."$question"]);
     ${'question'.$question} =  $util->testInput($_POST['question'."$question"]);
+    ${'level'.$question} =  $util->testInput($_POST['level'."$question"]);
     if (${'text'.$question} == NULL) {
         ${'text'.$question} = '';
     }
@@ -55,6 +56,7 @@ for ($question=1; $question <= $number_question[0]['total_question']; $question+
     array_push($subArray,${'select'.$question});
     array_push($subArray,${'text'.$question});
     array_push($subArray,${'question'.$question});
+    array_push($subArray,${'level'.$question});
 
     array_push($Array,$subArray);
 }
