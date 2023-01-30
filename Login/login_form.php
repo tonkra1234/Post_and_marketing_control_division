@@ -20,7 +20,8 @@ if(isset($_POST['submit'])){
       if($result['user_type'] == 'admin'){
 
           $_SESSION['user_name_pmcd'] = $result['name'];
-          header('location:admin_page.php');
+          $_SESSION['email_pmcd'] = $result['email'];
+          header('location:./Admin/admin_page.php');
 
       }elseif($result['user_type'] == 'user'){
 
@@ -63,12 +64,12 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-   <section class="ftco-section d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+   <section class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="container">
          <div class="row justify-content-center">
             <div class="col-md-12 col-lg-10">
-               <div class="wrap d-flex justify-content-start">
-                  <div class="login-wrap pt-4 p-lg-5 border rounded-3 w-50">
+               <div class="wrap d-flex justify-content-lg-start justify-content-center">
+                  <div class="login-wrap pt-4 p-lg-5 border rounded-3 minvw-100">
                      <div class="d-flex">
                         <div class="w-100 text-center">
                            <img src="./image/logo.png" alt="logo" width="150px" class="mb-2">

@@ -1,5 +1,4 @@
 <?php 
-
     class Util  {
         public function testInput($data) {
             $data = trim($data);

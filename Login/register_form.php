@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
          $error[] = 'password not matched!';
       }else{
          $db->register($name,$email,$pass,$user_type,$gender);
-         header('Location:./login_form.php');
+         header('Location:./Admin/admin_page.php.php');
       }
    }
 
@@ -36,6 +36,7 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,6 +49,7 @@ if(isset($_POST['submit'])){
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
    </script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <style>
       body {
          background-image: url('./image/login_back.jpg');
@@ -58,10 +60,15 @@ if(isset($_POST['submit'])){
    </style>
 
 </head>
+
 <body>
-<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-      <div class="container" style="width: 40%;">
-         <form action="" method="post" class="border rounded-3 p-5 bg-white shadow">
+   <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+         <form action="" method="post" class="border rounded-3 p-5 bg-white shadow" style="min-width: 50%;">
+         <div class="position-relative">
+            <div class="position-absolute top-0 start-0">
+               <a class="btn btn-success" href="./Admin/admin_page.php" role="button"><i class="fa-solid fa-caret-left"></i> Back</a>
+            </div>
+         </div>
             <h1 class="mb-4 fw-bold text-center text-primary">Register now</h1>
             <?php
                if(isset($error)){
@@ -72,19 +79,23 @@ if(isset($_POST['submit'])){
             ?>
 
             <div class="form-floating mb-2">
-               <input type="text" name="name" class="form-control" id="floatingName" required placeholder="Enter your name">
+               <input type="text" name="name" class="form-control" id="floatingName" required
+                  placeholder="Enter your name">
                <label for="floatingName">Name</label>
             </div>
             <div class="form-floating mb-2">
-               <input type="email" name="email" class="form-control" id="floatingEmail" required placeholder="Enter your email">
+               <input type="email" name="email" class="form-control" id="floatingEmail" required
+                  placeholder="Enter your email">
                <label for="floatingEmail">Email address</label>
             </div>
             <div class="form-floating mb-2">
-               <input type="password" name="password" class="form-control" id="floatingPass" required placeholder="enter your password">
+               <input type="password" name="password" class="form-control" id="floatingPass" required
+                  placeholder="enter your password">
                <label for="floatingPass">Password</label>
             </div>
             <div class="form-floating mb-2">
-               <input type="password" name="cpassword" class="form-control" id="floatingCpass" required placeholder="confirm your password">
+               <input type="password" name="cpassword" class="form-control" id="floatingCpass" required
+                  placeholder="confirm your password">
                <label for="floatingCpass">Confirm password</label>
             </div>
             <select name="user_type" class="form-select form-select-lg mb-2">
@@ -95,10 +106,11 @@ if(isset($_POST['submit'])){
                <option value="Male">male</option>
                <option value="Female">female</option>
             </select>
-            <button class="w-100 btn btn-lg btn-primary rounded-pill" type="submit" value="login now" name="submit">Registration</button>
+            <button class="w-100 btn btn-lg btn-primary rounded-pill" type="submit" value="login now"
+               name="submit">Registration</button>
          </form>
       </div>
-   </div>
-   
+
 </body>
+
 </html>
