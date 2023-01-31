@@ -90,8 +90,7 @@ $_SESSION['user_name_pmcd'] = $user_name;
 
         <div class="container-fluid ">
             <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-                <a href="../main.php" class="btn btn-light rounded-pill"><i class="fa-solid fa-backward"></i> Back to
-                    menu</a>
+                <a href="../main.php" class="btn btn-light rounded-pill"><i class="fa-solid fa-backward"></i></a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-2">
                     <li class="nav-item">
                         <a class="nav-link rounded-3" aria-current="page" href="./home.php">Home</a>

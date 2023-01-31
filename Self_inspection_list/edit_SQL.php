@@ -40,6 +40,7 @@ $Name = $util->testInput($_POST['Name']);
 $BMHC_No = $util->testInput($_POST['BMHC_No']);
 $Email = $util->testInput($_POST['Email']);
 $Contact_Number = $util->testInput($_POST['Contact_Number']);
+$type_of_premises = $util->testInput($_POST['type_of_premises']);
 
 $Array=array();
 
@@ -70,7 +71,7 @@ if (isset($_POST['self_check'])) {
 
 $check_list = json_encode($Array);
 
-if ($db->edit($id, $Name_of_Premise,$Department,$Dzongkhag,$Date_self_inspection,$Address,$Name,$BMHC_No,$Email,$Contact_Number,$Note,$self_check,$check_list )){
+if ($db->edit($id, $Name_of_Premise,$Department,$Dzongkhag,$Date_self_inspection,$Address,$Name,$BMHC_No,$Email,$Contact_Number,$Note,$self_check,$check_list,$type_of_premises )){
     
     echo "<script>Swal.fire(
         'Updating record successfully!',

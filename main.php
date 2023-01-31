@@ -56,39 +56,48 @@ $user_name = $session->user();
         </div>
     </nav>
     <div class="container">
-        <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-            <div class="card shadow mx-2 w-50">
-                <div class="card-header">
-                    <h5>Inspection Section</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12 d-grid my-2 mx-auto">
-                            <a href="" role="button" class="btn btn-1 p-3 fs-5 fw-bolder text-white">Government & private inspection</a>
-                        </div>
-                        <div class="col-12 d-grid my-2 mx-auto">
-                            <a href="./Self_inspection_list/home.php" role="button" class="btn btn-2 p-3 fs-5 fw-bolder text-white">Self inspection list</a>
-                        </div>
-                        <div class="col-12 d-grid my-2 mx-auto">
-                            <a href="./GMP_inspection/home.php" role="button" class="btn btn-4 p-3 fs-5 fw-bolder text-white">Good manufacturing
-                                practices inspection</a>
+        <div class="row align-items-center" style="min-height: 100vh;">
+            <div class="col-lg-6 col-12">
+                <div class="card shadow mx-2">
+                    <div class="card-header">
+                        <h5>Inspection Section</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 d-grid my-2 mx-auto">
+                                <a href="" role="button" class="btn btn-1 p-3 fs-5 fw-bolder text-white">Government &
+                                    private inspection</a>
+                            </div>
+                            <div class="col-12 d-grid my-2 mx-auto">
+                                <a href="./Self_inspection_list/home.php" role="button"
+                                    class="btn btn-2 p-3 fs-5 fw-bolder text-white">Self inspection list</a>
+                            </div>
+                            <div class="col-12 d-grid my-2 mx-auto">
+                                <a href="./GMP_inspection/home.php" role="button"
+                                    class="btn btn-4 p-3 fs-5 fw-bolder text-white">Good manufacturing
+                                    practices inspection</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card shadow mx-2 w-50">
-                <div class="card-header">
-                    <h5>Vigilance Section</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12 d-grid my-2 mx-auto">
-                            <a href="./Recalled_product/home.php" role="button" class="btn btn-3 p-3 fs-5 fw-bolder text-white">List of recalled
-                                products</a>
-                        </div>
-                        <div class="col-12 d-grid my-2 mx-auto">
-                            <a href="./Vaccine_list/home.php" role="button" class="btn btn-5 p-3 fs-5 fw-bolder text-white">Vaccince list ( Log
-                                sheet )</a>
+            <div class="col-lg-6 col-12">
+                <div class="card shadow mx-2">
+                    <div class="card-header">
+                        <h5>Vigilance Section</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 d-grid my-2 mx-auto">
+                                <a href="./Recalled_product/home.php" role="button"
+                                    class="btn btn-3 p-3 fs-5 fw-bolder text-white">List of recalled
+                                    products</a>
+                            </div>
+                            <div class="col-12 d-grid my-2 mx-auto">
+                                <a href="./Vaccine_list/home.php" role="button"
+                                    class="btn btn-5 p-3 fs-5 fw-bolder text-white">Vaccince list ( Log
+                                    sheet )</a>
+                            </div>
                         </div>
                     </div>
                 </div>

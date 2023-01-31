@@ -11,6 +11,8 @@ $results_users = $db_users->fetch_users();
 $db_self_inspection = new SelfInspection();
 $results_self_inspection = $db_self_inspection->fetch_self_inspection();
 $number_self_inspection = $db_self_inspection->count_self_inspection();
+$number_self_inspection_human = $db_self_inspection->count_self_inspection_human();
+$number_self_inspection_veterinary = $db_self_inspection->count_self_inspection_veterinary();
 
 $db_gmp = new GmpInspection();
 $result_gmp = $db_gmp->fetch_gmp_inspection();

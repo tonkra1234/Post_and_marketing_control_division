@@ -31,7 +31,7 @@ $db = new Database();
                             <label for="floatingInput">Department/Unit/Section</label>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="form-floating mb-3">
                             <select class="form-select h-100" id="Dzongkhag" name="Dzongkhag">
                                 <option value=""></option>
@@ -40,11 +40,20 @@ $db = new Database();
                             <label for="floatingInput">Dzongkhag</label>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control" id="Date_self_inspection"
                                 name="Date_self_inspection" placeholder="Date of self-inspection">
                             <label for="floatingInput">Date of inspection</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example" id="type_of_premises" name="type_of_premises">
+                                <option value="Human">Human</option>
+                                <option value="Veterinary">Veterinary</option>
+                            </select>
+                            <label for="floatingInput">Type of premises</label>
                         </div>
                     </div>
                     <div class="col-md-12 col-12">
@@ -109,10 +118,11 @@ $db = new Database();
                                 <tr>
                                     <th scope="row" class="text-center"><?php echo $number; ?></th>
                                     <td><?php echo $result['question'];?></td>
-                                    <input type="hidden" class="form-control" id="question<?php echo $number; ?>" name="question<?php echo $number; ?>"
-                                            value="<?php echo $result['question']; ?>">
-                                    <input type="hidden" class="form-control" id="level<?php echo $number; ?>" name="level<?php echo $number; ?>"
-                                            value="<?php echo $result['level']; ?>">
+                                    <input type="hidden" class="form-control" id="question<?php echo $number; ?>"
+                                        name="question<?php echo $number; ?>"
+                                        value="<?php echo $result['question']; ?>">
+                                    <input type="hidden" class="form-control" id="level<?php echo $number; ?>"
+                                        name="level<?php echo $number; ?>" value="<?php echo $result['level']; ?>">
                                     <td>
                                         <select name="select<?php echo $number;?>" id="select<?php echo $number;?>"
                                             class="form-select">
@@ -121,7 +131,8 @@ $db = new Database();
                                             <option value="NA">N/A</option>
                                         </select>
                                     </td>
-                                    <td><textarea rows="1" class="form-control" name="text<?php echo $number;?>" id="text<?php echo $number;?>" readonly></textarea></td>
+                                    <td><textarea rows="1" class="form-control" name="text<?php echo $number;?>"
+                                            id="text<?php echo $number;?>" readonly></textarea></td>
                                 </tr>
                                 <?php
                             $number++;
@@ -142,7 +153,8 @@ $db = new Database();
                     </div>
                     <div class="col-md-12 col-12">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="check_true" id="self_check" name="self_check">
+                            <input class="form-check-input" type="checkbox" value="check_true" id="self_check"
+                                name="self_check">
                             <label class="form-check-label" for="self_check">
                                 This self inspection report is submitted based on the true findings observed during self
                                 inspection by the undersigned.

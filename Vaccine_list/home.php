@@ -12,7 +12,7 @@ $obj = new DataBase;
                 <h4 class="mt-auto mb-1">Vaccine list in repository</h4>
             </div>
             <div>
-                <a class="btn btn-primary" href="./add_page.php">Add new manufacturer</a>
+                <a class="btn btn-primary" href="./add_page.php"><i class="fa-solid fa-plus"></i> Add new manufacturer</a>
             </div>
         </div>
     </div>

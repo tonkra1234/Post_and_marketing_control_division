@@ -66,6 +66,4 @@ if(!isset($_SESSION['user_name_pmcd'])){
             </div>
          </div>
       </div>
-
-
    </header>

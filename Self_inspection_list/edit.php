@@ -36,7 +36,7 @@ $detail = $db->read_detail($id);
                             <label for="floatingInput">Department/Unit/Section</label>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="form-floating mb-3">
                             <select class="form-select h-100" id="Dzongkhag" name="Dzongkhag">
                                 <option value="<?php echo $detail['Dzongkhag'];?>"><?php echo $detail['Dzongkhag'];?></option>
@@ -45,11 +45,21 @@ $detail = $db->read_detail($id);
                             <label for="floatingInput">Dzongkhag</label>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control" id="Date_self_inspection"
                                 name="Date_self_inspection" placeholder="Date of self-inspection" value="<?php echo $detail['Date_self_inspection'];?>">
                             <label for="floatingInput">Date of inspection</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example" id="type_of_premises" name="type_of_premises">
+                                <option value="<?php echo $detail['type_of_premises'];?>"><?php echo $detail['type_of_premises'];?></option>
+                                <option value="Human">Human</option>
+                                <option value="Veterinary">Veterinary</option>
+                            </select>
+                            <label for="floatingInput">Type of premises</label>
                         </div>
                     </div>
                     <div class="col-md-12 col-12">

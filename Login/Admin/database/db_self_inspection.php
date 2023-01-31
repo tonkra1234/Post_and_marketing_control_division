@@ -30,6 +30,27 @@ class SelfInspection extends ConfigSelf {
         return $results;
     }
 
+    public function count_self_inspection_human(){
+
+        $sql= "SELECT count(*) as number_self_inspection_human FROM `inspection_detail` WHERE type_of_premises = 'Human' ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $results =  $stmt->fetch();
+
+        return $results;
+    }
+
+    public function count_self_inspection_veterinary(){
+
+        $sql= "SELECT count(*) as number_self_inspection_veterinary FROM `inspection_detail` WHERE type_of_premises = 'Veterinary' ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $results =  $stmt->fetch();
+
+        return $results;
+    }
+
+
     
 }
 

@@ -39,6 +39,16 @@ class GmpInspection extends ConfigGmp {
 
         return $results;
     }
+
+    public function inspectors(){
+
+        $sql= "SELECT * FROM `inspector` ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $results =  $stmt->fetchAll();
+
+        return $results;
+    }
     
 }
 
