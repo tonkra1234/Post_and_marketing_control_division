@@ -15,8 +15,12 @@ $db = new Database();
                 <h4 class="">All the recalled products in repository</h4>
             </div>
             <div>
-                <a href="./add_page.php" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add new
-                    recalled product</a>
+            <a href="./add_page.php" class="btn btn-primary">
+                <div class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-plus"></i>
+                        <div class="ms-2 d-none d-sm-block">Add new
+                    recalled product</div>
+                </div>
+            </a>
             </div>
         </div>
     </div>

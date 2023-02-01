@@ -21,7 +21,6 @@ $db = new Database();
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Name of Premise</th>
-                    <th scope="col">Department</th>
                     <th scope="col">Date_self_inspection</th>
                     <th scope="col">BMHC_No</th>
                     <th scope="col">Dzongkhag</th>
@@ -44,7 +43,6 @@ $db = new Database();
                 <tr>
                     <th scope="row" class="text-center"><?php echo $number;?></th>
                     <td><?php echo $result['Name_of_Premise']?></td>
-                    <td><?php echo $result['Department']?></td>
                     <td><?php echo $result['Date_self_inspection']?></td>
                     <td><?php echo $result['BMHC_No']?></td>
                     <td><?php echo $result['Dzongkhag']?></td>
@@ -58,7 +56,7 @@ $db = new Database();
                         <a class="btn btn-warning" href="./edit.php?id=<?php echo $result['id']?>" role="button">Edit</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="./self_report.php?id=<?php echo $result['id']?>" role="button" target="_blank">Report</a>
+                        <a class="btn btn-success" href="./self_report.php?id=<?php echo $result['id']?>" role="button" target="_blank">Report</a>
                     </td>
                 </tr>
                 <?php 

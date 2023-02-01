@@ -1,6 +1,6 @@
 <?php
 
-require_once './include/config_gmp.php';
+require_once 'C:\xampp\htdocs\Post_and_marketing_control_division\Login\Admin\include\config_gmp.php';
 
 class GmpInspection extends ConfigGmp {
 
@@ -48,6 +48,40 @@ class GmpInspection extends ConfigGmp {
         $results =  $stmt->fetchAll();
 
         return $results;
+    }
+
+    public function insert_inspectors($name,$division,$Avatar){
+
+        $sql= "INSERT INTO inspector(name,Division,picture) VALUES(:name,:division,:picture) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'name'=>$name,
+            'division' =>$division,
+            'picture' => $Avatar
+        ]);
+
+        return true;
+    }
+
+    public function edit_inspectors($id,$Inspector_name,$Division,$Avatar) {
+        $sql = "UPDATE inspector SET name=:Inspector_name, Division=:Division, picture=:Avatar WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+            'Inspector_name' => $Inspector_name,
+            'Division' => $Division,
+            'Avatar' => $Avatar,
+        ]);
+        return true;
+    }
+
+    public function delete_inspectors($id) {
+        $sql = "DELETE FROM inspector WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        return true;
     }
     
 }

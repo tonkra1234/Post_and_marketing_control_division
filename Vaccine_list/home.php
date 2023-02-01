@@ -12,7 +12,11 @@ $obj = new DataBase;
                 <h4 class="mt-auto mb-1">Vaccine list in repository</h4>
             </div>
             <div>
-                <a class="btn btn-primary" href="./add_page.php"><i class="fa-solid fa-plus"></i> Add new manufacturer</a>
+                <a class="btn btn-primary" href="./add_page.php">
+                    <div class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-plus"></i>
+                        <div class="ms-2 d-none d-sm-block">Add new manufacturer</div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -54,10 +58,13 @@ $obj = new DataBase;
                     <td><?php echo $result['Storage_Condition'];?></td>
                     <td>
                         <div class="d-grid">
-                            <button type="button" class="btn btn-warning btn-sm rounded-pill d-grid py-1 my-1" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $result['id'];?>">
+                            <button type="button" class="btn btn-warning btn-sm rounded-pill d-grid py-1 my-1"
+                                data-bs-toggle="modal" data-bs-target="#editModal<?php echo $result['id'];?>">
                                 Edit
                             </button>
-                            <a class="btn btn-info rounded-pill d-grid py-1 my-1" data-bs-toggle="offcanvas" href="#Detail<?php echo $result['id'];?>" role="button" aria-controls="#Detail<?php echo $result['id'];?>">
+                            <a class="btn btn-info rounded-pill d-grid py-1 my-1" data-bs-toggle="offcanvas"
+                                href="#Detail<?php echo $result['id'];?>" role="button"
+                                aria-controls="#Detail<?php echo $result['id'];?>">
                                 Detail
                             </a>
                         </div>

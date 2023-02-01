@@ -5,6 +5,53 @@ $db_gmp = new GmpInspection();
 $results_inspectors = $db_gmp->inspectors();
 
 ?>
+<!-- Modal -->
+<div class="modal fade" id="Add_inspector" tabindex="-1" aria-labelledby="Add_inspector" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="add-new-inspector" method="POST" action="./database/add_controller/inspector_add.php"
+                enctype="multipart/form-data" class="needs-validation" novalidate>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Add_inspector">Add inspector</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="Inspector_name" name="Inspector_name"
+                                    placeholder="Inspector_name" required>
+                                <label for="floatingInput">Inspector name</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" aria-label="Default select example" id="Division"
+                                    name="Division" required>
+                                    <option value="">Select one of these</option>
+                                    <option value="PMCD">PMCD</option>
+                                    <option value="Registration Division">Registration Division</option>
+                                    <option value="PPS">PPS</option>
+                                </select>
+                                <label for="floatingInput">Division</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-12">
+                            <div class="mb-3">
+                                <label for="Avatar" class="form-label">Avatar</label>
+                                <input class="form-control" type="file" accept=".jpg, .jpeg, .png" id="Avatar"
+                                    name="Avatar" aria-label="Avatar file">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="submit" class="btn btn-success">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="container-fluid">
     <?php require './include/sidebar.php';?>
     <div class="row">
@@ -20,13 +67,18 @@ $results_inspectors = $db_gmp->inspectors();
                     </div>
                     <div>
                         <button class="btn btn-primary" type="button" data-bs-toggle="modal"
-                            data-bs-target="#addNewManufacturerModal"><div class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-plus"></i><div class="ms-2 d-none d-sm-block">Add new
-                            inspection</div></div></button>
+                            data-bs-target="#Add_inspector">
+                            <div class="d-flex align-items-center justify-content-center"><i
+                                    class="fa-solid fa-plus"></i>
+                                <div class="ms-2 d-none d-sm-block">Add new
+                                    inspection</div>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="table caption-top shadow">
+                <table class="table table-bordered caption-top shadow">
                     <caption>Inspectors</caption>
                     <thead class="rounded-3 text-white" style="background-color: #008E2F ;">
                         <tr>
@@ -34,6 +86,7 @@ $results_inspectors = $db_gmp->inspectors();
                             <th scope="col">Avartar</th>
                             <th scope="col">Name</th>
                             <th scope="col">Division</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,21 +96,34 @@ $results_inspectors = $db_gmp->inspectors();
                      
                     ?>
                         <tr>
-                            <th scope="row"><?php echo $number;?></th>
+                            <th scope="row" class="text-center"><?php echo $number;?></th>
                             <td>
                                 <?php if(is_file('./image/Officer_image/'.$result['picture'])): ?>
-                                <div class="d-flex align-items-center"><img class="rounded-circle"
+                                <div class="d-flex align-items-center justify-content-center"><img
+                                        class="rounded-circle"
                                         src="./image/Officer_image/<?php echo $result['picture']?>" width="30"></div>
                                 <?php else: ?>
-                                <div class="d-flex align-items-center"><img class="rounded-circle"
-                                        src="./image/Officer_image/question_mark.png" width="30"></div>
+                                <div class="d-flex align-items-center justify-content-center"><img
+                                        class="rounded-circle" src="./image/Officer_image/question_mark.png" width="30">
+                                </div>
                                 <?php endif; ?>
                             </td>
                             <td><?php echo $result['name'];?></td>
                             <td><?php echo $result['Division'];?></td>
+                            <td>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#edit_inspector<?php echo $number;?>"
+                                    aria-controls="edit_inspector">
+                                    Edit
+                                </button>
+                                <a href="./database/delete_controller/inspector_delete.php?id=<?php echo $result['id']?>" class="btn btn-danger">Delete</a>
+                            </div>
+                            </td>
                         </tr>
                         <?php 
-                     $number++;
+                        include './Modal/gmp_edit_modal.php';
+                        $number++;
                      }
                      ?>
                     </tbody>
@@ -71,4 +137,25 @@ $results_inspectors = $db_gmp->inspectors();
         </main>
     </div>
 </div>
+<script>
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
 <?php require './include/footer.php';?>

@@ -117,11 +117,10 @@ $results = $db->read_inspector();
     <div class="row">
         <?php foreach($results as $result){?>
 
-        <div class="col-md-3 col-12 my-2">
+        <div class="col-md-4 col-lg-3 col-12 my-2">
             <div class="card shadow" style="min-height: 36rem;">
                 <?php if(is_file('./upload_image/'.$result["picture"])): ?>
-                <img src="./upload_image/<?php echo $result['picture']?>" class="rounded-pill p-5" alt="logo"
-                    height="310">
+                <img src="./upload_image/<?php echo $result['picture']?>" class="img-fluid rounded-pill mx-auto mt-3" alt="logo" style="height: 15em;width:15em;">
                 <?php elseif(true) : ?>
                 <img src="./upload_image/question_mark.png" class="img-fluid rounded-start p-5" alt="question_mark">
                 <?php endif; ?>

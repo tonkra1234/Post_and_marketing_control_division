@@ -77,7 +77,7 @@ $_SESSION['user_name_pmcd'] = $user_name;
         </div>
     </nav>
     <nav class="navbar navbar-expand-lg navbar-light p-1 shadow " style="background-color: #126300 ;">
-
+            <a class="navbar-brand text-white ms-lg-5 ms-2" href="#">Vaccine list</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -85,8 +85,7 @@ $_SESSION['user_name_pmcd'] = $user_name;
 
             <div class="container-fluid ">
                 <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-                    <a href="../main.php" class="btn btn-light rounded-pill"><i class="fa-solid fa-backward"></i></a>
-                    <div class="d-flex ms-auto me-5">
+                    <div class="d-flex ms-lg-auto me-lg-5 d-none d-sm-block">
                         <div class="dropdown text-end">
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -105,7 +104,15 @@ $_SESSION['user_name_pmcd'] = $user_name;
                             </ul>
                         </div>
                     </div>
+                    <div class="row align-items-end me-1 mt-1 d-block d-sm-none">
+                    <div class="col-12 text-end">
+                        <a class="btn btn-light" href="../Login/logout.php"><i
+                                class="fa-solid fa-right-from-bracket fs-5 me-2"></i>Sign out</a>
+                    </div>
+                </div>
                 </div>
             </div>
         </nav>
         <div class="container" style="min-height: 70vh;">
+        <a href="../main.php" class="btn btn-secondary rounded-pill mt-3 shadow"><i class="fa-solid fa-backward"></i>
+            Back to home page</a>
