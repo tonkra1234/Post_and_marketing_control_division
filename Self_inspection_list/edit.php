@@ -10,7 +10,24 @@ $db = new Database();
 $detail = $db->read_detail($id);
 
 ?>
-<div class="d-flex align-items-center justify-content-center my-5" style="min-height: 70vh;">
+<div class="d-flex mt-4">
+    <a href="../main.php" class="link-secondary">
+        Main menu
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <a href="./home.php" class="link-secondary">
+        Self inspection
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <p class="text-dark fw-bold">
+        Edit self inspection
+    </p>
+</div>
+<div class="d-flex align-items-center justify-content-center my-4" style="min-height: 70vh;">
     <div class="card shadow">
         <form action="./edit_SQL.php" method="post">
             <div class="card-header bg-warning">

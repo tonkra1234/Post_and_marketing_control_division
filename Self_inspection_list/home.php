@@ -6,7 +6,17 @@ require './db.php';
 $db = new Database();
 
 ?>
-<div class="my-5">
+<div class="d-flex mt-4">
+    <a href="../main.php" class="link-secondary">
+        Main menu
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <p class="text-dark fw-bold">
+        Self inspection
+</div>
+<div class="my-4">
     <div class="row">
         <div class="col-lg-12 d-flex justify-content-between align-items-center">
             <div>

@@ -1,6 +1,6 @@
 <?php
 
-require_once './include/config_self_inspection.php';
+require_once 'C:\xampp\htdocs\Post_and_marketing_control_division\Login\Admin\include\config_self_inspection.php';
 
 class SelfInspection extends ConfigSelf {
 
@@ -49,6 +49,49 @@ class SelfInspection extends ConfigSelf {
 
         return $results;
     }
+
+    public function fetch_question(){
+
+        $sql= "SELECT *  FROM `inspect_question`";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $results =  $stmt->fetchAll();
+
+        return $results;
+    }
+
+    public function insert_question($question,$level){
+
+        $sql= "INSERT INTO inspect_question(question,level) VALUES(:question,:level) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'question'=>$question,
+            'level' =>$level,
+        ]);
+
+        return true;
+    }
+
+    public function edit_question($id,$question,$level) {
+        $sql = "UPDATE inspect_question SET question=:question, level=:level WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+            'question' => $question,
+            'level' => $level
+        ]);
+        return true;
+    }
+
+    public function delete_question($id) {
+        $sql = "DELETE FROM inspect_question WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        return true;
+    }
+
 
 
     

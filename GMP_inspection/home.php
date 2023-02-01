@@ -7,6 +7,18 @@ $db = new Database();
 $results = $db->read_inspector();
 
 ?>
+<div class="d-flex mt-4">
+    <a href="../main.php" class="link-secondary">
+        Main menu
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <p class="text-dark fw-bold">
+        GMP list
+    </p>
+
+</div>
 <!-- Modal -->
 <div class="modal fade" id="addNewManufacturerModal" tabindex="-1" aria-labelledby="addNewManufacturerModal"
     aria-hidden="true">
@@ -96,7 +108,7 @@ $results = $db->read_inspector();
     </div>
 </div>
 
-<div class="my-5">
+<div class="my-4">
     <div class="row">
         <div class="col-lg-12 d-flex justify-content-between align-items-center">
             <div>
@@ -120,7 +132,8 @@ $results = $db->read_inspector();
         <div class="col-md-4 col-lg-3 col-12 my-2">
             <div class="card shadow" style="min-height: 36rem;">
                 <?php if(is_file('./upload_image/'.$result["picture"])): ?>
-                <img src="./upload_image/<?php echo $result['picture']?>" class="img-fluid rounded-pill mx-auto mt-3" alt="logo" style="height: 15em;width:15em;">
+                <img src="./upload_image/<?php echo $result['picture']?>" class="img-fluid rounded-pill mx-auto mt-3"
+                    alt="logo" style="height: 15em;width:15em;">
                 <?php elseif(true) : ?>
                 <img src="./upload_image/question_mark.png" class="img-fluid rounded-start p-5" alt="question_mark">
                 <?php endif; ?>

@@ -96,6 +96,24 @@ class DataBase extends Config {
         return $result;
     }
 
+    public function delete_recalled_product($id) {
+        $sql = "DELETE FROM recalled_list WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        return true;
+    }
+
+    public function move_recalled_product($id) {
+        $sql = "INSERT INTO trash SELECT * FROM recalled_list WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        return true;
+    }
+
     
 }
 

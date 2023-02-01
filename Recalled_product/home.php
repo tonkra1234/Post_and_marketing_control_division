@@ -6,9 +6,19 @@ require './db.php';
 $db = new Database();
 
 ?>
+<div class="d-flex mt-4">
+    <a href="../main.php" class="link-secondary">
+        Main menu
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <p class="text-dark fw-bold">
+        Recalled products
+    </p>
+</div>
 
-
-<div class="my-5">
+<div class="my-4">
     <div class="row">
         <div class="col-lg-12 d-flex justify-content-between align-items-center">
             <div>
@@ -65,6 +75,7 @@ $db = new Database();
                                 aria-controls="offcanvasExample">
                                 More
                             </button>
+                            <a href="./delete_SQL.php?id=<?php echo $result['id'] ;?>" class="btn btn-danger btn-sm rounded-pill d-grid py-1 my-1">Delete</a>
                         </div>
                     </td>
                 </tr>

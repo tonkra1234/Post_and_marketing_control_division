@@ -119,5 +119,3 @@ $_SESSION['user_name_pmcd'] = $user_name;
         </div>
     </nav>
     <div class="container" style="min-height: 70vh;">
-    <a href="../main.php" class="btn btn-secondary rounded-pill mt-3 shadow"><i class="fa-solid fa-backward"></i>
-            Back to home page</a>

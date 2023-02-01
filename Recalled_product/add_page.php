@@ -6,11 +6,25 @@ require './db.php';
 $db = new Database();
 
 ?>
-<div class="mt-5">
-    <a class="btn btn-light fw-bold shadow" href="./home.php"> <i class="fa fa-arrow-left" aria-hidden="true"></i>  Back to home page</a>
+<div class="d-flex mt-4">
+    <a href="../main.php" class="link-secondary">
+        Main menu
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <a href="./home.php" class="link-secondary">
+        Recalled products
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <p class="text-dark fw-bold">
+        Add recalled products
+    </p>
 </div>
 
-<div class="d-flex justify-content-center align-items-center my-5">
+<div class="d-flex justify-content-center align-items-center my-4">
     <div class="card shadow">
         <form action="./add_SQL.php" method="post" class="needs-validation" novalidate>
             <div class="card-header">
@@ -97,8 +111,7 @@ $db = new Database();
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" value="Edit recalled product" class="btn btn-warning w-100 my-2">Update
-                    data</button>
+                <button type="submit" value="Edit recalled product" class="btn btn-success w-100 my-2">Submit</button>
             </div>
         </form>
     </div>

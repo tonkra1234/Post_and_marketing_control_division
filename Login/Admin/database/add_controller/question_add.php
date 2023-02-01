@@ -22,32 +22,24 @@
 
 <body>
   <?php
-include './db.php';
-include './util.php';
 
-$db = new Database();
+include '../../../util.php';
+include '../db_self_inspection.php';
+
+$db = new SelfInspection();
 $util = new Util();
 
-$Generic_name= $util->testInput($_POST['Generic_name']);
-$Brand_name = $util->testInput($_POST['Brand_name']);
-$Batch_No = $util->testInput($_POST['Batch_No']);
-$Manufacturer = $util->testInput($_POST['Manufacturer']);
-$MAH = $util->testInput($_POST['MAH']);
-$Mode_of_registration = $util->testInput($_POST['Mode_of_registration']);
-$Class_of_medicines = $util->testInput($_POST['Class_of_medicines']);
-$Class_of_recall = $util->testInput($_POST['Class_of_recall']);
-$Level_of_Recall = $util->testInput($_POST['Level_of_Recall']);
-$Reason_for_recall = $util->testInput($_POST['Reason_for_recall']);
-$Date_of_recall = $util->testInput($_POST['Date_of_recall']);
+$question = $util->testInput($_POST['question']);
+$level = $util->testInput($_POST['level']);
 
-if ($db->insert($Generic_name, $Brand_name ,$Batch_No , $Manufacturer, $MAH, $Mode_of_registration, $Class_of_medicines,$Class_of_recall,$Level_of_Recall,$Reason_for_recall,$Date_of_recall)){
+if ($db->insert_question($question,$level)){
     
     echo "<script>Swal.fire(
-        'New recalled products record successfully!',
+        'New inspector have been added',
         'Please, click button to continue!',
         'success'
       ).then(function() {
-        window.location = './home.php';
+        window.location = '../../self_inspection.php';
       });
       </script>";
 

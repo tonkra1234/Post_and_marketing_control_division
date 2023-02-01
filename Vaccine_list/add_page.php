@@ -3,11 +3,25 @@
 require './include/header.php';
 
 ?>
-<div class="mt-5">
-    <a class="btn btn-light fw-bold shadow" href="./home.php"> <i class="fa fa-arrow-left" aria-hidden="true"></i>  Back to home page</a>
+<div class="d-flex mt-4">
+    <a href="../main.php" class="link-secondary">
+        Main menu
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <a href="./home.php" class="link-secondary">
+        Vaccine list
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <p class="text-dark fw-bold">
+        Add vaccine list
+    </p>
 </div>
 
-<div class="d-flex my-5">
+<div class="d-flex my-4">
     <div class="card shadow rounded-3">
         <div class="card-header bg-primary">
             <h3 class="text-center text-white">Add new vaccine</h3>

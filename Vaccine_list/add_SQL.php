@@ -59,7 +59,7 @@ if ($db->insert($Application_ID, $Product_Name,$Manufacturer , $Requesting_Agenc
                 $Samples_Recieved, $Reviewer_Assigned, $Deadline_Assessment, $Certificate_Issue_Date,$Remarks)){
     
     echo "<script>Swal.fire(
-        'New Manufacturer record successfully!',
+        'New vaccine record successfully!',
         'Please, click button to continue!',
         'success'
       ).then(function() {
