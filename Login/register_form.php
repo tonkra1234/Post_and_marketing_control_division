@@ -64,11 +64,6 @@ if(isset($_POST['submit'])){
 <body>
    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
          <form action="" method="post" class="border rounded-3 p-5 bg-white shadow" style="min-width: 50%;">
-         <div class="position-relative">
-            <div class="position-absolute top-0 start-0">
-               <a class="btn btn-success" href="./Admin/admin_page.php" role="button"><i class="fa-solid fa-caret-left"></i> Back</a>
-            </div>
-         </div>
             <h1 class="mb-4 fw-bold text-center text-primary">Register now</h1>
             <?php
                if(isset($error)){

@@ -52,7 +52,7 @@ $results_inspectors = $db_gmp->inspectors();
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid" style="min-height: 80vh;">
     <?php require './include/sidebar.php';?>
     <div class="row">
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -95,7 +95,7 @@ $results_inspectors = $db_gmp->inspectors();
                      foreach ($results_inspectors as $result) {
                      
                     ?>
-                        <tr>
+                        <tr id="refresh-delete<?php echo $result['id'];?>">
                             <th scope="row" class="text-center"><?php echo $number;?></th>
                             <td>
                                 <?php if(is_file('./image/Officer_image/'.$result['picture'])): ?>
@@ -117,7 +117,8 @@ $results_inspectors = $db_gmp->inspectors();
                                     aria-controls="edit_inspector">
                                     Edit
                                 </button>
-                                <a href="./database/delete_controller/inspector_delete.php?id=<?php echo $result['id']?>" class="btn btn-danger">Delete</a>
+                                <button type="button" value="<?php echo $result['id'];?>" class="delete_button btn btn-danger">Delete</button>
+                                <input type="hidden" value="<?php echo $result['picture'];?>" class="delete_file_name<?php echo $result['id'];?>">
                             </div>
                             </td>
                         </tr>
@@ -128,11 +129,6 @@ $results_inspectors = $db_gmp->inspectors();
                      ?>
                     </tbody>
                 </table>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-
-                </div>
             </div>
         </main>
     </div>
@@ -157,5 +153,43 @@ $results_inspectors = $db_gmp->inspectors();
                 }, false)
             })
     })()
+</script>
+<script>
+    $('.delete_button').click(function (e) {
+        e.preventDefault();
+        var inspectorId = $(this).val();
+        var fileName = $('.delete_file_name'+inspectorId).val();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type :"POST",
+                    url : "./database/delete_controller/delete_inspector_confirm.php",
+                    data : {
+                        'inspectordelete': true,
+                        'inspectorId': inspectorId,
+                        'fileName': fileName,
+                    },
+                    success:function(reponse){
+
+                    }
+                });
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                $('#refresh-delete'+inspectorId).hide(1000);
+            }
+        })
+
+    });
 </script>
 <?php require './include/footer.php';?>

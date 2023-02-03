@@ -26,7 +26,7 @@ require './include/header.php';
         <div class="card-header bg-primary">
             <h3 class="text-center text-white">Add new vaccine</h3>
         </div>
-        <form class="row g-3 needs-validation" novalidate>
+        <form method="POST" action="./add_SQL.php" class="row g-3 needs-validation" novalidate>
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6 col-12">
@@ -127,23 +127,23 @@ require './include/header.php';
                     <div class="col-lg-4 col-12">
                         <div class="form-floating mb-3">
                             <select class="form-select" aria-label="Default select example" required
-                                id="Labels_Recieved" name="Labels_Recieved" placeholder="Labels Recieved">
+                                id="Labels_Received" name="Labels_Received" placeholder="Labels Received">
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                                 <option value="NA">NA</option>
                             </select>
-                            <label for="floatingInput">Labels Recieved</label>
+                            <label for="floatingInput">Labels Received</label>
                         </div>
                     </div>
                     <div class="col-lg-4 col-12">
                         <div class="form-floating mb-3">
                             <select class="form-select" aria-label="Default select example" required
-                                id="Samples_Recieved" name="Samples_Recieved" placeholder="Samples Recieved">
+                                id="Samples_Received" name="Samples_Received" placeholder="Samples Received">
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                                 <option value="NA">NA</option>
                             </select>
-                            <label for="floatingInput">Samples Recieved</label>
+                            <label for="floatingInput">Samples Received</label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">

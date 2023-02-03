@@ -35,7 +35,7 @@ $level = $util->testInput($_POST['level']);
 if ($db->insert_question($question,$level)){
     
     echo "<script>Swal.fire(
-        'New inspector have been added',
+        'New question have been added',
         'Please, click button to continue!',
         'success'
       ).then(function() {

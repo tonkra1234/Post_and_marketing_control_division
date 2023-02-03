@@ -119,27 +119,27 @@
                         <div class="col-lg-4 col-12">
                             <div class="form-floating mb-3">
                                 <select class="form-select" aria-label="Default select example" required
-                                    id="Labels_Recieved" name="Labels_Recieved" placeholder="Labels Recieved">
-                                    <option value="<?php echo $result['Labels_Recieved'];?>">
-                                        <?php echo $result['Labels_Recieved'];?></option>
+                                    id="Labels_Received" name="Labels_Received" placeholder="Labels Received">
+                                    <option value="<?php echo $result['Labels_Received'];?>">
+                                        <?php echo $result['Labels_Received'];?></option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                     <option value="NA">NA</option>
                                 </select>
-                                <label for="floatingInput">Labels Recieved</label>
+                                <label for="floatingInput">Labels Received</label>
                             </div>
                         </div>
                         <div class="col-lg-4 col-12">
                             <div class="form-floating mb-3">
                                 <select class="form-select" aria-label="Default select example" required
-                                    id="Samples_Recieved" name="Samples_Recieved" placeholder="Samples Recieved">
-                                    <option value="<?php echo $result['Samples_Recieved'];?>">
-                                        <?php echo $result['Samples_Recieved'];?></option>
+                                    id="Samples_Received" name="Samples_Received" placeholder="Samples Received">
+                                    <option value="<?php echo $result['Samples_Received'];?>">
+                                        <?php echo $result['Samples_Received'];?></option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                     <option value="NA">NA</option>
                                 </select>
-                                <label for="floatingInput">Samples Recieved</label>
+                                <label for="floatingInput">Samples Received</label>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">

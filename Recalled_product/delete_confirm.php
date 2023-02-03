@@ -1,11 +1,10 @@
 <?php
 include './db.php';
 
-$id = $_GET['id'];
+$productId = $_POST['productId'];
 $db = new DataBase();
 
-if($db->move_recalled_product($id)){
-    $db->delete_recalled_product($id);
-    header('Location:./home.php');
+if($db->move_recalled_product($productId)){
+    $db->delete_recalled_product($productId);
 }
 ?>

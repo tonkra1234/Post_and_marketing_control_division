@@ -58,7 +58,7 @@ $obj = new DataBase;
                 $number = ($total_records_per_page*$page_no)-($total_records_per_page-1);
                 foreach($results as $result){
                 ?>
-                <tr>
+                <tr id="refresh-delete<?php echo $result['id'];?>">
                     <th scope="row" class="text-center"><?php echo $number;?></th>
                     <td><?php echo $result['Product_Name'];?></td>
                     <td><?php echo $result['Manufacturer'];?></td>
@@ -78,6 +78,7 @@ $obj = new DataBase;
                                 aria-controls="#Detail<?php echo $result['id'];?>">
                                 Detail
                             </a>
+                            <button type="button" class="delete_button btn btn-danger btn-sm rounded-pill d-grid py-1 my-1" value="<?php echo $result['id'] ;?>">Delete</button>
                         </div>
                     </td>
                 </tr>
@@ -96,5 +97,42 @@ $obj = new DataBase;
     ?>
 
 </div>
+<script>
+    $('.delete_button').click(function (e) {
+        e.preventDefault();
+        var vaccineId = $(this).val();
+    
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type :"POST",
+                    url : "./delete_confirm.php",
+                    data : {
+                        'vaccinedelete': true,
+                        'vaccineId': vaccineId,
+                    },
+                    success:function(reponse){
+
+                    }
+                });
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                $('#refresh-delete'+vaccineId).hide(1000);
+            }
+        })
+
+    });
+</script>
 
 <?php require './include/footer.php';?>

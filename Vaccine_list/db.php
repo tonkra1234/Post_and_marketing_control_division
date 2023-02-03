@@ -48,10 +48,10 @@ class DataBase extends Config {
     public function insert($Application_ID, $Product_Name,$Manufacturer , $Requesting_Agency, 
                             $Date_Application, $Lot_Number, $Lot_Size, $Date_Manufacture,
                             $Date_Expiry, $Storage_Condition, $Pharmaceutical_Form, $Presentation,
-                            $Diluent, $Diluent_Number, $SLP_Received, $Labels_Recieved,
-                            $Samples_Recieved, $Reviewer_Assigned, $Deadline_Assessment, $Certificate_Issue_Date,$Remarks) {
-        $sql = "INSERT INTO log_sheet (Name_Manufacturer,Proprietor,Key_person,Category,Location,Email,Dzongkhag,image_link) 
-        VALUES(:Name_Manufacturer,:Proprietor,:Key_person,:Category,:Location,:Email,:Dzongkhag,:image_link)";
+                            $Diluent, $Diluent_Number, $SLP_Received, $Labels_Received,
+                            $Samples_Received, $Reviewer_Assigned, $Deadline_Assessment, $Certificate_Issue_Date,$Remarks) {
+        $sql = "INSERT INTO pre_approve (Application_ID,Product_Name,Manufacturer,Requesting_Agency,Date_Application,Lot_Number,Lot_Size,Date_Manufacture,Date_Expiry,Storage_Condition,Pharmaceutical_Form,Presentation,Diluent,Diluent_Number,SLP_Received,Labels_Received,Samples_Received,Reviewer_Assigned,Deadline_Assessment,Certificate_Issue_Date,Remarks) 
+        VALUES(:Application_ID,:Product_Name,:Manufacturer,:Requesting_Agency,:Date_Application,:Lot_Number,:Lot_Size,:Date_Manufacture,:Date_Expiry,:Storage_Condition,:Pharmaceutical_Form,:Presentation,:Diluent,:Diluent_Number,:SLP_Received,:Labels_Received,:Samples_Received,:Reviewer_Assigned,:Deadline_Assessment,:Certificate_Issue_Date,:Remarks)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'Application_ID' => $Application_ID,
@@ -69,8 +69,8 @@ class DataBase extends Config {
             'Diluent' => $Diluent,
             'Diluent_Number' => $Diluent_Number,
             'SLP_Received' => $SLP_Received,
-            'Labels_Recieved' => $Labels_Recieved,
-            'Samples_Recieved' => $Samples_Recieved,
+            'Labels_Received' => $Labels_Received,
+            'Samples_Received' => $Samples_Received,
             'Reviewer_Assigned' => $Reviewer_Assigned,
             'Deadline_Assessment' => $Deadline_Assessment,
             'Certificate_Issue_Date' => $Certificate_Issue_Date,
@@ -82,10 +82,10 @@ class DataBase extends Config {
     public function edit($id,$Application_ID, $Product_Name,$Manufacturer , $Requesting_Agency, 
     $Date_Application, $Lot_Number, $Lot_Size, $Date_Manufacture,
     $Date_Expiry, $Storage_Condition, $Pharmaceutical_Form, $Presentation,
-    $Diluent, $Diluent_Number, $SLP_Received, $Labels_Recieved,
-    $Samples_Recieved, $Reviewer_Assigned, $Deadline_Assessment, $Certificate_Issue_Date,$Remarks) {
+    $Diluent, $Diluent_Number, $SLP_Received, $Labels_Received,
+    $Samples_Received, $Reviewer_Assigned, $Deadline_Assessment, $Certificate_Issue_Date,$Remarks) {
 
-        $sql = "UPDATE log_sheet SET Application_ID=:Application_ID, Product_Name=:Product_Name, Manufacturer=:Manufacturer, Requesting_Agency=:Requesting_Agency, Date_Application=:Date_Application, Lot_Number=:Lot_Number, Lot_Size=:Lot_Size, Date_Manufacture=:Date_Manufacture, Date_Expiry=:Date_Expiry, Storage_Condition=:Storage_Condition, Pharmaceutical_Form=:Pharmaceutical_Form, Presentation=:Presentation, Diluent=:Diluent, Diluent_Number=:Diluent_Number, SLP_Received=:SLP_Received, Labels_Recieved=:Labels_Recieved, Samples_Recieved=:Samples_Recieved, Reviewer_Assigned=:Reviewer_Assigned, Deadline_Assessment=:Deadline_Assessment, Certificate_Issue_Date=:Certificate_Issue_Date, Remarks=:Remarks WHERE id=:id";
+        $sql = "UPDATE log_sheet SET Application_ID=:Application_ID, Product_Name=:Product_Name, Manufacturer=:Manufacturer, Requesting_Agency=:Requesting_Agency, Date_Application=:Date_Application, Lot_Number=:Lot_Number, Lot_Size=:Lot_Size, Date_Manufacture=:Date_Manufacture, Date_Expiry=:Date_Expiry, Storage_Condition=:Storage_Condition, Pharmaceutical_Form=:Pharmaceutical_Form, Presentation=:Presentation, Diluent=:Diluent, Diluent_Number=:Diluent_Number, SLP_Received=:SLP_Received, Labels_Received=:Labels_Received, Samples_Received=:Samples_Received, Reviewer_Assigned=:Reviewer_Assigned, Deadline_Assessment=:Deadline_Assessment, Certificate_Issue_Date=:Certificate_Issue_Date, Remarks=:Remarks WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'id' => $id,
@@ -104,8 +104,8 @@ class DataBase extends Config {
             'Diluent' => $Diluent,
             'Diluent_Number' => $Diluent_Number,
             'SLP_Received' => $SLP_Received,
-            'Labels_Recieved' => $Labels_Recieved,
-            'Samples_Recieved' => $Samples_Recieved,
+            'Labels_Received' => $Labels_Received,
+            'Samples_Received' => $Samples_Received,
             'Reviewer_Assigned' => $Reviewer_Assigned,
             'Deadline_Assessment' => $Deadline_Assessment,
             'Certificate_Issue_Date' => $Certificate_Issue_Date,
@@ -115,6 +115,25 @@ class DataBase extends Config {
         return true;
          
     }
+
+    public function delete_vaccine($id) {
+        $sql = "DELETE FROM log_sheet WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        return true;
+    }
+
+    public function move_vaccine($id) {
+        $sql = "INSERT INTO trash SELECT * FROM log_sheet WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        return true;
+    }
+
 
 }
 

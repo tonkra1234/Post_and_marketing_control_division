@@ -44,7 +44,7 @@ $results_question = $db_self_inspection->fetch_question();
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid" style="min-height: 80vh;">
     <?php require './include/sidebar.php';?>
     <div class="row">
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -86,7 +86,7 @@ $results_question = $db_self_inspection->fetch_question();
                      foreach ($results_question as $result) {
                      
                     ?>
-                        <tr>
+                        <tr id="refresh-delete<?php echo $result['id'];?>">
                             <th scope="row" class="text-center"><?php echo $number;?></th>
                             <td><?php echo $result['question'];?></td>
                             <td><?php echo $result['level'];?></td>
@@ -97,8 +97,8 @@ $results_question = $db_self_inspection->fetch_question();
                                         aria-controls="edit_question">
                                         Edit
                                     </button>
-                                    <a href="./database/delete_controller/question_delete.php?id=<?php echo $result['id']?>"
-                                        class="btn btn-danger">Delete</a>
+                                    <button type="button" class="delete_button btn btn-danger"
+                                        value="<?php echo $result['id'];?>">Delete</button>
                                 </div>
                             </td>
                         </tr>
@@ -109,11 +109,6 @@ $results_question = $db_self_inspection->fetch_question();
                      ?>
                     </tbody>
                 </table>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-
-                </div>
             </div>
         </main>
     </div>
@@ -138,5 +133,41 @@ $results_question = $db_self_inspection->fetch_question();
                 }, false)
             })
     })()
+</script>
+<script>
+    $('.delete_button').click(function (e) {
+        e.preventDefault();
+        var inspectionId = $(this).val();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type :"POST",
+                    url : "./database/delete_controller/delete_question_confirm.php",
+                    data : {
+                        'inspectiondelete': true,
+                        'inspectionId': inspectionId,
+                    },
+                    success:function(reponse){
+
+                    }
+                });
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                $('#refresh-delete'+inspectionId).hide(1000);
+            }
+        })
+
+    });
 </script>
 <?php require './include/footer.php';?>

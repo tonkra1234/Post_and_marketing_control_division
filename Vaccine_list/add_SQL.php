@@ -28,7 +28,6 @@ include './util.php';
 $db = new Database();
 $util = new Util();
 
-$Name_Manufacturer = $util->testInput($_POST['Name_Manufacturer']);
 $Application_ID = $util->testInput($_POST['Application_ID']);
 $Product_Name = $util->testInput($_POST['Product_Name']);
 $Manufacturer = $util->testInput($_POST['Manufacturer']);
@@ -44,8 +43,8 @@ $Presentation = $util->testInput($_POST['Presentation']);
 $Diluent = $util->testInput($_POST['Diluent']);
 $Diluent_Number = $util->testInput($_POST['Diluent_Number']);
 $SLP_Received = $util->testInput($_POST['SLP_Received']);
-$Labels_Recieved = $util->testInput($_POST['Labels_Recieved']);
-$Samples_Recieved = $util->testInput($_POST['Samples_Recieved']);
+$Labels_Received = $util->testInput($_POST['Labels_Received']);
+$Samples_Received = $util->testInput($_POST['Samples_Received']);
 $Reviewer_Assigned = $util->testInput($_POST['Reviewer_Assigned']);
 $Deadline_Assessment = $util->testInput($_POST['Deadline_Assessment']);
 $Certificate_Issue_Date = $util->testInput($_POST['Certificate_Issue_Date']);
@@ -55,8 +54,8 @@ $Remarks = $util->testInput($_POST['Remarks']);
 if ($db->insert($Application_ID, $Product_Name,$Manufacturer , $Requesting_Agency, 
                 $Date_Application, $Lot_Number, $Lot_Size, $Date_Manufacture,
                 $Date_Expiry, $Storage_Condition, $Pharmaceutical_Form, $Presentation,
-                $Diluent, $Diluent_Number, $SLP_Received, $Labels_Recieved,
-                $Samples_Recieved, $Reviewer_Assigned, $Deadline_Assessment, $Certificate_Issue_Date,$Remarks)){
+                $Diluent, $Diluent_Number, $SLP_Received, $Labels_Received,
+                $Samples_Received, $Reviewer_Assigned, $Deadline_Assessment, $Certificate_Issue_Date,$Remarks)){
     
     echo "<script>Swal.fire(
         'New vaccine record successfully!',
