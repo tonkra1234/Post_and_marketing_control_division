@@ -107,10 +107,7 @@ class SelfInspection extends ConfigSelf {
         ]);
         return true;
     }
-
-
-
-    
+ 
 }
 
 ?>

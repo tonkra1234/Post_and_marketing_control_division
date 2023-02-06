@@ -4,6 +4,7 @@ require_once './db.php';
 
 session_start();
 
+
 if(isset($_POST['submit'])){
 
    $email = $_POST['email'];

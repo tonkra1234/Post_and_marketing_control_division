@@ -75,8 +75,8 @@ class DataBase extends Config {
         return $result;
     }
 
-    public function edit($id, $Name_of_Premise,$Department,$Dzongkhag,$Date_self_inspection,$Address,$Name,$BMHC_No,$Email,$Contact_Number,$Note,$self_check,$check_list,$type_of_premises) {
-        $sql = "UPDATE inspection_detail SET Name_of_Premise=:Name_of_Premise, Department=:Department, Dzongkhag=:Dzongkhag, Date_self_inspection=:Date_self_inspection, Address=:Address, Name=:Name, BMHC_No=:BMHC_No, Email=:Email, Contact_Number=:Contact_Number, Note=:Note, self_check=:self_check,check_list=:check_list,type_of_premises=:type_of_premises WHERE id=:id";
+    public function edit($id, $Name_of_Premise,$Department,$Dzongkhag,$Date_self_inspection,$Address,$Name,$BMHC_No,$Email,$Contact_Number,$Note,$self_check,$check_list,$type_of_premises,$Category_of_premises) {
+        $sql = "UPDATE inspection_detail SET Name_of_Premise=:Name_of_Premise, Department=:Department, Dzongkhag=:Dzongkhag, Date_self_inspection=:Date_self_inspection, Address=:Address, Name=:Name, BMHC_No=:BMHC_No, Email=:Email, Contact_Number=:Contact_Number, Note=:Note, self_check=:self_check,check_list=:check_list,type_of_premises=:type_of_premises,Category_of_premises=:Category_of_premises WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'id' => $id,
@@ -92,7 +92,8 @@ class DataBase extends Config {
             'Note' => $Note,
             'self_check' => $self_check,
             'check_list' => $check_list,
-            'type_of_premises' => $type_of_premises
+            'type_of_premises' => $type_of_premises,
+            'Category_of_premises' => $Category_of_premises,
         ]);
         return true;
     }

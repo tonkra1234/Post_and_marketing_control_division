@@ -17,18 +17,28 @@ $db = new Database();
                     <div class="col-md-12 col-12">
                         <h5 class="mb-3">A. Information about the Premise</h5>
                     </div>
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Name_of_Premise" name="Name_of_Premise"
                                 placeholder="Name of Premise" required>
                             <label for="floatingInput">Name of Premise</label>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Department" name="Department"
                                 placeholder="Department/Unit/Section">
                             <label for="floatingInput">Department/Unit/Section</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example" id="Category_of_premises" name="Category_of_premises" required>
+                                <option value="">Select one of these</option>
+                                <option value="Government">Government</option>
+                                <option value="Private">Private</option>
+                            </select>
+                            <label for="floatingInput">Category of premises</label>
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
@@ -49,7 +59,8 @@ $db = new Database();
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-floating mb-3">
-                            <select class="form-select" aria-label="Default select example" id="type_of_premises" name="type_of_premises">
+                            <select class="form-select" aria-label="Default select example" id="type_of_premises" name="type_of_premises" required>
+                                <option value="">Select one of these</option>
                                 <option value="Human">Human</option>
                                 <option value="Veterinary">Veterinary</option>
                             </select>

@@ -24,9 +24,9 @@ class DataBase extends Config {
         return $result;
     }
 
-    public function insert($Name_of_Premise,$Department,$Dzongkhag,$Date_self_inspection,$Address,$Name,$BMHC_No,$Email,$Contact_Number,$Note,$self_check,$check_list,$type_of_premises) {
-        $sql = "INSERT INTO inspection_detail (Name_of_Premise,Department,Date_self_inspection,Dzongkhag,Name,Address,BMHC_No,Email,Contact_Number,Note,self_check,check_list,type_of_premises) 
-        VALUES(:Name_of_Premise,:Department,:Date_self_inspection,:Dzongkhag,:Name,:Address,:BMHC_No,:Email,:Contact_Number,:Note,:self_check,:check_list,:type_of_premises)";
+    public function insert($Name_of_Premise,$Department,$Dzongkhag,$Date_self_inspection,$Address,$Name,$BMHC_No,$Email,$Contact_Number,$Note,$self_check,$check_list,$type_of_premises,$Category_of_premises) {
+        $sql = "INSERT INTO inspection_detail (Name_of_Premise,Department,Date_self_inspection,Dzongkhag,Name,Address,BMHC_No,Email,Contact_Number,Note,self_check,check_list,type_of_premises,Category_of_premises) 
+        VALUES(:Name_of_Premise,:Department,:Date_self_inspection,:Dzongkhag,:Name,:Address,:BMHC_No,:Email,:Contact_Number,:Note,:self_check,:check_list,:type_of_premises,:Category_of_premises)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'Name_of_Premise' => $Name_of_Premise,
@@ -41,7 +41,8 @@ class DataBase extends Config {
             'Note' => $Note,
             'self_check' => $self_check,
             'check_list' => $check_list,
-            'type_of_premises' => $type_of_premises
+            'type_of_premises' => $type_of_premises,
+            'Category_of_premises'=> $Category_of_premises,
         ]);
         return true;
     }

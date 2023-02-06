@@ -9,7 +9,6 @@ if(!isset($_SESSION['user_name_pmcd'])){
    header('location:login_form.php');
 }
 
-
 ?>
 
 <!DOCTYPE html>
