@@ -24,11 +24,15 @@
                         <span class="fw-bold"><i class="fa-solid fa-location-dot"></i> Dzongkhag :
                         </span><span><?php echo $result['Dzongkhag']?></span>
                     </div>
-                    <div class="col-md-4 col-12 border">
+                    <div class="col-md-6 col-12 border">
+                        <span class="fw-bold"><i class="fa-solid fa-location-dot"></i> Type of facility :
+                        </span><span><?php echo $result['type_of_facility']?></span>
+                    </div>
+                    <div class="col-md-6 col-12 border">
                         <span class="fw-bold"><i class="fa-solid fa-calendar-days"></i> Date of self inspection :
                         </span><span><?php echo $result['Date_self_inspection']?></span>
                     </div>
-                    <div class="col-md-8 col-12 border">
+                    <div class="col-md-12 col-12 border">
                         <span class="fw-bold"><i class="fa-solid fa-map-location"></i> Address :
                         </span><span><?php echo $result['Address']?></span>
                     </div>

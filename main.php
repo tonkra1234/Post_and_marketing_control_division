@@ -65,7 +65,7 @@ $user_name = $session->user();
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12 d-grid my-2 mx-auto">
-                                <a href="" role="button" class="btn btn-1 p-3 fs-5 fw-bolder text-white">Government &
+                                <a href="./Inspection_report/script/index.php" role="button" class="btn btn-1 p-3 fs-5 fw-bolder text-white">Government &
                                     private inspection</a>
                             </div>
                             <div class="col-12 d-grid my-2 mx-auto">

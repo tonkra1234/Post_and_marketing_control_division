@@ -39,14 +39,14 @@ $detail = $db->read_detail($id);
                         <h5 class="mb-3">A. Information about the Premise</h5>
                     </div>
                     <input type="hidden" id="id" name="id" class="form-control" value="<?php echo $detail['id'];?>">
-                    <div class="col-md-4 col-12">
+                    <div class="col-md-6 col-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Name_of_Premise" name="Name_of_Premise"
                                 placeholder="Name of Premise" required value="<?php echo $detail['Name_of_Premise'];?>">
                             <label for="floatingInput">Name of Premise</label>
                         </div>
                     </div>
-                    <div class="col-md-4 col-12">
+                    <div class="col-md-6 col-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Department" name="Department"
                                 placeholder="Department/Unit/Section" value="<?php echo $detail['Department'];?>">
@@ -65,6 +65,37 @@ $detail = $db->read_detail($id);
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example" id="type_of_premises" name="type_of_premises" required>
+                                <option value="<?php echo $detail['type_of_premises'];?>"><?php echo $detail['type_of_premises'];?></option>
+                                <option value="Human">Human</option>
+                                <option value="Veterinary">Veterinary</option>
+                            </select>
+                            <label for="floatingInput">Type of premises</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example" id="type_of_facility"
+                                name="type_of_facility" required>
+                                <option value="<?php echo $detail['type_of_facility'];?>"><?php echo $detail['type_of_facility'];?></option>
+                                <optgroup label="Human">
+                                    <option value="Referral Hospital">Referral Hospital</option>
+                                    <option value="District Hospital">District Hospital</option>
+                                    <option value="Hospital">Hospital</option>
+                                    <option value="Primary Health Center">Primary Health Center</option>
+                                    <option value="Sub-post">Sub-post</option>
+                                </optgroup>
+                                <optgroup label="Veterinary">
+                                    <option value="Veterinary Hospital">Veterinary Hospital</option>
+                                    <option value="Renewable Natural Resources Extension center">Renewable Natural Resources Extension center</option>
+                                    <option value="Livestock Extension Center">Livestock Extension Center</option>
+                                </optgroup>
+                            </select>
+                            <label for="floatingInput">Type of facility</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="form-floating mb-3">
                             <select class="form-select h-100" id="Dzongkhag" name="Dzongkhag">
                                 <option value="<?php echo $detail['Dzongkhag'];?>"><?php echo $detail['Dzongkhag'];?></option>
                                 <?php include './include/Dzongkhag.php';?>
@@ -72,21 +103,11 @@ $detail = $db->read_detail($id);
                             <label for="floatingInput">Dzongkhag</label>
                         </div>
                     </div>
-                    <div class="col-md-4 col-12">
+                    <div class="col-md-6 col-12">
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control" id="Date_self_inspection"
                                 name="Date_self_inspection" placeholder="Date of self-inspection" value="<?php echo $detail['Date_self_inspection'];?>">
                             <label for="floatingInput">Date of inspection</label>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-floating mb-3">
-                            <select class="form-select" aria-label="Default select example" id="type_of_premises" name="type_of_premises" required>
-                                <option value="<?php echo $detail['type_of_premises'];?>"><?php echo $detail['type_of_premises'];?></option>
-                                <option value="Human">Human</option>
-                                <option value="Veterinary">Veterinary</option>
-                            </select>
-                            <label for="floatingInput">Type of premises</label>
                         </div>
                     </div>
                     <div class="col-md-12 col-12">

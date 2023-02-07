@@ -9,7 +9,7 @@ $_SESSION['email_pmcd'] = $email;
 
 
 if(!isset($_SESSION['user_name_pmcd'])){
-   header('location:login_form.php');
+   header('location:../login_form.php');
 }
 
 ?>
