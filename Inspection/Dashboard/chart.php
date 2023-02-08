@@ -1,0 +1,419 @@
+
+<script>
+        const Bar = document.getElementById('Bar');
+        const Bar_govern = document.getElementById('Bar_govern');
+        const Pie_govern = document.getElementById('Pie_govern'); 
+        const Pie_private = document.getElementById('Pie_private');
+        var year = <?php echo json_encode($Each_year); ?>;
+        var number = <?php echo json_encode($sum_year); ?>;
+
+        var year_private = <?php echo json_encode($Each_year_private); ?>;
+        var number_private = <?php echo json_encode($sum_year_private); ?>;
+
+        var dzongkhag_govern = <?php echo json_encode($Dzongkhag_govern); ?>;
+        var sum_dzongkhag_govern = <?php echo json_encode($Sum_dzongkhag_govern); ?>;
+
+        var dzongkhag_private = <?php echo json_encode($Dzongkhag_private); ?>;
+        var sum_dzongkhag_private = <?php echo json_encode($Sum_dzongkhag_private); ?>;
+
+        var dzongkhag_veterinary = <?php echo json_encode($Dzongkhag_veterinary); ?>;
+        var sum_dzongkhag_veterinary = <?php echo json_encode($Sum_dzongkhag_veterinary); ?>;
+
+        var label_score = <?php echo json_encode($label_score); ?>;
+        var score = <?php echo json_encode($score); ?>;
+
+        Chart.register(ChartDataLabels);
+        
+        new Chart(Bar_govern, {
+            type: 'bar',
+            data: {
+            labels: year,
+            datasets: [{
+                label: 'Number of inspection each year',
+                data: number,
+                borderWidth: 1,
+            }]
+            },
+            options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        text:'No. inspection',
+                        display:true,
+                        font: {
+                            size: 12,
+                            weight: "bold"
+                        }
+                    }
+                },
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        text:'year',
+                        display:true,
+                        font: {
+                            size: 16,
+                            weight: "bold"
+                        }
+                    }
+                }
+            }, 
+            plugins: {
+                datalabels: { // This code is used to display data values
+                    color: 'black',
+                    font: {
+                        weight: 'bold',
+                        size: 16
+                        }
+                    }
+                }
+            }
+        });
+
+        new Chart(Bar_private, {
+            type: 'bar',
+            data: {
+            labels: year_private,
+            datasets: [{
+                label: 'Number of inspection each year',
+                data: number_private,
+                borderWidth: 1
+            }]
+            },
+            options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        text:'No. inspection',
+                        display:true,
+                        font: {
+                            size: 12,
+                            weight: "bold"
+                        }
+                    }
+                },
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        text:'year',
+                        display:true,
+                        font: {
+                            size: 16,
+                            weight: "bold"
+                        }
+                    }
+                }
+            },
+            plugins: {
+                datalabels: { // This code is used to display data values
+                    color: 'black',
+                    font: {
+                        weight: 'bold',
+                        size: 16
+                        }
+                    }
+                }
+            }
+        });
+
+        new Chart(Pie_govern, {
+            type: 'bar',
+            data: {
+            labels: dzongkhag_govern,
+            datasets: [{
+                label: 'Number of government facility in Bhutan( Human )',
+                data: sum_dzongkhag_govern,
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(26, 188, 156 )',
+                'rgb(164, 128, 255 )',
+                'rgb(74, 123, 214 )',
+                'rgb(74, 214, 112 )',
+                'rgb(100, 254, 205 )',
+                'rgb(237, 156, 253 )',
+                'rgb(243, 126, 223 )',
+                'rgb(251, 90, 131 )',
+                'rgb(230, 241, 96 )',
+                'rgb(200, 126, 32 )',
+                'rgb(134, 180, 60 )',
+                'rgb(130, 10, 171 )',
+                'rgb(129, 129, 129 )',
+                'rgb(229, 152, 102 )',
+                'rgb(72, 201, 176 )',
+                'rgb(93, 173, 226 )',
+                'rgb(153, 163, 164 )',
+                'rgb(26, 188, 156 )',
+                'rgb(212, 172, 13 )'
+                ],
+                hoverOffset: 4
+                }]
+            },
+            options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        text:'No. government facility(Human)',
+                        display:true,
+                        font: {
+                            size: 12,
+                            weight: "bold"
+                        }
+                    },
+                    suggestedMax: <?php echo max($Sum_dzongkhag_govern)+2;?>
+                },
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        text:'Dzonkhag',
+                        display:true,
+                        font: {
+                            size: 16,
+                            weight: "bold"
+                        }
+                    }
+                }
+            },
+            plugins: {
+                datalabels: { // This code is used to display data values
+                    anchor: 'end',
+                    align: 'top',
+                    color: 'black',
+                    font: {
+                        weight: 'bold',
+                        size: 16
+                        }
+                    }
+                }
+            
+            }
+        });
+        new Chart(Pie_private, {
+            type: 'bar',
+            data: {
+            labels: dzongkhag_private,
+            datasets: [{
+                label: 'Number of private facility in Bhutan',
+                data: sum_dzongkhag_private,
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(26, 188, 156 )',
+                'rgb(164, 128, 255 )',
+                'rgb(74, 123, 214 )',
+                'rgb(74, 214, 112 )',
+                'rgb(100, 254, 205 )',
+                'rgb(237, 156, 253 )',
+                'rgb(243, 126, 223 )',
+                'rgb(251, 90, 131 )',
+                'rgb(230, 241, 96 )',
+                'rgb(200, 126, 32 )',
+                'rgb(134, 180, 60 )',
+                'rgb(130, 10, 171 )',
+                'rgb(129, 129, 129 )',
+                'rgb(229, 152, 102 )',
+                'rgb(72, 201, 176 )',
+                'rgb(93, 173, 226 )',
+                'rgb(153, 163, 164 )',
+                'rgb(26, 188, 156 )',
+                'rgb(212, 172, 13 )'
+                ],
+                hoverOffset: 4
+                }]
+            },
+            options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        text:'No. private facility',
+                        display:true,
+                        font: {
+                            size: 12,
+                            weight: "bold"
+                        }
+                    },
+                    suggestedMax: <?php echo max($Sum_dzongkhag_private)+2;?>
+                },
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        text:'Dzonkhag',
+                        display:true,
+                        font: {
+                            size: 16,
+                            weight: "bold"
+                        }
+                    }
+                }
+            },
+            plugins: {
+                datalabels: { // This code is used to display data values
+                    anchor: 'end',
+                    align: 'top',
+                    color: 'black',
+                    font: {
+                        weight: 'bold',
+                        size: 16
+                        }
+                    }
+                }
+            
+            }
+        });
+        new Chart(Bar_veterinary, {
+            type: 'bar',
+            data: {
+            labels: dzongkhag_veterinary,
+            datasets: [{
+                label: 'Number of government facility in Bhutan (Veterinary)',
+                data: sum_dzongkhag_veterinary,
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(26, 188, 156 )',
+                'rgb(164, 128, 255 )',
+                'rgb(74, 123, 214 )',
+                'rgb(74, 214, 112 )',
+                'rgb(100, 254, 205 )',
+                'rgb(237, 156, 253 )',
+                'rgb(243, 126, 223 )',
+                'rgb(251, 90, 131 )',
+                'rgb(230, 241, 96 )',
+                'rgb(200, 126, 32 )',
+                'rgb(134, 180, 60 )',
+                'rgb(130, 10, 171 )',
+                'rgb(129, 129, 129 )',
+                'rgb(229, 152, 102 )',
+                'rgb(72, 201, 176 )',
+                'rgb(93, 173, 226 )',
+                'rgb(153, 163, 164 )',
+                'rgb(26, 188, 156 )',
+                'rgb(212, 172, 13 )'
+                ],
+                hoverOffset: 4
+                }]
+            },
+            options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        text:'No. government facility (VET)',
+                        display:true,
+                        font: {
+                            size: 12,
+                            weight: "bold"
+                        }
+                    },
+                    suggestedMax: <?php echo max($Sum_dzongkhag_veterinary)+2;?>
+
+                },
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        text:'Dzonkhag',
+                        display:true,
+                        font: {
+                            size: 16,
+                            weight: "bold"
+                        }
+                    }
+                },   
+            },
+            plugins: {
+                datalabels: { // This code is used to display data values
+                    anchor: 'end',
+                    align: 'top',
+                    color: 'black',
+                    font: {
+                        weight: 'bold',
+                        size: 16
+                        }
+                    }
+                }
+            
+            }
+        });
+
+        new Chart(Bar_compliance, {
+            type: 'bar',
+            data: {
+            labels: label_score ,
+            datasets: [{
+                label: 'Compliance score',
+                data: score,
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(26, 188, 156 )',
+                'rgb(164, 128, 255 )',
+                'rgb(74, 123, 214 )',
+                'rgb(74, 214, 112 )',
+                'rgb(100, 254, 205 )',
+                'rgb(237, 156, 253 )',
+                'rgb(243, 126, 223 )',
+                'rgb(251, 90, 131 )',
+                'rgb(230, 241, 96 )',
+                'rgb(200, 126, 32 )',
+                'rgb(134, 180, 60 )',
+                'rgb(130, 10, 171 )',
+                'rgb(129, 129, 129 )',
+                'rgb(229, 152, 102 )',
+                'rgb(72, 201, 176 )',
+                'rgb(93, 173, 226 )',
+                'rgb(153, 163, 164 )',
+                'rgb(26, 188, 156 )',
+                'rgb(212, 172, 13 )'
+                ],
+                hoverOffset: 4
+                }]
+            },
+            options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        text:'Percentage',
+                        display:true,
+                        font: {
+                            size: 12,
+                            weight: "bold"
+                        }
+                    },
+                    suggestedMax: <?php echo max($Sum_dzongkhag_veterinary)+2;?>
+
+                },
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        text:'Year',
+                        display:true,
+                        font: {
+                            size: 16,
+                            weight: "bold"
+                        }
+                    }
+                },   
+            },
+            plugins: {
+                datalabels: { // This code is used to display data values
+                    color: 'black',
+                    font: {
+                        weight: 'bold',
+                        size: 16
+                        }
+                    }
+                }
+            
+            }
+        });
+
+</script>
