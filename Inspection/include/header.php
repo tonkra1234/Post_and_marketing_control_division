@@ -46,7 +46,7 @@ $_SESSION['user_name_pmcd'] = $user_name;
 
     <link rel="stylesheet" href="./css/style.css">
 
-    <title>Self inspection</title>
+    <title>Inspection</title>
 </head>
 
 <body style="background-color: #EFEFEF ;">
@@ -102,7 +102,7 @@ $_SESSION['user_name_pmcd'] = $user_name;
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./Table2021.php?type=government">2020-2021</a></li>
                             <li><a class="dropdown-item" href="./Table2022.php?type=government">2022</a></li>
-                            <li><a class="dropdown-item" href="#">2023</a></li>
+                            <li><a class="dropdown-item" href="./TableNow.php?type=government">2023-now</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -113,7 +113,7 @@ $_SESSION['user_name_pmcd'] = $user_name;
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./Table2021.php?type=private">2020-2021</a></li>
                             <li><a class="dropdown-item" href="./Table2022.php?type=private">2022</a></li>
-                            <li><a class="dropdown-item" href="#">2023</a></li>
+                            <li><a class="dropdown-item" href="./TableNow.php?type=private">2023-now</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -122,8 +122,8 @@ $_SESSION['user_name_pmcd'] = $user_name;
                             Conduct inspection
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Government</a></li>
-                            <li><a class="dropdown-item" href="#">Private</a></li>
+                            <li><a class="dropdown-item" href="./add_g.php">Government</a></li>
+                            <li><a class="dropdown-item" href="./add_p.php">Private</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -141,7 +141,7 @@ $_SESSION['user_name_pmcd'] = $user_name;
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="./Login/logout.php"><i
+                            <li><a class="dropdown-item" href="../Login/logout.php"><i
                                         class="fa-solid fa-right-from-bracket fs-5 me-2"></i>Sign out</a></li>
                         </ul>
                     </div>

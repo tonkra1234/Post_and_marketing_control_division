@@ -128,13 +128,13 @@ $question_ans = $db->Question_ans2022_p($inspection_id);
                     <div class="col-lg-7 col-12">
                         <div class="row">
                             <div class="col-lg-8 col-12 border border-dark">
-                                <p class="mb-lg-0">Question</p>
+                                <p class="mb-lg-0 fw-bold">Question</p>
                             </div>
                             <div class="col-lg-2 col-12 border border-dark">
-                                <p class="mb-lg-0">Level</p>
+                                <p class="mb-lg-0 fw-bold">Level</p>
                             </div>
                             <div class="col-lg-2 col-12 border border-dark">
-                                <p class="mb-lg-0">Ans</p>
+                                <p class="mb-lg-0 fw-bold">Ans</p>
                             </div>
                             <?php 
                             $i = 1;

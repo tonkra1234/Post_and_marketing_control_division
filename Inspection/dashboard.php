@@ -2,7 +2,7 @@
 <?php
 require './Dashboard/dashboard_back.php';
 ?>
-<div class="d-flex mt-4">
+<div class="d-flex my-5">
     <a href="../main.php" class="link-secondary">
         Main menu
     </a>

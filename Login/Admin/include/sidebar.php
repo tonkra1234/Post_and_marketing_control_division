@@ -11,9 +11,21 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link disabled" href="">
                     <i class="fa-solid fa-magnifying-glass-location me-1"></i>
                     Gov & Pri inspection
+                </a>
+            </li>
+            <li class="nav-item ms-lg-3">
+                <a class="nav-link" href="./inspection_g.php">
+                    <i class="fa-solid fa-building-ngo me-lg-1"></i>
+                    <span class="text-muted">Government inspect</span>
+                </a>
+            </li>
+            <li class="nav-item ms-lg-3">
+                <a class="nav-link" href="./inspection_p.php">
+                    <i class="fa-solid fa-house-chimney-window me-lg-1"></i>
+                    <span class="text-muted">Private inspect</span>
                 </a>
             </li>
             <li class="nav-item">

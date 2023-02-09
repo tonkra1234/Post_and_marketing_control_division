@@ -50,11 +50,11 @@ class DataBase extends Config {
         VALUES(:Inspector,:Division,:Sales_and_Distribution,:Firm_inspection,:Country,:Date_inspection,:Blood_product)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
-            'Firm_inspection' => $Firm_inspection,
             'Inspector' => $Inspector_name,
             'Division' => $Division,
-            'Country' => $Country,
             'Sales_and_Distribution' => $Sales_and_Distribution,
+            'Firm_inspection' => $Firm_inspection,
+            'Country' => $Country,
             'Blood_product' => $Blood_product,
             'Date_inspection' => $Date_inspection
         ]);

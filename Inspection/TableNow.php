@@ -36,18 +36,19 @@ $question2022_p = $db->Question2022_p();
     </div>
     <?php if($type === 'government'):?>
     <p class="text-dark fw-bold">
-        Table 2022 Government
+        Government table 2023-now
     </p>
     <?php elseif($type === 'private'):?>
     <p class="text-dark fw-bold">
-        Table 2022 Private
+        Private table 2023-now
     </p>
     <?php endif?>
 </div>
 <?php if($type === 'government'):?>
 <?php
  
-$fetch_table_2021_g = $db->fetch_table2022_g($initial_page,$limit);
+$fetch_table_now_g = $db->fetch_table2023_g($initial_page,$limit);
+
 ?>
 
 <div class="container my-5">
@@ -63,16 +64,19 @@ $fetch_table_2021_g = $db->fetch_table2022_g($initial_page,$limit);
                     <th scope="col">Dzongkhag</th>
                     <th scope="col">More detail</th>
                     <th scope="col">Report</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
-            <tbody id="myTable">
+            <tbody>
 
                 <?php
-        foreach ($fetch_table_2021_g as $row){
-        ?>
+                if (count($fetch_table_now_g)>0) {
+                    $No=1;
+                    foreach ($fetch_table_now_g as $row){
+                ?>
 
-                <tr>
-                    <th scope="row"><?php echo $row["id"]; ?></th>
+                <tr id='refresh-delete<?php echo $row["id"]; ?>'>
+                    <th scope="row"><?php echo $No; ?></th>
                     <td><?php echo $row["inspection_id"]; ?></td>
                     <td><?php echo $row["name_of_premise"]; ?></td>
                     <td><?php echo $row["competent_name"]; ?></td>
@@ -80,31 +84,46 @@ $fetch_table_2021_g = $db->fetch_table2022_g($initial_page,$limit);
                     <td><?php echo $row["dzongkhag"]; ?></td>
                     <td>
                         <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                            data-bs-target="#twentyTwo<?php echo $row["id"]; ?>">
+                            data-bs-target="#Now_g<?php echo $row["id"]; ?>">
                             Detail
                         </button>
                     </td>
                     <td>
                         <a class="btn btn-secondary"
-                            href="./Report/instant_report_gov2022.php?inspection_id=<?php echo $row["inspection_id"]; ?>&id=<?php echo $row["id"]; ?>">
+                            href="./Report/Report_g.php?inspection_id=<?php echo $row["inspection_id"]; ?>">
                             Report
                         </a>
+                    </td>
+                    <td>
+                        <input type="hidden" value="<?php echo $row["id"]; ?>" id="Id" name="Id">
+                        <input type="hidden" value="government" id="delete_type" name="delete_type">
+                        <button type="button" class="delete_button btn btn-danger"
+                            value="<?php echo $row["inspection_id"]; ?>">
+                            Delete
+                        </button>
                     </td>
                 </tr>
 
                 <?php
-        require './Modal/TwentyTwo_g.php';
-    };
-    ?>
+                    require './Modal/Now_g.php';
+                    $No++;
+                }}else{ 
+                ?>
+                <tr>
+                    <td colspan="10" class="fw-bold fs-4 text-center py-lg-5">No data founded</td>
+                </tr>
+                <?php    
+                    };
+                ?>
 
             </tbody>
         </table>
     </div>
 </div>
-<?php $type_required ='premise_report_detail_grovern';?>
+<?php $type_required ='government_detail2023';?>
 <?php elseif($type === 'private'):?>
 <?php
-$fetch_table_2021_p = $db->fetch_table2022_p($initial_page,$limit);
+$fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
 
 ?>
 
@@ -121,16 +140,19 @@ $fetch_table_2021_p = $db->fetch_table2022_p($initial_page,$limit);
                     <th scope="col">Dzongkhag</th>
                     <th scope="col">More detail</th>
                     <th scope="col">Report</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
-            <tbody id="myTable">
+            <tbody>
 
                 <?php
-        foreach ($fetch_table_2021_p as $row){
-        ?>
+                if (count($fetch_table_now_p)>0) {
+                    $No=1;
+                    foreach ($fetch_table_now_p as $row){
+                ?>
 
-                <tr>
-                    <th scope="row"><?php echo $row["id"]; ?></th>
+                <tr id="refresh-delete<?php echo $row["id"]; ?>">
+                    <th scope="row"><?php echo $No; ?></th>
                     <td><?php echo $row["inspection_id"]; ?></td>
                     <td><?php echo $row["name_of_premise"]; ?></td>
                     <td><?php echo $row["competent_name"]; ?></td>
@@ -138,28 +160,43 @@ $fetch_table_2021_p = $db->fetch_table2022_p($initial_page,$limit);
                     <td><?php echo $row["dzongkhag"]; ?></td>
                     <td>
                         <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                            data-bs-target="#twentyTwo<?php echo $row["id"]; ?>">
+                            data-bs-target="#Now_p<?php echo $row["id"]; ?>">
                             Detail
                         </button>
                     </td>
                     <td>
                         <a class="btn btn-secondary"
-                            href="./Report/instant_report_pri2022.php?inspection_id=<?php echo $row["inspection_id"]; ?>&id=<?php echo $row["id"]; ?>">
+                            href="./Report/Report_p.php?inspection_id=<?php echo $row["inspection_id"]; ?>">
                             Report
                         </a>
+                    </td>
+                    <td>
+                        <input type="hidden" value="<?php echo $row["id"]; ?>" id="Id" name="Id">
+                        <input type="hidden" value="private" id="delete_type" name="delete_type">
+                        <button type="button" class="delete_button btn btn-danger"
+                            value="<?php echo $row["inspection_id"]; ?>">
+                            Delete
+                        </button>
                     </td>
                 </tr>
 
                 <?php
-        require './Modal/TwentyTwo_p.php';
-    };
-    ?>
+                    require './Modal/Now_p.php';
+                    $No++;
+                }}else{ 
+                ?>
+                <tr>
+                    <td colspan="10" class="fw-bold fs-4 text-center py-lg-5">No data founded</td>
+                </tr>
+                <?php    
+                    };
+                ?>
 
             </tbody>
         </table>
     </div>
 </div>
-<?php $type_required ='premise_report_detail_private';?>
+<?php $type_required ='private_detail2023';?>
 
 <?php endif?>
 
@@ -167,10 +204,10 @@ $fetch_table_2021_p = $db->fetch_table2022_p($initial_page,$limit);
 <div class="Items">
 
     <?php  
-  $result = $db->count_inspection_2022($type_required); 
+  $result = $db->count_inspection_2023($type_required); 
 
   // get total roll number    
-  $total_rows = $result[0]['sum'];              
+  $total_rows = $result['sum'];              
 
   echo "</br>";            
 
@@ -209,4 +246,42 @@ $fetch_table_2021_p = $db->fetch_table2022_p($initial_page,$limit);
 </div>
 
 </div>
+<script>
+    $('.delete_button').click(function (e) {
+        e.preventDefault();
+        var inspectionId = $(this).val();
+        var Id = $('#Id').val();
+        var delete_type = $('#delete_type').val();
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: "./database/delete_SQL.php",
+                    data: {
+                        'inspectiondelete': delete_type,
+                        'inspectionId': inspectionId,
+                    },
+                    success: function (reponse) {
+                        $('#refresh-delete' + Id).hide(1000);
+                    }
+                });
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+
+    });
+</script>
 <?php require './include/footer.php';?>

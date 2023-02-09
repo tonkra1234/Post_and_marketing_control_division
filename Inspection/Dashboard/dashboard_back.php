@@ -16,20 +16,6 @@ $Human_premises_private = $db->Human_premises_private();
 $Human_premises_veterinary = $db->Human_premises_veterinary();
 
 
-// $Json = [ 
-//     [
-//     $Month_data['Month'],
-//     $Month_data['Year'],
-//     $Month_data['Monthyear'],
-//     $Month_data['sum'],
-//     ]
-// ];
-
-// $month = [$Month_data["Month"]];
-// $year = [$Month_data['Year']];
-// $Month_Year = [$Month_data['Monthyear']];
-// $sum_month = [$Month_data['sum']];
-
 $Dzongkhag_govern = [];
 $Sum_dzongkhag_govern = [];
 

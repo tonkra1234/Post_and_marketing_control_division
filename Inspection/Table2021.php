@@ -53,46 +53,48 @@ $fetch_table_2021_g = $db->fetch_table2021_g($initial_page,$limit);
 ?>
 
 <div class="container my-5">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Inspection ID</th>
-                <th scope="col">Name of premise</th>
-                <th scope="col">Name of inspector</th>
-                <th scope="col">Date of inspection</th>
-                <th scope="col">Dzongkhag</th>
-                <th scope="col">More detail</th>
-            </tr>
-        </thead>
-        <tbody id="myTable">
+    <div class="table-responsive shadow">
+        <table class="table table-hover table-bordered border-light table-striped rounded-3 ">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Inspection ID</th>
+                    <th scope="col">Name of premise</th>
+                    <th scope="col">Name of inspector</th>
+                    <th scope="col">Date of inspection</th>
+                    <th scope="col">Dzongkhag</th>
+                    <th scope="col">More detail</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
 
-            <?php
+                <?php
         foreach ($fetch_table_2021_g as $row){
         ?>
 
-            <tr>
-                <th scope="row"><?php echo $row["id"]; ?></th>
-                <td><?php echo $row["inspection_id"]; ?></td>
-                <td><?php echo $row["name_of_premise"]; ?></td>
-                <td><?php echo $row["competent_name"]; ?></td>
-                <td><?php echo $row["date_of_inspection"]; ?></td>
-                <td><?php echo $row["dzongkhag"]; ?></td>
-                <td>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#twentyOne<?php echo $row["id"]; ?>">
-                        Detail
-                    </button>
-                </td>
-            </tr>
+                <tr>
+                    <th scope="row"><?php echo $row["id"]; ?></th>
+                    <td><?php echo $row["inspection_id"]; ?></td>
+                    <td><?php echo $row["name_of_premise"]; ?></td>
+                    <td><?php echo $row["competent_name"]; ?></td>
+                    <td><?php echo $row["date_of_inspection"]; ?></td>
+                    <td><?php echo $row["dzongkhag"]; ?></td>
+                    <td>
+                        <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                            data-bs-target="#twentyOne<?php echo $row["id"]; ?>">
+                            Detail
+                        </button>
+                    </td>
+                </tr>
 
-            <?php
+                <?php
         require './Modal/TwentyOne_g.php';
     };
     ?>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
 <?php $type_required ='premise_report_detail_grovern';?>
 <?php elseif($type === 'private'):?>
@@ -102,47 +104,49 @@ $fetch_table_2021_p = $db->fetch_table2021_p($initial_page,$limit);
 ?>
 
 <div class="container">
-    <table class="table table-hover ">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Inspection ID</th>
-                <th scope="col">Name of premise</th>
-                <th scope="col">Name of inspector</th>
-                <th scope="col">Date of inspection</th>
-                <th scope="col">Dzongkhag</th>
-                <th scope="col">More detail</th>
-            </tr>
-        </thead>
-        <tbody id="myTable">
+    <div class="table-responsive shadow">
+        <table class="table table-hover table-bordered border-light table-striped rounded-3">
+            <thead class="bg-success text-white">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Inspection ID</th>
+                    <th scope="col">Name of premise</th>
+                    <th scope="col">Name of inspector</th>
+                    <th scope="col">Date of inspection</th>
+                    <th scope="col">Dzongkhag</th>
+                    <th scope="col">More detail</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
 
-            <?php
+                <?php
         foreach ($fetch_table_2021_p as $row){
         ?>
 
-            <tr>
-                <th scope="row"><?php echo $row["id"]; ?></th>
-                <td><?php echo $row["inspection_id"]; ?></td>
-                <td><?php echo $row["name_of_premise"]; ?></td>
-                <td><?php echo $row["competent_name"]; ?></td>
-                <td><?php echo $row["date_of_inspection"]; ?></td>
-                <td><?php echo $row["dzongkhag"]; ?></td>
-                <td>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#twentyOne<?php echo $row["id"]; ?>">
-                        Detail
-                    </button>
-                </td>
-            </tr>
+                <tr>
+                    <th scope="row"><?php echo $row["id"]; ?></th>
+                    <td><?php echo $row["inspection_id"]; ?></td>
+                    <td><?php echo $row["name_of_premise"]; ?></td>
+                    <td><?php echo $row["competent_name"]; ?></td>
+                    <td><?php echo $row["date_of_inspection"]; ?></td>
+                    <td><?php echo $row["dzongkhag"]; ?></td>
+                    <td>
+                        <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                            data-bs-target="#twentyOne<?php echo $row["id"]; ?>">
+                            Detail
+                        </button>
+                    </td>
+                </tr>
 
-            <?php
+                <?php
             require './Modal/TwentyOne_p.php';
 
     };
     ?>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
 <?php $type_required ='premise_report_detail_private';?>
 

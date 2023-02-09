@@ -20,6 +20,7 @@ class Config {
 
 class DataBase extends Config {
 
+
     public function fetch_table2021_g($initial_page,$limit) {
         
         $sql ="SELECT * FROM premise_report_detail_grovern WHERE DATE(date_of_inspection) BETWEEN '2020-07-01' AND '2022-06-30' LIMIT $initial_page, $limit ";
@@ -79,6 +80,7 @@ class DataBase extends Config {
 
         return $result;
     }
+
     public function fetch_table2022_p($initial_page,$limit) {
         
         $sql ="SELECT * FROM premise_report_detail_private WHERE DATE(date_of_inspection) BETWEEN '2022-07-01' AND '2022-12-12' LIMIT $initial_page, $limit";
@@ -228,6 +230,215 @@ class DataBase extends Config {
 
         return $result;
     }
+
+    public function Question2023_p() {
+        
+        $sql ="SELECT * FROM question_p2023";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function Question2023_pCount() {
+        
+        $sql ="SELECT count(*) as number FROM question_p2023";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function Question2023_g() {
+        
+        $sql ="SELECT * FROM question_g2023";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function Question2023_gCount() {
+        
+        $sql ="SELECT count(*) as number FROM question_g2023";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function insert_g($inspec_id, $division, $today_date, $last_date, $type_inspect, $dzongkhag, $Pname, $type_premise, $address, 
+    $premise_number, $premise_valid, $inspec_scope, $name, $email, $registration_Number, $person_valid, $contact, $contact_detail, $check_list) {
+        $sql = "INSERT INTO government_detail2023 (inspection_id,division,date_of_inspection,date_of_last_inspection,type_of_inspection,dzongkhag,name_of_premise,type_of_premise,address_of_premise,scope_of_inspection,technical_authorization_no,validity_premise,competent_name,email_competent,cp_registration_no,validity_competent,conatct_number,other_contact,check_list) 
+        VALUES(:inspec_id,:division,:today_date,:last_date,:type_inspect,:dzongkhag,:Pname,:type_premise,:address,:inspec_scope,:premise_number,:premise_valid,:name,:email,:registration_Number,:person_valid,:contact,:contact_detail,:check_list)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'inspec_id' => $inspec_id,
+            'division' => $division,
+            'today_date' => $today_date,
+            'last_date' => $last_date,
+            'type_inspect' => $type_inspect,
+            'Pname' => $Pname,
+            'dzongkhag' => $dzongkhag,
+            'type_premise' => $type_premise,
+            'address' => $address,
+            'premise_number' => $premise_number,
+            'inspec_scope' => $inspec_scope,
+            'premise_valid' => $premise_valid,
+            'name' => $name,
+            'email' => $email,
+            'registration_Number' => $registration_Number,
+            'person_valid' => $person_valid,
+            'contact' => $contact,
+            'contact_detail' => $contact_detail,
+            'check_list' => $check_list,
+        ]);
+        return true;
+    }
+
+    public function insert_p($inspec_id, $division, $today_date, $last_date, $type_inspect, $dzongkhag, $Pname, $type_premise, $address, 
+    $premise_number, $premise_valid, $inspec_scope, $name, $email, $registration_Number, $person_valid, $contact, $contact_detail, $check_list) {
+        $sql = "INSERT INTO private_detail2023 (inspection_id,division,date_of_inspection,date_of_last_inspection,type_of_inspection,dzongkhag,name_of_premise,type_of_premise,address_of_premise,scope_of_inspection,technical_authorization_no,validity_premise,competent_name,email_competent,cp_registration_no,validity_competent,conatct_number,other_contact,check_list) 
+        VALUES(:inspec_id,:division,:today_date,:last_date,:type_inspect,:dzongkhag,:Pname,:type_premise,:address,:inspec_scope,:premise_number,:premise_valid,:name,:email,:registration_Number,:person_valid,:contact,:contact_detail,:check_list)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'inspec_id' => $inspec_id,
+            'division' => $division,
+            'today_date' => $today_date,
+            'last_date' => $last_date,
+            'type_inspect' => $type_inspect,
+            'Pname' => $Pname,
+            'dzongkhag' => $dzongkhag,
+            'type_premise' => $type_premise,
+            'address' => $address,
+            'premise_number' => $premise_number,
+            'inspec_scope' => $inspec_scope,
+            'premise_valid' => $premise_valid,
+            'name' => $name,
+            'email' => $email,
+            'registration_Number' => $registration_Number,
+            'person_valid' => $person_valid,
+            'contact' => $contact,
+            'contact_detail' => $contact_detail,
+            'check_list' => $check_list,
+        ]);
+        return true;
+    }
+
+    public function report2023_gNumber() {
+        
+        $sql ="SELECT AUTO_INCREMENT as next_id FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'inspection_check' AND TABLE_NAME = 'government_detail2023'";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function report2023_pNumber() {
+        
+        $sql ="SELECT AUTO_INCREMENT as next_id FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'inspection_check' AND TABLE_NAME = 'private_detail2023'";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function fetch_table2023_g($initial_page,$limit) {
+        
+        $sql ="SELECT * FROM government_detail2023 LIMIT $initial_page, $limit ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+    
+    public function fetch_table2023_p($initial_page,$limit) {
+        
+        $sql ="SELECT * FROM private_detail2023 LIMIT $initial_page, $limit";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function count_inspection_2023($type) {
+        
+        $sql ="SELECT COUNT(*) as sum FROM $type ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function fetch_report2023_g($inspection_id) {
+    
+        $sql ="SELECT * FROM government_detail2023 WHERE `inspection_id` = :inspection_id ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'inspection_id' => $inspection_id,
+        ]);
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+    
+    public function fetch_report2023_p($inspection_id) {
+        
+        $sql ="SELECT * FROM private_detail2023 WHERE inspection_id = :inspection_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'inspection_id' => $inspection_id,
+        ]);
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function delete_inspection_g($inspection_id) {
+        $sql = "DELETE FROM government_detail2023 WHERE inspection_id=:inspection_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'inspection_id' => $inspection_id,
+        ]);
+        return true;
+    }
+
+    public function move_inspection_g($inspection_id) {
+        $sql = "INSERT INTO trash_g SELECT * FROM government_detail2023 WHERE inspection_id=:inspection_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'inspection_id' => $inspection_id,
+        ]);
+        return true;
+    }
+
+    public function delete_inspection_p($inspection_id) {
+        $sql = "DELETE FROM private_detail2023 WHERE inspection_id=:inspection_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'inspection_id' => $inspection_id,
+        ]);
+        return true;
+    }
+
+    public function move_inspection_p($inspection_id) {
+        $sql = "INSERT INTO trash_p SELECT * FROM private_detail2023 WHERE inspection_id=:inspection_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'inspection_id' => $inspection_id,
+        ]);
+        return true;
+    }
+
     
 }
 

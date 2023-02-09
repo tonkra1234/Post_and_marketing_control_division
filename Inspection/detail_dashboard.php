@@ -30,8 +30,8 @@ $Dzongkhag = array('Bumthang','Chukha','Dagana','Gasa','Haa','Lhuentse',
                 ?>
         <tr>
             <th scope="row"><?php echo $number;?></th>
-            <td><?php echo $Dzongkhag[$index];?></td>
             <td><?php echo $row['Facility_name'];?></td>
+            <td><?php echo $Dzongkhag[$index];?></td>
         </tr>
         <?php
                     $number++;
