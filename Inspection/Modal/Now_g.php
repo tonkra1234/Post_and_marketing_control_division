@@ -9,120 +9,120 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-5 col-12">
+                    <div class="col-lg-12 col-12">
                         <div class="row mx-lg-1">
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Inspection id</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['inspection_id'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Division</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['division'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Date of inspection</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['date_of_inspection'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Date of last inspection</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['date_of_last_inspection'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Type of inspection</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['type_of_inspection'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Dzongkhag</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['dzongkhag'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Name of premise</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['name_of_premise'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Type of premise</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['type_of_premise'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Address of premise</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['address_of_premise'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Scope of inspection</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['scope_of_inspection'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Technical authorization no</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['technical_authorization_no'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Validity premise</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['validity_premise'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Competent_name</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['competent_name'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Email competent</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['email_competent'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>CP registration no</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['cp_registration_no'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Validity competent</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['validity_competent'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Contact number</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['conatct_number'];?>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-3 col-12 border border-dark">
                                 <h6>Other Contact</h6>
                             </div>
-                            <div class="col-lg-6 col-12 border border-dark">
+                            <div class="col-lg-9 col-12 border border-dark">
                                 <?php echo $row['other_contact'];?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-12">
-                        <div class="row">
+                    <div class="col-lg-12 col-12">
+                        <div class="row mx-lg-1 mt-lg-5">
                             <div class="col-1 border border-dark">
                                 <p class="mb-lg-0 fw-bold">No</p>
                             </div>

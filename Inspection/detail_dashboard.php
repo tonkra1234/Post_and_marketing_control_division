@@ -8,6 +8,29 @@ $Dzongkhag = array('Bumthang','Chukha','Dagana','Gasa','Haa','Lhuentse',
         'Mongar','Paro','Pemagatshel','Punakha','S/Jongkhar','Samtse','Sarpang','Thimphu',
         'Trashigang','Trashiyangtse','Trongsa','Tsirang','Wangduephodrang','Zhemgang');
 ?>
+<div class="d-flex my-5">
+    <a href="../main.php" class="link-secondary">
+        Main menu
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <a href="./home.php" class="link-secondary">
+        Home
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <a href="./dashboard.php" class="link-secondary">
+        Dashboard
+    </a>
+    <div class="mx-1">
+        /
+    </div>
+    <p class="text-dark fw-bold">
+        Details
+    </p>
+</div>
 <?php
             for ($index=0; $index < count($Dzongkhag) ; $index++) { 
                 $result_type = $db->result_dzongkhag($type,$index,$Dzongkhag);

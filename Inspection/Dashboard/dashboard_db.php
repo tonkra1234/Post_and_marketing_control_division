@@ -50,9 +50,29 @@ class Dashboard extends Config {
         return $result;
     }
 
+    public function result_year_now_g() {
+        
+        $sql ="SELECT date_format(date_of_inspection,'%Y') as Year,COUNT(id) as Sum from government_detail2023 group by year(date_of_inspection) order by year(date_of_inspection) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
     public function Year_data_private() {
         
         $sql ="SELECT date_format(date_of_inspection,'%Y') as Year,COUNT(id) as Sum from premise_report_detail_private group by year(date_of_inspection) order by year(date_of_inspection)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function Year_data_private_now() {
+        
+        $sql ="SELECT date_format(date_of_inspection,'%Y') as Year,COUNT(id) as Sum from private_detail2023 group by year(date_of_inspection) order by year(date_of_inspection)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();
@@ -123,6 +143,26 @@ class Dashboard extends Config {
     public function result_count_array_pri() {
         
         $sql ="SELECT count(*) as sum FROM report_private";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function result_check_g_now() {
+        
+        $sql ="SELECT * FROM government_detail2023";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function result_check_p_now() {
+        
+        $sql ="SELECT * FROM private_detail2023";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();

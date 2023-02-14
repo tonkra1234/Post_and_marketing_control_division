@@ -25,6 +25,8 @@
 include './db.php';
 include './util.php';
 
+$page_no = (isset($_POST['page_no']))?$_POST['page_no']:'';
+
 $db = new Database();
 $util = new Util();
 
@@ -73,26 +75,26 @@ if (isset($_POST['self_check'])) {
 
 $check_list = json_encode($Array);
 
-if ($db->edit($id, $Name_of_Premise,$Department,$Dzongkhag,$Date_self_inspection,$Address,$Name,$BMHC_No,$Email,$Contact_Number,$Note,$self_check,$check_list,$type_of_premises,$Category_of_premises,$type_of_facility )){
+$link = './home.php?page_no='.$page_no;
+
+if ($db->edit($id, $Name_of_Premise,$Department,$Dzongkhag,$Date_self_inspection,$Address,$Name,$BMHC_No,$Email,$Contact_Number,$Note,$self_check,$check_list,$type_of_premises,$Category_of_premises,$type_of_facility )): ?>
     
-    echo "<script>Swal.fire(
+    <script type="text/javascript">
+        Swal.fire(
         'Updating record successfully!',
         'Please, click button to continue!',
         'success'
       ).then(function() {
-        window.location = './home.php';
+        window.location = '<?php echo $link;?>';
       });
-      </script>";
-
-}else{
-    echo "<script>Swal.fire(
+      </script>  
+<?php else: ?>
+    <script>Swal.fire(
         'Warning there are some problems',
         'Please, click button to back to home page!',
       );
-    </>";
-}
-
-?>
+    </script> 
+<?php endif; ?>
 
 </body>
 

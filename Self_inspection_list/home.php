@@ -63,7 +63,7 @@ $db = new Database();
                         </button>
                     </td>
                     <td>
-                        <a class="btn btn-warning" href="./edit.php?id=<?php echo $result['id']?>" role="button">Edit</a>
+                        <a class="btn btn-warning" href="./edit.php?id=<?php echo $result['id']?>&page_no=<?php echo $page_no;?>" role="button">Edit</a>
                     </td>
                     <td>
                         <a class="btn btn-success" href="./self_report.php?id=<?php echo $result['id']?>" role="button" target="_blank">Report</a>

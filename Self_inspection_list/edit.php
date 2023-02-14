@@ -4,6 +4,7 @@ require './include/header.php';
 require './db.php';
 
 $id= (isset($_GET['id']))?$_GET['id']:'';
+$page_no = (isset($_GET['page_no']))?$_GET['page_no']:'';
 
 $db = new Database();
 
@@ -38,6 +39,7 @@ $detail = $db->read_detail($id);
                     <div class="col-md-12 col-12">
                         <h5 class="mb-3">A. Information about the Premise</h5>
                     </div>
+                    <input type="hidden" id="page_no" name="page_no" class="form-control" value="<?php echo $page_no;?>">
                     <input type="hidden" id="id" name="id" class="form-control" value="<?php echo $detail['id'];?>">
                     <div class="col-md-6 col-12">
                         <div class="form-floating mb-3">

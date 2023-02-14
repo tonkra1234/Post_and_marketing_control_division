@@ -107,6 +107,28 @@ class SelfInspection extends ConfigSelf {
         ]);
         return true;
     }
+
+    public function header() {
+        $sql ="SELECT * FROM `header_report` ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function edit_header_self_report($id,$Document_Number,$Effective_Date,$Review_Date,$Version) {
+        $sql = "UPDATE `header_report` SET Document_Number=:Document_Number, Effective_Date=:Effective_Date,Review_Date=:Review_Date,`Version`=:Version WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+            'Document_Number' => $Document_Number,
+            'Effective_Date' => $Effective_Date,
+            'Review_Date' => $Review_Date,
+            'Version' => $Version,
+        ]);
+        return true;
+    }
  
 }
 

@@ -3,13 +3,13 @@
 require_once './database/db_inspection.php';
 $db_inspection = new Inspection();
 $results_inspection = $db_inspection->fetch_trash_inspection_g();
-
+$header_g = $db_inspection->header_g();
 ?>
 <!-- Modal -->
 <div class="modal fade" id="Add_question" tabindex="-1" aria-labelledby="Add_question" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="add-new-question" method="POST" action="./database/add_controller/question_inspection_g.php" enctype="multipart/form-data" class="needs-validation"
+            <form id="add-new-question" method="POST" action="./database/add_controller" enctype="multipart/form-data" class="needs-validation"
                 novalidate>
                 <div class="modal-header">
                     <h5 class="modal-title" id="Add_question">Add question</h5>
@@ -52,6 +52,10 @@ $results_inspection = $db_inspection->fetch_trash_inspection_g();
             <div
                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Inspection government</h1>
+                <div>
+                    <a href="./facility_g_h.php" class="btn btn-success">Human Facility</a>
+                    <a href="./facility_g_v.php" class="btn btn-success">Veterinary Facility</a>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 d-flex justify-content-between align-items-center">
@@ -182,6 +186,40 @@ $results_inspection = $db_inspection->fetch_trash_inspection_g();
                      ?>
                     </tbody>
                 </table>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12 col-12 my-lg-3">
+                    <h4>Edit the government report header</h4>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <form class="shadow p-lg-3" method="POST" action="./database/edit_controller/header_g_report.php">
+                        <div class="row">
+                            <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $header_g['id']?>">
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Document_Number" class="form-label">Document Number</label>
+                                <input type="text" class="form-control" id="Document_Number" name="Document_Number" value="<?php echo $header_g['Document_Number']?>">
+                                
+                            </div>
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Effective_Date" class="form-label">Effective Date</label>
+                                <input type="text" class="form-control" id="Effective_Date" name="Effective_Date" value="<?php echo $header_g['Effective_Date']?>">
+                            </div>
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Review_Date" class="form-label">Review Date</label>
+                                <input type="text" class="form-control" id="Review_Date" name="Review_Date" value="<?php echo $header_g['Review_Date']?>">
+                                
+                            </div>
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Version" class="form-label">Version</label>
+                                <input type="text" class="form-control" id="Version" name="Version" value="<?php echo $header_g['Version']?>">                                
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </main>
     </div>

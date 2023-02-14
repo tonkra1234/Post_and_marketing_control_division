@@ -99,6 +99,16 @@ class DataBase extends Config {
         return true;
     }
 
+    public function header() {
+        
+        $sql ="SELECT * FROM `header_report` ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
 }
 
 ?>

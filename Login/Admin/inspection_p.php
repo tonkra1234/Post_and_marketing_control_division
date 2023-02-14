@@ -3,7 +3,7 @@
 require_once './database/db_inspection.php';
 $db_inspection = new Inspection();
 $results_inspection = $db_inspection->fetch_trash_inspection_p();
-
+$header_p = $db_inspection->header_p();
 
 ?>
 <!-- Modal -->
@@ -52,6 +52,9 @@ $results_inspection = $db_inspection->fetch_trash_inspection_p();
             <div
                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Inspection private</h1>
+                <div>
+                        <a href="./facility_p_h.php" class="btn btn-success">Human Facility</a>
+                    </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 d-flex justify-content-between align-items-center">
@@ -131,7 +134,6 @@ $results_inspection = $db_inspection->fetch_trash_inspection_p();
             <div class="col-lg-12 d-flex justify-content-between align-items-center">
                 <div>
                     <h4 class="">Question details</h4>
-
                 </div>
                 <div>
                     <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#Add_question">
@@ -182,6 +184,40 @@ $results_inspection = $db_inspection->fetch_trash_inspection_p();
                      ?>
                     </tbody>
                 </table>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12 col-12 my-lg-3">
+                    <h4>Edit the private report header</h4>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <form class="shadow p-lg-3" method="POST" action="./database/edit_controller/header_p_report.php">
+                        <div class="row">
+                            <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $header_p['id']?>">
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Document_Number" class="form-label">Document Number</label>
+                                <input type="text" class="form-control" id="Document_Number" name="Document_Number" value="<?php echo $header_p['Document_Number']?>">
+                                
+                            </div>
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Effective_Date" class="form-label">Effective Date</label>
+                                <input type="text" class="form-control" id="Effective_Date" name="Effective_Date" value="<?php echo $header_p['Effective_Date']?>">
+                            </div>
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Review_Date" class="form-label">Review Date</label>
+                                <input type="text" class="form-control" id="Review_Date" name="Review_Date" value="<?php echo $header_p['Review_Date']?>">
+                                
+                            </div>
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Version" class="form-label">Version</label>
+                                <input type="text" class="form-control" id="Version" name="Version" value="<?php echo $header_p['Version']?>">                                
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </main>
     </div>

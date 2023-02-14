@@ -3,7 +3,7 @@
 require_once './database/db_self_inspection.php';
 $db_self_inspection = new SelfInspection();
 $results_question = $db_self_inspection->fetch_question();
-
+$header = $db_self_inspection->header();
 ?>
 <!-- Modal -->
 <div class="modal fade" id="Add_question" tabindex="-1" aria-labelledby="Add_question" aria-hidden="true">
@@ -110,6 +110,40 @@ $results_question = $db_self_inspection->fetch_question();
                     </tbody>
                 </table>
             </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12 col-12 my-lg-3">
+                    <h4>Edit the report header</h4>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <form class="shadow p-lg-3" method="POST" action="./database/edit_controller/header_self_report.php">
+                        <div class="row">
+                            <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $header['id']?>">
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Document_Number" class="form-label">Document Number</label>
+                                <input type="text" class="form-control" id="Document_Number" name="Document_Number" value="<?php echo $header['Document_Number']?>">
+                                
+                            </div>
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Effective_Date" class="form-label">Effective Date</label>
+                                <input type="text" class="form-control" id="Effective_Date" name="Effective_Date" value="<?php echo $header['Effective_Date']?>">
+                            </div>
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Review_Date" class="form-label">Review Date</label>
+                                <input type="text" class="form-control" id="Review_Date" name="Review_Date" value="<?php echo $header['Review_Date']?>">
+                                
+                            </div>
+                            <div class="mb-3 col-lg-6 col-12">
+                                <label for="Version" class="form-label">Version</label>
+                                <input type="text" class="form-control" id="Version" name="Version" value="<?php echo $header['Version']?>">                                
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </main>
     </div>
 </div>
@@ -149,13 +183,13 @@ $results_question = $db_self_inspection->fetch_question();
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    type :"POST",
-                    url : "./database/delete_controller/delete_question_confirm.php",
-                    data : {
+                    type: "POST",
+                    url: "./database/delete_controller/delete_question_confirm.php",
+                    data: {
                         'inspectiondelete': true,
                         'inspectionId': inspectionId,
                     },
-                    success:function(reponse){
+                    success: function (reponse) {
 
                     }
                 });
@@ -164,7 +198,7 @@ $results_question = $db_self_inspection->fetch_question();
                     'Your file has been deleted.',
                     'success'
                 )
-                $('#refresh-delete'+inspectionId).hide(1000);
+                $('#refresh-delete' + inspectionId).hide(1000);
             }
         })
 

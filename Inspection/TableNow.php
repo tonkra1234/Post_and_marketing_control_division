@@ -63,6 +63,7 @@ $fetch_table_now_g = $db->fetch_table2023_g($initial_page,$limit);
                     <th scope="col">Date of inspection</th>
                     <th scope="col">Dzongkhag</th>
                     <th scope="col">More detail</th>
+                    <th scope="col">Edit</th>
                     <th scope="col">Report</th>
                     <th scope="col">Delete</th>
                 </tr>
@@ -71,12 +72,11 @@ $fetch_table_now_g = $db->fetch_table2023_g($initial_page,$limit);
 
                 <?php
                 if (count($fetch_table_now_g)>0) {
-                    $No=1;
                     foreach ($fetch_table_now_g as $row){
                 ?>
 
                 <tr id='refresh-delete<?php echo $row["id"]; ?>'>
-                    <th scope="row"><?php echo $No; ?></th>
+                    <th scope="row"><?php echo $row["id"]; ?></th>
                     <td><?php echo $row["inspection_id"]; ?></td>
                     <td><?php echo $row["name_of_premise"]; ?></td>
                     <td><?php echo $row["competent_name"]; ?></td>
@@ -87,6 +87,12 @@ $fetch_table_now_g = $db->fetch_table2023_g($initial_page,$limit);
                             data-bs-target="#Now_g<?php echo $row["id"]; ?>">
                             Detail
                         </button>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning"
+                            href="./edit_g.php?inspection_id=<?php echo $row["inspection_id"]; ?>">
+                            Edit
+                        </a>
                     </td>
                     <td>
                         <a class="btn btn-secondary"
@@ -106,7 +112,6 @@ $fetch_table_now_g = $db->fetch_table2023_g($initial_page,$limit);
 
                 <?php
                     require './Modal/Now_g.php';
-                    $No++;
                 }}else{ 
                 ?>
                 <tr>
@@ -139,6 +144,7 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
                     <th scope="col">Date of inspection</th>
                     <th scope="col">Dzongkhag</th>
                     <th scope="col">More detail</th>
+                    <th scope="col">Edit</th>
                     <th scope="col">Report</th>
                     <th scope="col">Delete</th>
                 </tr>
@@ -147,12 +153,11 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
 
                 <?php
                 if (count($fetch_table_now_p)>0) {
-                    $No=1;
                     foreach ($fetch_table_now_p as $row){
                 ?>
 
                 <tr id="refresh-delete<?php echo $row["id"]; ?>">
-                    <th scope="row"><?php echo $No; ?></th>
+                    <th scope="row"><?php echo $row["id"]; ?></th>
                     <td><?php echo $row["inspection_id"]; ?></td>
                     <td><?php echo $row["name_of_premise"]; ?></td>
                     <td><?php echo $row["competent_name"]; ?></td>
@@ -163,6 +168,12 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
                             data-bs-target="#Now_p<?php echo $row["id"]; ?>">
                             Detail
                         </button>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning"
+                            href="./edit_p.php?inspection_id=<?php echo $row["inspection_id"]; ?>">
+                            Edit
+                        </a>
                     </td>
                     <td>
                         <a class="btn btn-secondary"
@@ -182,7 +193,6 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
 
                 <?php
                     require './Modal/Now_p.php';
-                    $No++;
                 }}else{ 
                 ?>
                 <tr>
@@ -221,16 +231,16 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
         <?php
   // go previous page 
   if($page_number>=2){   
-      echo "<li class='page-item'><a class='page-link' href='./Table2022.php?page=".($page_number-1)."&type=".($type)."'>  Prev </a></li>";   
+      echo "<li class='page-item'><a class='page-link' href='./TableNow.php?page=".($page_number-1)."&type=".($type)."'>  Prev </a></li>";   
   }                          
 
   // number of pages
   for ($i=1; $i<=$total_pages; $i++) {   
     if ($i == $page_number) {   
-        $pageURL .= "<li class='page-item'><a class = 'active page-link' href='./Table2022.php?page=" .$i."&type=".($type)."'>".$i." </a></li>";   
+        $pageURL .= "<li class='page-item'><a class = 'active page-link' href='./TableNow.php?page=" .$i."&type=".($type)."'>".$i." </a></li>";   
     }               
     else  {   
-        $pageURL .= "<li class='page-item'><a class ='page-link' href='./Table2022.php?page=".$i."&type=".($type)."'> ".$i." </a></li>";     
+        $pageURL .= "<li class='page-item'><a class ='page-link' href='./TableNow.php?page=".$i."&type=".($type)."'> ".$i." </a></li>";     
     }   
   };     
 
@@ -238,7 +248,7 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
 
   // go to next page
   if($page_number<$total_pages){   
-      echo "<a class='page-link' href='./Table2022.php?page=".($page_number+1)."&type=".($type)."'>  Next </a></li>";   
+      echo "<a class='page-link' href='./TableNow.php?page=".($page_number+1)."&type=".($type)."'>  Next </a></li>";   
   }     
 ?>
     </ul>

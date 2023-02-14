@@ -70,8 +70,7 @@ $results_inspectors = $db_gmp->inspectors();
                             data-bs-target="#Add_inspector">
                             <div class="d-flex align-items-center justify-content-center"><i
                                     class="fa-solid fa-plus"></i>
-                                <div class="ms-2 d-none d-sm-block">Add new
-                                    inspection</div>
+                                <div class="ms-2 d-none d-sm-block">Add new inspector</div>
                             </div>
                         </button>
                     </div>

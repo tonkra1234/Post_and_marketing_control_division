@@ -4,7 +4,7 @@ require '../db.php';
 $db = new DataBase();
 
 $inspection_id= (isset($_GET['inspection_id']))?$_GET['inspection_id']:'';
-
+$header = $db->header_p();
 
 $result = $db->fetch_report2023_p($inspection_id);
 
@@ -25,10 +25,10 @@ $pdf->cell(61,7.5,'Effective Date',1,0);
 $pdf->cell(61,7.5,'Review Date',1,0);
 $pdf->cell(61,7.5,'Version No.',1,1);
 $pdf->SetX(40);
-$pdf->cell(61,7.5,'DRA-F-D2-01-02',1,0);
-$pdf->cell(61,7.5,'27-09-2022',1,0);
-$pdf->cell(61,7.5,'27-09-2024',1,0);
-$pdf->cell(61,7.5,'06',1,0);
+$pdf->cell(61,7.5,$header['Document_Number'],1,0);
+$pdf->cell(61,7.5,$header['Effective_Date'],1,0);
+$pdf->cell(61,7.5,$header['Review_Date'],1,0);
+$pdf->cell(61,7.5,$header['Version'],1,0);
 
 // Information
 

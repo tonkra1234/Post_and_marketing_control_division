@@ -324,8 +324,49 @@ foreach ($result_check_pri as $row ){
 $number_q_pri =(34*$result_count_array_pri[0]['sum']);
 $private_2022 = number_format(100-((count($Arr_pri)/($number_q_pri))*100),1);
 
+$result_check_g_now = $db->result_check_g_now();
+$Number_g_now=[];
+$total_question_g_now = [];
+foreach ($result_check_g_now as $row ){
+    for ($i=1; $i <= count(json_decode($row['check_list'])); $i++) { 
+        array_push($total_question_g_now, $i);
+        if((json_decode($row['check_list']))[$i-1][0] === 'No'){
+            array_push($Number_g_now, $i-1);
+        }
+    }
+};
+
+$total_number_g_now = count($result_check_g_now)*count($total_question_g_now );
+if ($total_number_g_now === 0) {
+    $total_number_g_now = 1;
+} else {
+    $total_number_g_now = count($result_check_g_now)*count($total_question_g_now );
+}
+$government_score_2023 = number_format(100-((count($Number_g_now)/($total_number_g_now))*100),1);
+
+$result_check_p_now = $db->result_check_p_now();
+$Number_p_now=[];
+$total_question_p_now = [];
+foreach ($result_check_p_now as $row ){
+    for ($i=1; $i <= count(json_decode($row['check_list'])); $i++) { 
+        array_push($total_question_p_now, $i);
+        if((json_decode($row['check_list']))[$i-1][0] === 'No'){
+            array_push($Number_p_now, $i-1);
+        }
+    }
+};
+
+
+$total_number_p_now = count($result_check_p_now)*count($total_question_p_now );
+if ($total_number_p_now === 0) {
+    $total_number_p_now = 1;
+} else {
+    $total_number_p_now = count($result_check_p_now)*count($total_question_p_now );
+}
+
+$private_score_2023 = number_format(100-((count($Number_p_now)/($total_number_p_now))*100),1);
 
 $label_score = ['private 2020','private 2021','private 2022','government 2023','government 2020','government 2021','government 2022','government 2023'];
-$score = [number_format(array_sum($private_2020)/count($private_2020),1),number_format(array_sum($private_2021)/count($private_2021),1),$private_2022,0,number_format(array_sum($government_2020)/count($government_2020),1),number_format(array_sum($government_2021)/count($government_2021),1),$governmnet_2022,0 ];
+$score = [number_format(array_sum($private_2020)/count($private_2020),1),number_format(array_sum($private_2021)/count($private_2021),1),$private_2022,$government_score_2023,number_format(array_sum($government_2020)/count($government_2020),1),number_format(array_sum($government_2021)/count($government_2021),1),$governmnet_2022,$private_score_2023 ];
 
 ?>

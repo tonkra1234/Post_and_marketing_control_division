@@ -1,7 +1,6 @@
 <?php 
 require './Dashboard/dashboard_db.php';
 $db = new Dashboard();
-require './Dashboard/array_score.php';
 
 $Month_data = $db->result_month();
 
@@ -14,6 +13,12 @@ $Human_premises_govern = $db->Human_premises_govern();
 $Human_premises_private = $db->Human_premises_private();
 
 $Human_premises_veterinary = $db->Human_premises_veterinary();
+
+$Year_data_g_now = $db->result_year_now_g();
+
+$Year_data_p_now = $db->Year_data_private_now();
+
+require './Dashboard/array_score.php';
 
 
 $Dzongkhag_govern = [];
@@ -36,7 +41,17 @@ foreach ($Year_data as $row) {
     array_push($sum_year,$row["Sum"]);
 };
 
+foreach ($Year_data_g_now as $row) {
+    array_push($Each_year,$row["Year"]);
+    array_push($sum_year,$row["Sum"]);
+};
+
 foreach ($Year_data_private as $row) {
+    array_push($Each_year_private,$row["Year"]);
+    array_push($sum_year_private,$row["Sum"]);
+};
+
+foreach ($Year_data_p_now  as $row) {
     array_push($Each_year_private,$row["Year"]);
     array_push($sum_year_private,$row["Sum"]);
 };

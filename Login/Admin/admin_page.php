@@ -119,7 +119,7 @@
                <hr>
                <div class="row">
                   <div class="col-lg-3 col-12 align-self-center">
-                     <div class="d-flex flex-column">
+                     <div class="d-flex flex-column mt-lg-2 mb-lg-auto ">
                         <div class="card shadow justify-content-between rounded-3 text-white mb-2"
                            style="background-color:#56217B ;">
                            <div class="card-body">
@@ -168,45 +168,6 @@
                <h4 class="mt-2">GOV & PRI inspection</h4>
                <hr>
                <!-- <canvas class="my-4 w-100 px-3" id="inspection_inspection"></canvas> -->
-            </div>
-
-            <h4>USERS</h4>
-            <div class="table-responsive rounded-3">
-               <table class="table shadow">
-                  <thead class="text-white" style="background-color:#1C7C7B ;">
-                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Avatar</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Status</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <?php
-                     $number = 1;
-                     foreach ($results_users as $result) {
-                     
-                     ?>
-                     <tr>
-                        <th scope="row"><?php echo $number;?></th>
-                        <td>
-                        <?php if(is_file('./image/Officer_image/'.$result['Avatar'])): ?>
-                           <div class="d-flex align-items-center"><img class="rounded-circle" src="./image/Officer_image/<?php echo $result['Avatar']?>" width="30"></div>
-                        <?php else: ?>
-                           <div class="d-flex align-items-center"><img class="rounded-circle" src="./image/Officer_image/question_mark.png" width="30"></div>
-                        <?php endif; ?>
-                        </td>
-                        <td><?php echo $result['name'];?></td>
-                        <td><?php echo $result['email'];?></td>
-                        <td><?php echo $result['user_type'];?></td>
-                     </tr>
-                     <?php 
-                     $number++;
-                     }
-                     ?>
-                  </tbody>
-               </table>
             </div>
          </div>
       </main>

@@ -162,7 +162,151 @@ class Inspection extends ConfigInspect {
         return true;
     }
 
-    
+    public function header_g() {
+        $sql ="SELECT * FROM `header_report_g` ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function header_p() {
+        $sql ="SELECT * FROM `header_report_p` ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function edit_header_g_inspect_report($id,$Document_Number,$Effective_Date,$Review_Date,$Version) {
+        $sql = "UPDATE `header_report_g` SET Document_Number=:Document_Number, Effective_Date=:Effective_Date,Review_Date=:Review_Date,`Version`=:Version WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+            'Document_Number' => $Document_Number,
+            'Effective_Date' => $Effective_Date,
+            'Review_Date' => $Review_Date,
+            'Version' => $Version,
+        ]);
+        return true;
+    }
+
+    public function edit_header_p_inspect_report($id,$Document_Number,$Effective_Date,$Review_Date,$Version) {
+        $sql = "UPDATE `header_report_p` SET Document_Number=:Document_Number, Effective_Date=:Effective_Date,Review_Date=:Review_Date,`Version`=:Version WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+            'Document_Number' => $Document_Number,
+            'Effective_Date' => $Effective_Date,
+            'Review_Date' => $Review_Date,
+            'Version' => $Version,
+        ]);
+        return true;
+    }
+
+    public function fetch_facility_g_h() {
+        $sql ="SELECT * FROM `government_premise_human` ORDER BY id DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function fetch_facility_g_v() {
+        $sql ="SELECT * FROM `government_premise_verterinary` ORDER BY id DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function fetch_facility_p_h() {
+        $sql ="SELECT * FROM `private_premise_human` ORDER BY id DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function edit_facility_g_h($id,$Facility_name,$Dzongkhag) {
+        $sql = "UPDATE `government_premise_human` SET Facility_name=:Facility_name, Dzongkhag=:Dzongkhag WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+            'Facility_name' => $Facility_name,
+            'Dzongkhag' => $Dzongkhag,
+        ]);
+        return true;
+    }
+
+    public function edit_facility_g_v($id,$Facility_name,$Dzongkhag) {
+        $sql = "UPDATE `government_premise_verterinary` SET Facility_name=:Facility_name, Dzongkhag=:Dzongkhag WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+            'Facility_name' => $Facility_name,
+            'Dzongkhag' => $Dzongkhag,
+        ]);
+        return true;
+    }
+
+    public function edit_facility_p_h($id,$Facility_name,$Dzongkhag) {
+        $sql = "UPDATE `private_premise_human` SET Facility_name=:Facility_name, Dzongkhag=:Dzongkhag WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+            'Facility_name' => $Facility_name,
+            'Dzongkhag' => $Dzongkhag,
+        ]);
+        return true;
+    }
+
+    public function delete_government_facility($id,$type) {
+        $sql = "DELETE FROM $type WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        return true;
+    }
+
+    public function insert_government_facility($Facility_name,$Dzongkhag,$type){
+
+        $sql= "INSERT INTO $type (Facility_name,Dzongkhag) VALUES(:Facility_name,:Dzongkhag) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'Facility_name'=>$Facility_name,
+            'Dzongkhag' =>$Dzongkhag,
+        ]);
+
+        return true;
+    }
+
+    public function delete_private_facility($id) {
+        $sql = "DELETE FROM `private_premise_human` WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        return true;
+    }
+    public function insert_private_facility($Facility_name,$Dzongkhag){
+
+        $sql= "INSERT INTO `private_premise_human` (Facility_name,Dzongkhag) VALUES(:Facility_name,:Dzongkhag) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'Facility_name'=>$Facility_name,
+            'Dzongkhag' =>$Dzongkhag,
+        ]);
+
+        return true;
+    }
+
 }
 
 ?>

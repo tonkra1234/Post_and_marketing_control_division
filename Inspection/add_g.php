@@ -21,8 +21,8 @@ $last_id = $db->report2023_gNumber();
                         <h5 class="mb-3">A. Information about the Premise</h5>
                     </div>
                     <div class="row">
-                        <input type="hidden" class="longitude" id="longitude" value="">
-                        <input type="hidden" class="latitude" id="latitude" value="">
+                        <input type="hidden" name="longitude" id="longitude" value="">
+                        <input type="hidden" name="latitude" id="latitude" value="">
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="Inspec_id">Inspection ID</span>
@@ -53,7 +53,8 @@ $last_id = $db->report2023_gNumber();
                             <div class="input-group">
                                 <span class="input-group-text" id="type_inspect">Type of inspection
                                 </span>
-                                <select class="form-select" aria-label="Default select example" name="type_inspect" required>
+                                <select class="form-select" aria-label="Default select example" name="type_inspect"
+                                    required>
                                     <option selected>Open this select menu</option>
                                     <option value="Routine">Routine</option>
                                     <option value="Follow-up">Follow-up</option>
@@ -65,7 +66,7 @@ $last_id = $db->report2023_gNumber();
                             <div class="input-group">
                                 <span class="input-group-text" id="dzongkhag">Dzongkhag
                                 </span>
-                                <select class="form-select h-100" id="dzongkhag" name="dzongkhag" required>
+                                <select class="form-select h-100" id="dzongkhag" name="dzongkhag" required onchange="fetch_select(this.value)">
                                     <option value=""></option>
                                     <?php include './include/Dzongkhag.php';?>
                                 </select>
@@ -77,9 +78,14 @@ $last_id = $db->report2023_gNumber();
                             <h5 class="mb-3">B. Information of pharmacy/premises</h5>
                         </div>
                         <div class="col-lg-6 col-12">
-                            <div class="input-group mb-3">
+                            <!-- <div class="input-group mb-3">
                                 <span class="input-group-text" id="Pname">Name of premise</span>
                                 <input type="text" class="form-control" id="Pname" name="Pname" required>
+                            </div> -->
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="Pname">Name of premise</span>
+                                <input type="text" class="form-control" id="Pname" name="Pname" list="NameOptions" required>
+                                <datalist id="NameOptions"></datalist>
                             </div>
                         </div>
 
@@ -228,19 +234,34 @@ $last_id = $db->report2023_gNumber();
         maximumAge: 0,
     };
 
-    if (document.getElementById('latitude').value.length === 0){
+    if (document.getElementById('latitude').value.length === 0) {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition,error,options);
-                                 
-        } 
-    else {
-        alert("Geolocation is not supported by this browser.");
-    }
-                              
-    function showPosition(position){ 
-        document.getElementById('latitude').value = position.coords.latitude;
-        document.getElementById('longitude').value = position.coords.longitude;
+            navigator.geolocation.getCurrentPosition(showPosition, error, options);
+
+        } else {
+            alert("Geolocation is not supported by this browser.");
         }
+
+        function showPosition(position) {
+            document.getElementById('latitude').value = position.coords.latitude;
+            document.getElementById('longitude').value = position.coords.longitude;
+        }
+    }
+</script>
+<script type="text/javascript">
+function fetch_select(val)
+    {
+        $.ajax({
+        type: 'POST',
+        url: './database/fetch_SQL_premises.php',
+        data: {
+            get_option : val,
+            type : 'government',
+        },
+        success: function (response) {
+        document.getElementById("NameOptions").innerHTML=response; 
+    }
+    });
     }
 </script>
 <script src="./js/disable_textarea.js"></script>

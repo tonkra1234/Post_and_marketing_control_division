@@ -13,6 +13,7 @@ $id= (isset($_GET['id']))?$_GET['id']:'';
 $db = new Database();
 
 $detail = $db->read_detail($id);
+$header = $db->header();
 
 include './FPDF/multicellTable.php';
 
@@ -35,10 +36,10 @@ $pdf->cell(42.5,5,'Effective Date',1,0);
 $pdf->cell(42.5,5,'Review Date',1,0);
 $pdf->cell(42.5,5,'Version No.',1,1);
 $pdf->SetX(30);
-$pdf->cell(42.5,5,'DRA-F-D2-08-02',1,0);
-$pdf->cell(42.5,5,'27-09-2022',1,0);
-$pdf->cell(42.5,5,'27-09-2024',1,0);
-$pdf->cell(42.5,5,'00',1,0);
+$pdf->cell(42.5,5,$header['Document_Number'],1,0);
+$pdf->cell(42.5,5,$header['Effective_Date'],1,0);
+$pdf->cell(42.5,5,$header['Review_Date'],1,0);
+$pdf->cell(42.5,5,$header['Version'],1,0);
 
 // Information
 
@@ -91,6 +92,11 @@ $pdf->cell(60,10,'  Contact Number',1,0,'L');
 $pdf->SetFont('Arial','',12);
 $pdf->cell(130,10,'  '.$detail['Contact_Number'],1,1,'L');
 
+$pdf->Ln('60');
+// Signature
+$pdf->cell(120,7,'Signature of CP with date',0,0,'L');
+$pdf->cell(70,7,'Signature of Inspector with date',0,0,'L');
+
 
 $pdf->AddPage('');
 $pdf->SetFont('Arial','B',15);
@@ -121,10 +127,7 @@ $pdf->cell(7,5,'',0,0);
 $pdf->cell(7,5,'',1,0);
 $pdf->cell(5,5,'',0,0);
 $pdf->Multicell(171,5,'This self inspection report is submitted based on the true findings observed during self inspection by the undersigned.',0,1);
-$pdf->Ln('40');
-// Signature
-$pdf->cell(120,7,'Signature of CP with date',0,0,'L');
-$pdf->cell(70,7,'Signature of Inspector with date',0,0,'L');
+
 
 $filename = $detail['Name_of_Premise'].'('.$detail['Date_self_inspection'].')'.'.pdf';
 $pdf->Output('',$filename);
