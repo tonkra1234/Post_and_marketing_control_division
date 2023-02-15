@@ -29,6 +29,7 @@ $contact = $util->testInput($_POST['contact']);
 $contact_detail = $util->testInput($_POST['contact_detail']);
 $longitude = $util->testInput($_POST['longitude']);
 $latitude = $util->testInput($_POST['latitude']);
+$inspector_name = $util->testInput($_POST['inspector_name']);
 
 $GPS = array();
 $Array=array();
@@ -61,7 +62,7 @@ $check_list = json_encode($Array);
 
 
 if ($db->insert_p($inspec_id, $division, $today_date, $last_date, $type_inspect, $dzongkhag, $Pname, $type_premise, $address, 
-$premise_number, $premise_valid, $inspec_scope, $name, $email, $registration_Number, $person_valid, $contact, $contact_detail, $check_list,$GPS_position )){
+$premise_number, $premise_valid, $inspec_scope, $name, $email, $registration_Number, $person_valid, $contact, $contact_detail, $check_list,$GPS_position,$inspector_name )){
     
     echo "<script>Swal.fire(
         'New private inspection record successfully!',

@@ -35,8 +35,10 @@ $db = new Database();
                     <th scope="col">BMHC_No</th>
                     <th scope="col">Dzongkhag</th>
                     <th scope="col">More detail</th>
-                    <th scope="col">Edit</th>
                     <th scope="col">Report</th>
+                    <?php if($user_type === 'user_edit'):?>
+                    <th scope="col">Edit</th>
+                    <?php endif;?>
                 </tr>
             </thead>
             <tbody>
@@ -63,11 +65,13 @@ $db = new Database();
                         </button>
                     </td>
                     <td>
-                        <a class="btn btn-warning" href="./edit.php?id=<?php echo $result['id']?>&page_no=<?php echo $page_no;?>" role="button">Edit</a>
-                    </td>
-                    <td>
                         <a class="btn btn-success" href="./self_report.php?id=<?php echo $result['id']?>" role="button" target="_blank">Report</a>
                     </td>
+                    <?php if($user_type === 'user_edit'):?>
+                        <td>
+                        <a class="btn btn-warning" href="./edit.php?id=<?php echo $result['id']?>&page_no=<?php echo $page_no;?>" role="button">Edit</a>
+                    </td>
+                    <?php endif;?>
                 </tr>
                 <?php 
                 include './detail.php';

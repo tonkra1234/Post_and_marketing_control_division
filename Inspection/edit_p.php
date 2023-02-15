@@ -208,6 +208,25 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                                 </tbody>
                             </table>
                         </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Inspected by</span>
+                                <select class="form-select" id="inspector_name" name="inspector_name" required>
+                                    <option value="<?php echo $fetch_each_data_p['inspector_name'];?>"><?php echo $fetch_each_data_p['inspector_name'];?></option>
+                                    <?php include_once './include/Inspector.php';?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Verify</span>
+                                <select class="form-select" id="verify" name="verify" required>
+                                    <option value="<?php echo $fetch_each_data_p['verify'];?>"><?php echo $fetch_each_data_p['verify'];?></option>
+                                    <option value="Unverified">Unverified</option>
+                                    <option value="Verified">Verified</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

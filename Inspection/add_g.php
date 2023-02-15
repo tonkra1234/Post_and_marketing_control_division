@@ -66,7 +66,8 @@ $last_id = $db->report2023_gNumber();
                             <div class="input-group">
                                 <span class="input-group-text" id="dzongkhag">Dzongkhag
                                 </span>
-                                <select class="form-select h-100" id="dzongkhag" name="dzongkhag" required onchange="fetch_select(this.value)">
+                                <select class="form-select h-100" id="dzongkhag" name="dzongkhag" required
+                                    onchange="fetch_select(this.value)">
                                     <option value=""></option>
                                     <?php include './include/Dzongkhag.php';?>
                                 </select>
@@ -78,13 +79,10 @@ $last_id = $db->report2023_gNumber();
                             <h5 class="mb-3">B. Information of pharmacy/premises</h5>
                         </div>
                         <div class="col-lg-6 col-12">
-                            <!-- <div class="input-group mb-3">
-                                <span class="input-group-text" id="Pname">Name of premise</span>
-                                <input type="text" class="form-control" id="Pname" name="Pname" required>
-                            </div> -->
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="Pname">Name of premise</span>
-                                <input type="text" class="form-control" id="Pname" name="Pname" list="NameOptions" required>
+                                <input type="text" class="form-control" id="Pname" name="Pname" list="NameOptions"
+                                    required>
                                 <datalist id="NameOptions"></datalist>
                             </div>
                         </div>
@@ -178,7 +176,7 @@ $last_id = $db->report2023_gNumber();
                                     </tr>
                                     <tr>
                                         <th scope="col" class="text-center align-middle">Check</th>
-                                        <th scope="col" class="text-center align-middle">Remarks</th>
+                                        <th scope="col" class="text-center align-middle">Remarks/Unit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -215,6 +213,15 @@ $last_id = $db->report2023_gNumber();
                                 </tbody>
                             </table>
                         </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Inspected by</span>
+                                <select class="form-select" id="inspector_name" name="inspector_name" required>
+                                    <option value="">Select one</option>
+                                    <?php include_once './include/Inspector.php';?>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -249,19 +256,18 @@ $last_id = $db->report2023_gNumber();
     }
 </script>
 <script type="text/javascript">
-function fetch_select(val)
-    {
+    function fetch_select(val) {
         $.ajax({
-        type: 'POST',
-        url: './database/fetch_SQL_premises.php',
-        data: {
-            get_option : val,
-            type : 'government',
-        },
-        success: function (response) {
-        document.getElementById("NameOptions").innerHTML=response; 
-    }
-    });
+            type: 'POST',
+            url: './database/fetch_SQL_premises.php',
+            data: {
+                get_option: val,
+                type: 'government',
+            },
+            success: function (response) {
+                document.getElementById("NameOptions").innerHTML = response;
+            }
+        });
     }
 </script>
 <script src="./js/disable_textarea.js"></script>

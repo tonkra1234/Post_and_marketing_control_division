@@ -26,7 +26,7 @@ require './Dashboard/dashboard_back.php';
 <div class="row">
     <div class="col-lg-6 col-12 shadow mb-5">
         <div class="d-flex align-items-center justify-content-between">
-            <span class="pt-2 fw-bold">Number of inspection (Government premise for Human)</span>
+            <span class="pt-2 fw-bold">Number of inspection (Government premises)</span>
         </div>
         <hr class="my-2">
         <div class="">
@@ -35,7 +35,7 @@ require './Dashboard/dashboard_back.php';
     </div>
     <div class="col-lg-6 col-12 shadow mb-5">
         <div class="d-flex align-items-center justify-content-between">
-            <span class="pt-2 fw-bold">Number of inspection (Private premise for Human)</span>
+            <span class="pt-2 fw-bold">Number of inspection (Private premises)</span>
 
         </div>
         <hr class="my-2">

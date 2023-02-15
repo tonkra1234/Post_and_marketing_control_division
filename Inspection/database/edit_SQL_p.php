@@ -27,7 +27,8 @@ $registration_Number = $util->testInput($_POST['registration_Number']);
 $person_valid = $util->testInput($_POST['person_valid']);
 $contact = $util->testInput($_POST['contact']);
 $contact_detail = $util->testInput($_POST['contact_detail']);
-
+$inspector_name = $util->testInput($_POST['inspector_name']);
+$verify = $util->testInput($_POST['verify']);
 
 $Array=array();
 
@@ -53,7 +54,7 @@ $check_list = json_encode($Array);
 
 
 if ($db->edit_p($id, $division, $today_date, $last_date, $type_inspect, $dzongkhag, $Pname, $type_premise, $address, 
-$premise_number, $premise_valid, $inspec_scope, $name, $email, $registration_Number, $person_valid, $contact, $contact_detail, $check_list )){
+$premise_number, $premise_valid, $inspec_scope, $name, $email, $registration_Number, $person_valid, $contact, $contact_detail, $check_list,$inspector_name,$verify )){
     
         echo "<script>Swal.fire(
         'Private inspection edit successfully!',

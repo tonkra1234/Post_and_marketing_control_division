@@ -23,10 +23,10 @@ if(isset($_POST['submit'])){
           $_SESSION['email_pmcd'] = $result['email'];
           header('location:./Admin/admin_page.php');
 
-      }elseif($result['user_type'] == 'user'){
-
-          $_SESSION['user_name_pmcd'] = $result['name'];
-          header('location:../main.php');
+      }elseif($result['user_type'] == 'user' || $result['user_type'] == 'user_edit'){
+         $_SESSION['user_type'] = $result['user_type'];
+         $_SESSION['user_name_pmcd'] = $result['name'];
+         header('location:../main.php');
       }
 
   }else{

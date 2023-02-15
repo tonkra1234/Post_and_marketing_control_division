@@ -11,7 +11,7 @@ $db_inspection = new Inspection();
             <form id="edit-facility" method="POST" action="./database/add_controller/governement_facility.php"
                 enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="edit_question">Add government-human Facilty</h5>
+                    <h5 class="modal-title" id="edit_question">Add government-veterinary Facilty</h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
@@ -52,7 +52,7 @@ $db_inspection = new Inspection();
             <div class="row mt-lg-3">
                 <div class="col-lg-12 d-flex justify-content-between align-items-center">
                     <div>
-                        <h4 class="">Edit the government-human premises</h4>
+                        <h4 class="">Edit the government-veterinary premises</h4>
                     </div>
                     <div>
                         <button class="btn btn-primary" type="button" data-bs-toggle="modal"

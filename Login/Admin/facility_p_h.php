@@ -10,7 +10,7 @@ $db_inspection = new Inspection();
         <div class="modal-content">
             <form id="edit-facility" method="POST" action="./database/add_controller/private_facility.php" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="edit_question">Add government-human Facilty</h5>
+                    <h5 class="modal-title" id="edit_question">Add private-human Facilty</h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>

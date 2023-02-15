@@ -177,7 +177,7 @@ $last_id = $db->report2023_pNumber();
                                     </tr>
                                     <tr>
                                         <th scope="col" class="text-center align-middle">Check</th>
-                                        <th scope="col" class="text-center align-middle">Remarks</th>
+                                        <th scope="col" class="text-center align-middle">Remarks/Unit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -213,6 +213,15 @@ $last_id = $db->report2023_pNumber();
                                     ?>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Inspected by</span>
+                                <select class="form-select" id="inspector_name" name="inspector_name" required>
+                                    <option value="">Select one</option>
+                                    <?php include_once './include/Inspector.php';?>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

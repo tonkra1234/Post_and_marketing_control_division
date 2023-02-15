@@ -72,8 +72,9 @@ $pdf->cell(137,10,'Observations and their classification (C-Critical M-Major O-O
 // header
 $pdf->SetFont('Arial','B',12);
 $pdf->cell(10,7,'S/N',1,0,'C');
-$pdf->cell(245,7,'Obeservations',1,0,'C');
-$pdf->cell(15,7,'C/M/O',1,1,'C');
+$pdf->cell(200,7,'Obeservations',1,0,'C');
+$pdf->cell(15,7,'C/M/O',1,0,'C');
+$pdf->cell(45,7,'Unit',1,1,'C');
 
 $id = 1;
 // details
@@ -88,6 +89,7 @@ foreach ($check_list as $row){
         $No_ans = [];
         array_push($No_ans, $row[2]); // question
         array_push($No_ans, $row[3]); // level
+        array_push($No_ans, $row[1]); // unit
         array_push($Questions, $No_ans);
     }
 };
@@ -95,15 +97,17 @@ foreach ($check_list as $row){
 if (empty($Questions)) {
 
     $pdf->cell(10,7,'1',1,0,'C');
-    $pdf->cell(245,7,'All compliant',1,0,'L');
-    $pdf->cell(15,7,"C",1,1,'C');
+    $pdf->cell(200,7,'All compliant',1,0,'L');
+    $pdf->cell(15,7,"C",1,0,'C');
+    $pdf->cell(45,7,'',1,1,'L');
 }
 else{
     $No = 1;
     foreach ($Questions as $Question) { 
         $pdf->cell(10,7,$No,1,0,'C');
-        $pdf->cell(245,7,$Question[0],1,0,'L');
-        $pdf->cell(15,7,$Question[1],1,1,'C');
+        $pdf->cell(200,7,$Question[0],1,0,'L');
+        $pdf->cell(15,7,$Question[1],1,0,'C');
+        $pdf->Multicell(45,7,htmlspecialchars_decode($Question[2]),1,1);
         $No++;
     }
 }
@@ -113,7 +117,6 @@ else{
 $pdf->Ln('40');
 
 // Signature
-$pdf->cell(200,7,'Signature of CP with date',0,0,'L');
 $pdf->cell(70,7,'Signature of Inspector with date',0,0,'L');
 
 $pdf->Output('I',$result['inspection_id'].'.pdf');

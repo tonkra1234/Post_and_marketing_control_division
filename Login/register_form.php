@@ -95,6 +95,7 @@ if(isset($_POST['submit'])){
             </div>
             <select name="user_type" class="form-select form-select-lg mb-2">
                <option value="user">user</option>
+               <option value="user_edit">user_edit</option>
                <option value="admin">admin</option>
             </select>
             <select name="gender" class="form-select form-select-lg mb-3">

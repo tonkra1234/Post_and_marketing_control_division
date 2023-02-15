@@ -114,7 +114,7 @@ $header_g = $db_inspection->header_g();
                      }else{
                         ?>
                         <tr>
-                            <td colspan="7">
+                            <td colspan="8">
                                 <div class="d-flex justify-content-center align-items-center"
                                     style="min-height: 10rem;">
                                     <h3>There is no data founded</h3>

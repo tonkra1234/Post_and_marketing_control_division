@@ -7,6 +7,9 @@ if(!isset($_SESSION['user_name_pmcd'])){
  
 $user_name = $_SESSION['user_name_pmcd'];
 $_SESSION['user_name_pmcd'] = $user_name;
+
+$user_type = $_SESSION['user_type'];
+$_SESSION['user_type'] = $user_type;
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -157,12 +157,16 @@
                             ?>
                         </div>
                     </div>
+                    <?php 
+                    $location = json_decode($row['GPS_position']);
+                    if(isset($location) && !empty($location)):
+                    ?>
                     <div class="col-lg-12 col-12 mx-lg-2 my-lg-4">
                         <?php 
-                        $location = json_decode($row['GPS_position']);
                         ?>
                         <iframe width="100%" height="500" src="https://maps.google.com/maps?q=<?php echo $location[1];?>,<?php echo $location[0];?>&output=embed"></iframe>
                     </div>
+                    <?php endif;?>
                 </div>
             </div>
         </div>
