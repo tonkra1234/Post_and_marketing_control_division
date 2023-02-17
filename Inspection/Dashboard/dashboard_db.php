@@ -152,7 +152,17 @@ class Dashboard extends Config {
 
     public function result_check_g_now() {
         
-        $sql ="SELECT * FROM government_detail2023";
+        $sql ="SELECT * FROM government_detail2023 WHERE date_of_inspection BETWEEN '2023-01-01' AND '2023-12-31'";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function result_check_g_2024() {
+        
+        $sql ="SELECT * FROM government_detail2023 WHERE date_of_inspection BETWEEN '2024-01-01' AND '2024-12-31'";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();
@@ -162,7 +172,17 @@ class Dashboard extends Config {
 
     public function result_check_p_now() {
         
-        $sql ="SELECT * FROM private_detail2023";
+        $sql ="SELECT * FROM private_detail2023 WHERE date_of_inspection BETWEEN '2023-01-01' AND '2023-12-31'";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function result_check_p_2024() {
+        
+        $sql ="SELECT * FROM private_detail2023 WHERE date_of_inspection BETWEEN '2024-01-01' AND '2024-12-31'";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();

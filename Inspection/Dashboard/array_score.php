@@ -356,17 +356,63 @@ foreach ($result_check_p_now as $row ){
     }
 };
 
-
 $total_number_p_now = count($result_check_p_now)*count($total_question_p_now );
 if ($total_number_p_now === 0) {
     $total_number_p_now = 1;
 } else {
     $total_number_p_now = count($result_check_p_now)*count($total_question_p_now );
 }
-
 $private_score_2023 = number_format(100-((count($Number_p_now)/($total_number_p_now))*100),1);
 
-$label_score = ['private 2020','private 2021','private 2022','government 2023','government 2020','government 2021','government 2022','government 2023'];
-$score = [number_format(array_sum($private_2020)/count($private_2020),1),number_format(array_sum($private_2021)/count($private_2021),1),$private_2022,$government_score_2023,number_format(array_sum($government_2020)/count($government_2020),1),number_format(array_sum($government_2021)/count($government_2021),1),$governmnet_2022,$private_score_2023 ];
+$result_check_g_2024 = $db->result_check_g_2024();
+$Number_g_2024=[];
+$total_question_g_2024 = [];
+foreach ($result_check_g_2024 as $row ){
+    for ($i=1; $i <= count(json_decode($row['check_list'])); $i++) { 
+        array_push($total_question_g_2024, $i);
+        if((json_decode($row['check_list']))[$i-1][0] === 'No'){
+            array_push($Number_g_2024, $i-1);
+        }
+    }
+};
 
+$total_number_g_2024 = count($result_check_g_2024)*count($total_question_g_2024 );
+if ($total_number_g_2024 === 0) {
+    $total_number_g_2024 = 1;
+} else {
+    $total_number_g_2024 = count($result_check_g_2024)*count($total_question_g_2024 );
+}
+$government_score_2024 = number_format(100-((count($Number_g_2024)/($total_number_g_2024))*100),1);
+
+$result_check_p_2024 = $db->result_check_p_2024();
+$Number_p_2024=[];
+$total_question_p_2024 = [];
+foreach ($result_check_p_2024 as $row ){
+    for ($i=1; $i <= count(json_decode($row['check_list'])); $i++) { 
+        array_push($total_question_p_2024, $i);
+        if((json_decode($row['check_list']))[$i-1][0] === 'No'){
+            array_push($Number_p_2024, $i-1);
+        }
+    }
+};
+
+$total_number_p_2024 = count($result_check_p_2024)*count($total_question_p_2024 );
+if ($total_number_p_2024 === 0) {
+    $total_number_p_2024 = 1;
+} else {
+    $total_number_p_2024 = count($result_check_p_2024)*count($total_question_p_2024 );
+}
+$private_score_2024 = number_format(100-((count($Number_p_2024)/($total_number_p_2024))*100),1);
+
+
+$private_score_2024 = $private_score_2024;
+$government_score_2024 = $government_score_2024;
+
+$label_score = ['Private','Government'];
+// $score = [number_format(array_sum($private_2020)/count($private_2020),1),number_format(array_sum($private_2021)/count($private_2021),1),$private_2022,$government_score_2023,number_format(array_sum($government_2020)/count($government_2020),1),number_format(array_sum($government_2021)/count($government_2021),1),$governmnet_2022,$private_score_2023 ];
+$score_2020 = [number_format(array_sum($private_2020)/count($private_2020),1),number_format(array_sum($government_2020)/count($government_2020),1)];
+$score_2021 = [number_format(array_sum($private_2021)/count($private_2021),1),number_format(array_sum($government_2021)/count($government_2021),1)];
+$score_2022 = [$private_2022,$governmnet_2022];
+$score_2023 = [$private_score_2023,$government_score_2023];
+$score_2024 = [$private_score_2024,$government_score_2024];
 ?>

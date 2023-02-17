@@ -97,7 +97,7 @@ foreach ($check_list as $row){
 if (empty($Questions)) {
 
     $pdf->cell(10,7,'1',1,0,'C');
-    $pdf->cell(200,7,'All compliant',1,0,'L');
+    $pdf->cell(200,7,'All complies',1,0,'L');
     $pdf->cell(15,7,"C",1,0,'C');
     $pdf->cell(45,7,'',1,1,'L');
 }
@@ -114,10 +114,15 @@ else{
 
 
 
-$pdf->Ln('40');
+$pdf->Ln('10');
 
 // Signature
-$pdf->cell(70,7,'Signature of Inspector with date',0,0,'L');
+$pdf->cell(137,7,'Inspection conducted by (Name and Signature)',0,1,'L');
+$pdf->cell(137,25,'',0,1,'L');
+$pdf->cell(137,7,'Verify by In-charge, ',1,0,'L');
+$pdf->cell(137,7,'Approved by Chief, ',1,1,'L');
+$pdf->cell(137,25,'',1,0,'L');
+$pdf->cell(137,25,'',1,1,'L');
 
 $pdf->Output('I',$result['inspection_id'].'.pdf');
 

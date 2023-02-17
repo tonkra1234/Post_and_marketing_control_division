@@ -29,7 +29,6 @@ $contact = $util->testInput($_POST['contact']);
 $contact_detail = $util->testInput($_POST['contact_detail']);
 $longitude = $util->testInput($_POST['longitude']);
 $latitude = $util->testInput($_POST['latitude']);
-$inspector_name = $util->testInput($_POST['inspector_name']);
 
 $GPS = array();
 $Array=array();
@@ -56,8 +55,7 @@ array_push($GPS,$longitude);
 array_push($GPS,$latitude);
 
 $GPS_position = json_encode($GPS);
-
-
+$inspector_name = json_encode($_POST['inspector_name']);
 $check_list = json_encode($Array);
 
 

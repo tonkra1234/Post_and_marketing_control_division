@@ -95,7 +95,7 @@ foreach ($result_check as $row){
 if (empty($Arr)) {
 
     $pdf->cell(10,7,'1',1,0,'C');
-    $pdf->cell(245,7,'All compliant',1,0,'L');
+    $pdf->cell(245,7,'All complies',1,0,'L');
     $pdf->cell(15,7,"C",1,1,'C');
 }
 else{

@@ -77,10 +77,6 @@ $last_id = $db->report2023_pNumber();
                             <h5 class="mb-3">B. Information of pharmacy/premises</h5>
                         </div>
                         <div class="col-lg-6 col-12">
-                            <!-- <div class="input-group mb-3">
-                                <span class="input-group-text" id="Pname">Name of premise</span>
-                                <input type="text" class="form-control" id="Pname" name="Pname" required>
-                            </div> -->
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="Pname">Name of premise</span>
                                 <input type="text" class="form-control" id="Pname" name="Pname" list="NameOptions" required>
@@ -217,9 +213,9 @@ $last_id = $db->report2023_pNumber();
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Inspected by</span>
-                                <select class="form-select" id="inspector_name" name="inspector_name" required>
+                                <select class="form-select" id="multiple-select-field" name="inspector_name[]" data-placeholder="Choose anything" multiple>
                                     <option value="">Select one</option>
-                                    <?php include_once './include/Inspector.php';?>
+                                    <?php include './include/Inspector.php';?>
                                 </select>
                             </div>
                         </div>
@@ -232,6 +228,14 @@ $last_id = $db->report2023_pNumber();
         </form>
     </div>
 </div>
+<script>
+$('#multiple-select-field' ).select2( {
+    theme: "bootstrap-5",
+    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+    placeholder: $( this ).data( 'placeholder' ),
+    closeOnSelect: false,
+} );
+</script>
 <script>
     function error(err) {
         console.warn(`ERROR(${err.code}): ${err.message}`);

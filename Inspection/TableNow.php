@@ -86,12 +86,20 @@ $fetch_table_now_g = $db->fetch_table2023_g($initial_page,$limit);
                     <td><?php echo $row["name_of_premise"]; ?></td>
                     <td><?php echo $row["competent_name"]; ?></td>
                     <td><?php echo $row["date_of_inspection"]; ?></td>
-                    <td><?php echo $row["inspector_name"]; ?></td>
+                    <td>
+                        <?php 
+                        $inspectors = json_decode($row["inspector_name"]);
+                        foreach($inspectors as $inspector){?>
+                            <span><?php echo $inspector;?>,</span>
+                        <?php
+                        };
+                        ?>
+                    </td>
                     <td><?php echo $row["dzongkhag"]; ?></td>
                     <td>
                         <?php if($row["verify"] === 'Verified'): ?>
                             <span class="badge rounded-pill bg-success"><?php echo $row["verify"]; ?></span>
-                        <?php elseif($row["verify"] === 'Unverified'): ?>
+                        <?php elseif($row["verify"] === 'Non-verified'): ?>
                             <span class="badge rounded-pill bg-danger"><?php echo $row["verify"]; ?></span>
                         <?php endif; ?>
                     </td>
@@ -183,12 +191,20 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
                     <td><?php echo $row["name_of_premise"]; ?></td>
                     <td><?php echo $row["competent_name"]; ?></td>
                     <td><?php echo $row["date_of_inspection"]; ?></td>
-                    <td><?php echo $row["inspector_name"]; ?></td>
+                    <td>
+                        <?php 
+                        $inspectors = json_decode($row["inspector_name"]);
+                        foreach($inspectors as $inspector){?>
+                            <span><?php echo $inspector;?>,</span>
+                        <?php
+                        };
+                        ?>
+                    </td>
                     <td><?php echo $row["dzongkhag"]; ?></td>
                     <td>
                         <?php if($row["verify"] === 'Verified'): ?>
                             <span class="badge rounded-pill bg-success"><?php echo $row["verify"]; ?></span>
-                        <?php elseif($row["verify"] === 'Unverified'): ?>
+                        <?php elseif($row["verify"] === 'Non-verified'): ?>
                             <span class="badge rounded-pill bg-danger"><?php echo $row["verify"]; ?></span>
                         <?php endif; ?>
                     </td>
@@ -207,13 +223,13 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
                     <?php if($user_type === 'user_edit'):?>
                     <td>
                         <a class="btn btn-warning"
-                            href="./edit_g.php?inspection_id=<?php echo $row["inspection_id"]; ?>">
+                            href="./edit_p.php?inspection_id=<?php echo $row["inspection_id"]; ?>">
                             Edit
                         </a>
                     </td>
                     <td>
                         <input type="hidden" value="<?php echo $row["id"]; ?>" id="Id" name="Id">
-                        <input type="hidden" value="government" id="delete_type" name="delete_type">
+                        <input type="hidden" value="private" id="delete_type" name="delete_type">
                         <button type="button" class="delete_button btn btn-danger"
                             value="<?php echo $row["inspection_id"]; ?>">
                             Delete

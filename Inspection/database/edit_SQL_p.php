@@ -27,7 +27,6 @@ $registration_Number = $util->testInput($_POST['registration_Number']);
 $person_valid = $util->testInput($_POST['person_valid']);
 $contact = $util->testInput($_POST['contact']);
 $contact_detail = $util->testInput($_POST['contact_detail']);
-$inspector_name = $util->testInput($_POST['inspector_name']);
 $verify = $util->testInput($_POST['verify']);
 
 $Array=array();
@@ -51,6 +50,7 @@ for ($question=1; $question <= $number_question; $question++) {
 }
 
 $check_list = json_encode($Array);
+$inspector_name = json_encode($_POST['inspector_name']);
 
 
 if ($db->edit_p($id, $division, $today_date, $last_date, $type_inspect, $dzongkhag, $Pname, $type_premise, $address, 

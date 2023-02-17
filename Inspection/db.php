@@ -298,7 +298,7 @@ class DataBase extends Config {
             'check_list' => $check_list,
             'GPS_position' => $GPS_position,
             'inspector_name' => $inspector_name,
-            'verify' => 'Unverified',
+            'verify' => 'Non-verified',
         ]);
         return true;
     }
@@ -330,7 +330,7 @@ class DataBase extends Config {
             'check_list' => $check_list,
             'GPS_position' => $GPS_position,
             'inspector_name' => $inspector_name,
-            'verify' => 'Unverified',
+            'verify' => 'Non-verified',
         ]);
         return true;
     }

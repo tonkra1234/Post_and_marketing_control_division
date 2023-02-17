@@ -90,7 +90,25 @@ $last_id = $db->report2023_gNumber();
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="type_premise">Type of premise</span>
-                                <input type="text" class="form-control" id="type_premise" name="type_premise">
+                                <select class="form-select" aria-label="Default select example" id="type_premise"
+                                name="type_premise" required>
+                                <option value="">Select one of these</option>
+                                <optgroup label="Human">
+                                    <option value="Referral Hospital">Referral Hospital</option>
+                                    <option value="District Hospital">District Hospital</option>
+                                    <option value="Hospital">Hospital</option>
+                                    <option value="Primary Health Center">Primary Health Center</option>
+                                    <option value="Sub-post">Sub-post</option>
+                                    <option value="Clinic">Clinic</option>
+                                    <option value="Medical Supplies">Medical Supplies</option>
+                                    <option value="Traditional">Traditional</option>
+                                </optgroup>
+                                <optgroup label="Veterinary">
+                                    <option value="Veterinary Hospital">Veterinary Hospital</option>
+                                    <option value="Renewable Natural Resources Extension center">Renewable Natural Resources Extension center</option>
+                                    <option value="Livestock Extension Center">Livestock Extension Center</option>
+                                </optgroup>
+                            </select>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">
@@ -216,9 +234,9 @@ $last_id = $db->report2023_gNumber();
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Inspected by</span>
-                                <select class="form-select" id="inspector_name" name="inspector_name" required>
+                                <select class="form-select" id="multiple-select-field" name="inspector_name[]" data-placeholder="Choose anything" multiple>
                                     <option value="">Select one</option>
-                                    <?php include_once './include/Inspector.php';?>
+                                    <?php include './include/Inspector.php';?>
                                 </select>
                             </div>
                         </div>
@@ -231,6 +249,14 @@ $last_id = $db->report2023_gNumber();
         </form>
     </div>
 </div>
+<script>
+$('#multiple-select-field' ).select2( {
+    theme: "bootstrap-5",
+    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+    placeholder: $( this ).data( 'placeholder' ),
+    closeOnSelect: false,
+} );
+</script>
 <script>
     function error(err) {
         console.warn(`ERROR(${err.code}): ${err.message}`);
