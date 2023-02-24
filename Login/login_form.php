@@ -32,7 +32,6 @@ if(isset($_POST['submit'])){
   }else{
       $error[] = 'incorrect email or password!';
   }
-
 };
 ?>
 
@@ -66,14 +65,14 @@ if(isset($_POST['submit'])){
 <body>
    <section class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="container">
-         <div class="row justify-content-center">
+         <div class="row justify-content-lg-start justify-content-center">
             <div class="col-md-12 col-lg-10">
                <div class="wrap d-flex justify-content-lg-start justify-content-center">
                   <div class="login-wrap pt-4 p-lg-5 border rounded-3 minvw-100">
                      <div class="d-flex">
                         <div class="w-100 text-center">
                            <img src="./image/logo.png" alt="logo" width="150px" class="mb-2">
-                           <h1 class="mb-3" style="color:#1DA200 ;">Welcome to login</h1>
+                           <h1 class="mb-3 text-primary" style="font-size: 3rem;">Medical Product Surveillance System</h1>
                         </div>
                      </div>
                      <form action="" method="post" class="bg-light p-3 shadow rounded">

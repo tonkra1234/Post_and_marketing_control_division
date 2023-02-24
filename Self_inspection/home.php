@@ -70,6 +70,10 @@ $db = new Database();
                                     <option value="Renewable Natural Resources Extension center">Renewable Natural Resources Extension center</option>
                                     <option value="Livestock Extension Center">Livestock Extension Center</option>
                                 </optgroup>
+                                <optgroup label="Private">
+                                    <option value="Retail Pharmacy">Retail Pharmacy</option>
+                                    <option value="Wholesale Pharmacy">Wholesale Pharmacy</option>
+                                </optgroup>
                             </select>
                             <label for="floatingInput">Type of facility</label>
                         </div>

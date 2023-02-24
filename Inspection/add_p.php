@@ -40,13 +40,13 @@ $last_id = $db->report2023_pNumber();
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="today">Date of inspection</span>
                                 <input type="date" class="form-control" id="today" name="today"
-                                    value="<?php echo $today?>">
+                                    value="<?php echo $today?>" required>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="last_date">Date of last inspection</span>
-                                <input type="date" class="form-control" id="last_date" name="last_date">
+                                <input type="date" class="form-control" id="last_date" name="last_date" required>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12 mb-3">
@@ -87,7 +87,12 @@ $last_id = $db->report2023_pNumber();
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="type_premise">Type of premise</span>
-                                <input type="text" class="form-control" id="type_premise" name="type_premise">
+                                <select class="form-select" aria-label="Default select example" id="type_premise"
+                                    name="type_premise" required>
+                                    <option value="">Select one of these</option>
+                                    <option value="Retail Pharmacy">Retail Pharmacy</option>
+                                    <option value="Wholesale Pharmacy">Wholesale Pharmacy</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">
@@ -110,7 +115,7 @@ $last_id = $db->report2023_pNumber();
                         <div class="col-lg-12 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Scope of inspection</span>
-                                <input type="text" class="form-control" id="inspec_scope" name="inspec_scope">
+                                <input type="text" class="form-control" id="inspec_scope" name="inspec_scope" required>
                             </div>
                         </div>
                         <hr>
@@ -127,7 +132,7 @@ $last_id = $db->report2023_pNumber();
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Email</span>
-                                <input type="text" class="form-control" id="email" name="email">
+                                <input type="text" class="form-control" id="email" name="email" required>
                             </div>
                         </div>
 
@@ -149,7 +154,7 @@ $last_id = $db->report2023_pNumber();
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Conatct number</span>
-                                <input type="text" class="form-control" id="contact" name="contact">
+                                <input type="text" class="form-control" id="contact" name="contact" required>
                             </div>
                         </div>
 

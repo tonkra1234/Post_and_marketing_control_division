@@ -209,6 +209,128 @@ class Dashboard extends Config {
 
         return $result;
     }
+
+    public function result_financial_2020_g() {
+    
+        $sql ="SELECT date_format(date_of_inspection,'%Y') as Year,COUNT(id) as Sum from premise_report_detail_grovern WHERE `date_of_inspection` BETWEEN '2020-01-01' AND '2021-06-30' group by year(date_of_inspection) order by year(date_of_inspection) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function result_financial_2021_g() {
+    
+        $sql ="SELECT date_format(date_of_inspection,'%Y') as Year,COUNT(id) as Sum from premise_report_detail_grovern WHERE `date_of_inspection` BETWEEN '2021-07-01' AND '2022-06-30' group by year(date_of_inspection) order by year(date_of_inspection) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function result_financial_2022_g_1() {
+    
+        $sql ="SELECT date_format(date_of_inspection,'%Y') as Year,COUNT(id) as Sum from premise_report_detail_grovern WHERE `date_of_inspection` BETWEEN '2022-07-01' AND '2022-12-31' group by year(date_of_inspection) order by year(date_of_inspection) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function result_financial_2022_g_2() {
+    
+        $sql ="SELECT COUNT(*) as Sum from `government_detail2023` WHERE `date_of_inspection` BETWEEN '2023-01-01' AND '2023-06-30' ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function result_financial_2023_g() {
+    
+        $sql ="SELECT COUNT(*) as Sum from `government_detail2023` WHERE `date_of_inspection` BETWEEN '2023-07-01' AND '2024-06-30' ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function result_financial_2024_g() {
+    
+        $sql ="SELECT COUNT(*) as Sum from `government_detail2023` WHERE `date_of_inspection` BETWEEN '2024-07-01' AND '2025-06-30' ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function result_financial_2020_p() {
+    
+        $sql ="SELECT date_format(date_of_inspection,'%Y') as Year,COUNT(id) as Sum from premise_report_detail_private WHERE `date_of_inspection` BETWEEN '2020-01-01' AND '2021-06-30' group by year(date_of_inspection) order by year(date_of_inspection) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function result_financial_2021_p() {
+    
+        $sql ="SELECT date_format(date_of_inspection,'%Y') as Year,COUNT(id) as Sum from premise_report_detail_private WHERE `date_of_inspection` BETWEEN '2021-07-01' AND '2022-06-30' group by year(date_of_inspection) order by year(date_of_inspection) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function result_financial_2022_p_1() {
+    
+        $sql ="SELECT date_format(date_of_inspection,'%Y') as Year,COUNT(id) as Sum from premise_report_detail_private WHERE `date_of_inspection` BETWEEN '2022-07-01' AND '2022-12-31' group by year(date_of_inspection) order by year(date_of_inspection) ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function result_financial_2022_p_2() {
+    
+        $sql ="SELECT COUNT(*) as Sum from `private_detail2023` WHERE `date_of_inspection` BETWEEN '2023-01-01' AND '2023-06-30' ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function result_financial_2023_p() {
+    
+        $sql ="SELECT COUNT(*) as Sum from `private_detail2023` WHERE `date_of_inspection` BETWEEN '2023-07-01' AND '2024-06-30' ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function result_financial_2024_p() {
+    
+        $sql ="SELECT COUNT(*) as Sum from `private_detail2023` WHERE `date_of_inspection` BETWEEN '2024-07-01' AND '2025-06-30' ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    
     
     
 }

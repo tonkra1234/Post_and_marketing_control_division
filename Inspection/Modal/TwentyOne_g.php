@@ -1,17 +1,21 @@
 <?php
 
-$inspect_id = $util->testInput($row["id"]) ;
+$id = $util->testInput($row["id"]);
+$inspect_id = $row["inspection_id"];
 $fetch_data_score = $db->data_score_g($inspect_id);
 $data_score = $fetch_data_score;
 $data = $db->Data_2021_g($inspect_id);
 
-$sum_raw = $data_score['premise']+$data_score['Good_storage_Practice']+$data_score['Good_Dispensing_Practice']+$data_score['Documentation']+$data_score['Good_Compounding_Practice'];
-$percentage = 100-(($sum_raw * 100)/39);
-$sub_percentage_1 = number_format((100 - (($data_score['premise']*100)/6)),1);
-$sub_percentage_2 = number_format((100 - (($data_score['Good_storage_Practice']*100)/11)),1);
-$sub_percentage_3 = number_format((100 - (($data_score['Good_Dispensing_Practice']*100)/8)),1);
-$sub_percentage_4 = number_format((100 - (($data_score['Documentation']*100)/8)),1);
-$sub_percentage_5 = number_format((100 - (($data_score['Good_Compounding_Practice']*100)/6)),1);
+
+if($fetch_data_score){
+    $sum_raw = $data_score['premise']+$data_score['Good_storage_Practice']+$data_score['Good_Dispensing_Practice']+$data_score['Documentation']+$data_score['Good_Compounding_Practice'];
+    $percentage = 100-(($sum_raw * 100)/39);
+    $sub_percentage_1 = number_format((100 - (($data_score['premise']*100)/6)),1);
+    $sub_percentage_2 = number_format((100 - (($data_score['Good_storage_Practice']*100)/11)),1);
+    $sub_percentage_3 = number_format((100 - (($data_score['Good_Dispensing_Practice']*100)/8)),1);
+    $sub_percentage_4 = number_format((100 - (($data_score['Documentation']*100)/8)),1);
+    $sub_percentage_5 = number_format((100 - (($data_score['Good_Compounding_Practice']*100)/6)),1);
+}
 
 ?>
 <!-- Modal -->

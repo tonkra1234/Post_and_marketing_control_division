@@ -1,10 +1,9 @@
 <?php
-
-class Config {
+class ConfigInspector {
     private const DBHOST = "localhost";
     private const DBUSER = "root";
     private const DBPASS = "";
-    private const DBNAME = "users";
+    private const DBNAME = "gmp_inspection";
     private $dsn = "mysql:host=" . self::DBHOST . ";dbname=" . self::DBNAME . '';
     protected $conn = null;
 
@@ -18,29 +17,26 @@ class Config {
     }
 }
 
-class DataBase extends Config {
+class Inspector extends ConfigInspector {
 
-    public function fetch_users(){
-
-        $sql= " SELECT * FROM pmcd ";
+    public function inspectors() {
+        
+        $sql ="SELECT * FROM `inspector` ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $result =  $stmt->fetchAll();
+        $result= $stmt->fetchAll();
+
         return $result;
     }
 
-    public function change_password($password,$id){
 
-        $sql= " UPDATE `pmcd` SET `password` = :password WHERE id = :id ";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute([
-            'id' => $id,
-            'password' => $password,
-        ]);
-    
-        return true;
-    }
     
 }
 
+$db_inspector = new Inspector();
+$Inspector = $db_inspector-> inspectors();
 ?>
+
+<?php foreach($Inspector as $row){ ?>
+    <option value="<?php echo $row['name'];?>"><?php echo $row['name'];?></option>
+<?php };?>

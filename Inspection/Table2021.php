@@ -69,11 +69,12 @@ $fetch_table_2021_g = $db->fetch_table2021_g($initial_page,$limit);
             <tbody id="myTable">
 
                 <?php
+                $number= $limit*($page_number-1)+1;
         foreach ($fetch_table_2021_g as $row){
         ?>
 
                 <tr>
-                    <th scope="row"><?php echo $row["id"]; ?></th>
+                    <th scope="row"><?php echo $number; ?></th>
                     <td><?php echo $row["inspection_id"]; ?></td>
                     <td><?php echo $row["name_of_premise"]; ?></td>
                     <td><?php echo $row["competent_name"]; ?></td>
@@ -88,6 +89,7 @@ $fetch_table_2021_g = $db->fetch_table2021_g($initial_page,$limit);
                 </tr>
 
                 <?php
+                $number++;
         require './Modal/TwentyOne_g.php';
     };
     ?>
@@ -120,11 +122,12 @@ $fetch_table_2021_p = $db->fetch_table2021_p($initial_page,$limit);
             <tbody id="myTable">
 
                 <?php
+                $number= $limit*($page_number-1)+1;
         foreach ($fetch_table_2021_p as $row){
         ?>
 
                 <tr>
-                    <th scope="row"><?php echo $row["id"]; ?></th>
+                    <th scope="row"><?php echo $number; ?></th>
                     <td><?php echo $row["inspection_id"]; ?></td>
                     <td><?php echo $row["name_of_premise"]; ?></td>
                     <td><?php echo $row["competent_name"]; ?></td>
@@ -139,6 +142,7 @@ $fetch_table_2021_p = $db->fetch_table2021_p($initial_page,$limit);
                 </tr>
 
                 <?php
+                $number++;
             require './Modal/TwentyOne_p.php';
 
     };

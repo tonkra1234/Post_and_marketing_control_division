@@ -62,17 +62,17 @@ $fetch_table_2021_g = $db->fetch_table2022_g($initial_page,$limit);
                     <th scope="col">Date of inspection</th>
                     <th scope="col">Dzongkhag</th>
                     <th scope="col">More detail</th>
-                    <th scope="col">Report</th>
                 </tr>
             </thead>
             <tbody id="myTable">
 
                 <?php
+                $number= $limit*($page_number-1)+1;
         foreach ($fetch_table_2021_g as $row){
         ?>
 
                 <tr>
-                    <th scope="row"><?php echo $row["id"]; ?></th>
+                    <th scope="row"><?php echo $number; ?></th>
                     <td><?php echo $row["inspection_id"]; ?></td>
                     <td><?php echo $row["name_of_premise"]; ?></td>
                     <td><?php echo $row["competent_name"]; ?></td>
@@ -84,15 +84,10 @@ $fetch_table_2021_g = $db->fetch_table2022_g($initial_page,$limit);
                             Detail
                         </button>
                     </td>
-                    <td>
-                        <a class="btn btn-secondary"
-                            href="./Report/instant_report_gov2022.php?inspection_id=<?php echo $row["inspection_id"]; ?>&id=<?php echo $row["id"]; ?>">
-                            Report
-                        </a>
-                    </td>
                 </tr>
 
                 <?php
+                $number++;
         require './Modal/TwentyTwo_g.php';
     };
     ?>
@@ -120,17 +115,17 @@ $fetch_table_2021_p = $db->fetch_table2022_p($initial_page,$limit);
                     <th scope="col">Date of inspection</th>
                     <th scope="col">Dzongkhag</th>
                     <th scope="col">More detail</th>
-                    <th scope="col">Report</th>
                 </tr>
             </thead>
             <tbody id="myTable">
 
                 <?php
+                $number= $limit*($page_number-1)+1;
         foreach ($fetch_table_2021_p as $row){
         ?>
 
                 <tr>
-                    <th scope="row"><?php echo $row["id"]; ?></th>
+                    <th scope="row"><?php echo $number; ?></th>
                     <td><?php echo $row["inspection_id"]; ?></td>
                     <td><?php echo $row["name_of_premise"]; ?></td>
                     <td><?php echo $row["competent_name"]; ?></td>
@@ -142,15 +137,10 @@ $fetch_table_2021_p = $db->fetch_table2022_p($initial_page,$limit);
                             Detail
                         </button>
                     </td>
-                    <td>
-                        <a class="btn btn-secondary"
-                            href="./Report/instant_report_pri2022.php?inspection_id=<?php echo $row["inspection_id"]; ?>&id=<?php echo $row["id"]; ?>">
-                            Report
-                        </a>
-                    </td>
                 </tr>
 
                 <?php
+                $number++;
         require './Modal/TwentyTwo_p.php';
     };
     ?>

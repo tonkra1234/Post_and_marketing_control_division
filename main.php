@@ -57,7 +57,7 @@ $user_name = $session->user();
     </nav>
     <div class="container">
         <div class="row align-items-center" style="min-height: 100vh;">
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-12 col-12">
                 <div class="card shadow mx-2">
                     <div class="card-header">
                         <h5>Inspection Section</h5>
@@ -81,7 +81,7 @@ $user_name = $session->user();
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-12">
+            <!-- <div class="col-lg-6 col-12">
                 <div class="card shadow mx-2">
                     <div class="card-header">
                         <h5>Vigilance Section</h5>
@@ -101,7 +101,7 @@ $user_name = $session->user();
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>

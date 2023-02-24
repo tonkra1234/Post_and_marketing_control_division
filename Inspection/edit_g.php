@@ -86,7 +86,26 @@ $count_question = json_decode($fetch_each_data_g['check_list']);
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="type_premise">Type of premise</span>
-                                <input type="text" class="form-control" id="type_premise" name="type_premise" value="<?php echo $fetch_each_data_g['type_of_premise'];?>">
+                                <select class="form-select" aria-label="Default select example" id="type_premise"
+                                    name="type_premise" required>
+                                    <option value="<?php echo $fetch_each_data_g['type_of_premise'];?>"><?php echo $fetch_each_data_g['type_of_premise'];?></option>
+                                    <optgroup label="Human">
+                                        <option value="Referral Hospital">Referral Hospital</option>
+                                        <option value="District Hospital">District Hospital</option>
+                                        <option value="Hospital">Hospital</option>
+                                        <option value="Primary Health Center">Primary Health Center</option>
+                                        <option value="Sub-post">Sub-post</option>
+                                        <option value="Clinic">Clinic</option>
+                                        <option value="Medical Supplies">Medical Supplies</option>
+                                        <option value="Traditional">Traditional</option>
+                                    </optgroup>
+                                    <optgroup label="Veterinary">
+                                        <option value="Veterinary Hospital">Veterinary Hospital</option>
+                                        <option value="Renewable Natural Resources Extension center">Renewable Natural
+                                            Resources Extension center</option>
+                                        <option value="Livestock Extension Center">Livestock Extension Center</option>
+                                    </optgroup>
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">

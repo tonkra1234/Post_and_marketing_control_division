@@ -13,7 +13,7 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
     <div class="card shadow">
         <form action="./database/edit_SQL_p.php" method="post">
             <div class="card-header" style="background-color:#D4B700 ;">
-                <h3 class="text-center text-white fw-bold">Edit government inspection</h3>
+                <h3 class="text-center text-white fw-bold">Edit private inspection</h3>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -22,8 +22,9 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-12">
-                        <input type="hidden" id="id" name="id" value="<?php echo $fetch_each_data_p['id'];?>">
-                        <input type="hidden" id="count_question" name="count_question" value="<?php echo count($count_question);?>">
+                            <input type="hidden" id="id" name="id" value="<?php echo $fetch_each_data_p['id'];?>">
+                            <input type="hidden" id="count_question" name="count_question"
+                                value="<?php echo count($count_question);?>">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="Inspec_id">Inspection ID</span>
                                 <input type="text" class="form-control" id="Inspec_id" name="Inspec_id"
@@ -33,28 +34,32 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="division">Division</span>
-                                <input type="text" class="form-control" id="division" name="division" value="<?php echo $fetch_each_data_p['division'];?>">
+                                <input type="text" class="form-control" id="division" name="division"
+                                    value="<?php echo $fetch_each_data_p['division'];?>">
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="today">Date of inspection</span>
                                 <input type="date" class="form-control" id="today" name="today"
-                                value="<?php echo $fetch_each_data_p['date_of_inspection'];?>">
+                                    value="<?php echo $fetch_each_data_p['date_of_inspection'];?>">
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="last_date">Date of last inspection</span>
-                                <input type="date" class="form-control" id="last_date" name="last_date" value="<?php echo $fetch_each_data_p['date_of_last_inspection'];?>">
+                                <input type="date" class="form-control" id="last_date" name="last_date"
+                                    value="<?php echo $fetch_each_data_p['date_of_last_inspection'];?>">
                             </div>
                         </div>
                         <div class="col-lg-6 col-12 mb-3">
                             <div class="input-group">
                                 <span class="input-group-text" id="type_inspect">Type of inspection
                                 </span>
-                                <select class="form-select" aria-label="Default select example" name="type_inspect" required>
-                                    <option value="<?php echo $fetch_each_data_p['type_of_inspection'];?>"><?php echo $fetch_each_data_p['type_of_inspection'];?></option>
+                                <select class="form-select" aria-label="Default select example" name="type_inspect"
+                                    required>
+                                    <option value="<?php echo $fetch_each_data_p['type_of_inspection'];?>">
+                                        <?php echo $fetch_each_data_p['type_of_inspection'];?></option>
                                     <option value="Routine">Routine</option>
                                     <option value="Follow-up">Follow-up</option>
                                     <option value="Special">Special</option>
@@ -66,7 +71,8 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                                 <span class="input-group-text" id="dzongkhag">Dzongkhag
                                 </span>
                                 <select class="form-select h-100" id="dzongkhag" name="dzongkhag" required>
-                                    <option value="<?php echo $fetch_each_data_p['dzongkhag'];?>"><?php echo $fetch_each_data_p['dzongkhag'];?></option>
+                                    <option value="<?php echo $fetch_each_data_p['dzongkhag'];?>">
+                                        <?php echo $fetch_each_data_p['dzongkhag'];?></option>
                                     <?php include './include/Dzongkhag.php';?>
                                 </select>
                             </div>
@@ -79,14 +85,21 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="Pname">Name of premise</span>
-                                <input type="text" class="form-control" id="Pname" name="Pname" required value="<?php echo $fetch_each_data_p['name_of_premise'];?>">
+                                <input type="text" class="form-control" id="Pname" name="Pname" required
+                                    value="<?php echo $fetch_each_data_p['name_of_premise'];?>">
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="type_premise">Type of premise</span>
-                                <input type="text" class="form-control" id="type_premise" name="type_premise" value="<?php echo $fetch_each_data_p['type_of_premise'];?>">
+                                <select class="form-select" aria-label="Default select example" id="type_premise"
+                                    name="type_premise" required>
+                                    <option value="<?php echo $fetch_each_data_p['type_of_premise'];?>">
+                                        <?php echo $fetch_each_data_p['type_of_premise'];?></option>
+                                        <option value="Retail Pharmacy">Retail Pharmacy</option>
+                                        <option value="Wholesale Pharmacy">Wholesale Pharmacy</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">
@@ -99,17 +112,20 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-2">
                                 <span class="input-group-text">Technical Authorization No</span>
-                                <input type="text" class="form-control" id="premise_number" name="premise_number" value="<?php echo $fetch_each_data_p['technical_authorization_no'];?>">
+                                <input type="text" class="form-control" id="premise_number" name="premise_number"
+                                    value="<?php echo $fetch_each_data_p['technical_authorization_no'];?>">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Validity</span>
-                                <input type="text" class="form-control" id="premise_valid" name="premise_valid" value="<?php echo $fetch_each_data_p['validity_premise'];?>">
+                                <input type="text" class="form-control" id="premise_valid" name="premise_valid"
+                                    value="<?php echo $fetch_each_data_p['validity_premise'];?>">
                             </div>
                         </div>
                         <div class="col-lg-12 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Scope of inspection</span>
-                                <input type="text" class="form-control" id="inspec_scope" name="inspec_scope" value="<?php echo $fetch_each_data_p['scope_of_inspection'];?>">
+                                <input type="text" class="form-control" id="inspec_scope" name="inspec_scope"
+                                    value="<?php echo $fetch_each_data_p['scope_of_inspection'];?>">
                             </div>
                         </div>
                         <hr>
@@ -119,14 +135,16 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Name</span>
-                                <input type="text" class="form-control" id="name" name="name" required value="<?php echo $fetch_each_data_p['competent_name'];?>">
+                                <input type="text" class="form-control" id="name" name="name" required
+                                    value="<?php echo $fetch_each_data_p['competent_name'];?>">
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Email</span>
-                                <input type="text" class="form-control" id="email" name="email" value="<?php echo $fetch_each_data_p['email_competent'];?>">
+                                <input type="text" class="form-control" id="email" name="email"
+                                    value="<?php echo $fetch_each_data_p['email_competent'];?>">
                             </div>
                         </div>
 
@@ -134,28 +152,32 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                             <div class="input-group mb-3">
                                 <span class="input-group-text">CP/BMHC registration No</span>
                                 <input type="text" class="form-control" id="registration_Number"
-                                    name="registration_Number" value="<?php echo $fetch_each_data_p['cp_registration_no'];?>">
+                                    name="registration_Number"
+                                    value="<?php echo $fetch_each_data_p['cp_registration_no'];?>">
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Validity</span>
-                                <input type="text" class="form-control" id="person_valid" name="person_valid" value="<?php echo $fetch_each_data_p['validity_competent'];?>">
+                                <input type="text" class="form-control" id="person_valid" name="person_valid"
+                                    value="<?php echo $fetch_each_data_p['validity_competent'];?>">
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Conatct number</span>
-                                <input type="text" class="form-control" id="contact" name="contact" value="<?php echo $fetch_each_data_p['conatct_number'];?>">
+                                <input type="text" class="form-control" id="contact" name="contact"
+                                    value="<?php echo $fetch_each_data_p['conatct_number'];?>">
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Other conatct details</span>
-                                <input type="text" class="form-control" id="contact_detail" name="contact_detail" value="<?php echo $fetch_each_data_p['other_contact'];?>">
+                                <input type="text" class="form-control" id="contact_detail" name="contact_detail"
+                                    value="<?php echo $fetch_each_data_p['other_contact'];?>">
                             </div>
                         </div>
                         <hr>
@@ -185,20 +207,21 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                                         <th scope="row" class="text-center"><?php echo $number; ?></th>
                                         <td><?php echo $result[2];?></td>
                                         <input type="hidden" class="form-control" id="question<?php echo $number; ?>"
-                                            name="question<?php echo $number; ?>"
-                                            value="<?php echo $result[2]; ?>">
+                                            name="question<?php echo $number; ?>" value="<?php echo $result[2]; ?>">
                                         <input type="hidden" class="form-control" id="level<?php echo $number; ?>"
                                             name="level<?php echo $number; ?>" value="<?php echo $result[3]; ?>">
                                         <td>
                                             <select name="select<?php echo $number;?>" id="select<?php echo $number;?>"
                                                 class="form-select" required>
-                                                <option value="<?php echo $result[0]; ?>"><?php echo $result[0]; ?></option>
+                                                <option value="<?php echo $result[0]; ?>"><?php echo $result[0]; ?>
+                                                </option>
                                                 <option value="Yes">Yes</option>
                                                 <option value="No">No</option>
                                                 <option value="NA">N/A</option>
                                             </select>
                                         </td>
-                                        <td><textarea rows="1" class="form-control" name="text<?php echo $number;?>" id="text<?php echo $number;?>"><?php echo $result[1]; ?></textarea>
+                                        <td><textarea rows="1" class="form-control" name="text<?php echo $number;?>"
+                                                id="text<?php echo $number;?>"><?php echo $result[1]; ?></textarea>
                                         </td>
                                     </tr>
                                     <?php
@@ -211,11 +234,12 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                         <div class="col-lg-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Inspected by</span>
-                                <select class="form-select" id="multiple-select-field" name="inspector_name[]" data-placeholder="Choose anything" multiple>
+                                <select class="form-select" id="multiple-select-field" name="inspector_name[]"
+                                    data-placeholder="Choose anything" multiple>
                                     <?php
                                         $inspectors = json_decode($fetch_each_data_p['inspector_name']);
                                         foreach($inspectors as $inspector){?>
-                                        <option value="<?php echo $inspector;?>" selected><?php echo $inspector;?></option>
+                                    <option value="<?php echo $inspector;?>" selected><?php echo $inspector;?></option>
                                     <?php
                                         }
                                     ?>
@@ -227,7 +251,8 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Verify</span>
                                 <select class="form-select" id="verify" name="verify" required>
-                                    <option value="<?php echo $fetch_each_data_p['verify'];?>"><?php echo $fetch_each_data_p['verify'];?></option>
+                                    <option value="<?php echo $fetch_each_data_p['verify'];?>">
+                                        <?php echo $fetch_each_data_p['verify'];?></option>
                                     <option value="Non-verified">Non-verified</option>
                                     <option value="Verified">Verified</option>
                                 </select>
@@ -243,12 +268,12 @@ $count_question = json_decode($fetch_each_data_p['check_list']);
     </div>
 </div>
 <script>
-$('#multiple-select-field' ).select2( {
-    theme: "bootstrap-5",
-    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
-    placeholder: $( this ).data( 'placeholder' ),
-    closeOnSelect: false,
-} );
+    $('#multiple-select-field').select2({
+        theme: "bootstrap-5",
+        width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        placeholder: $(this).data('placeholder'),
+        closeOnSelect: false,
+    });
 </script>
 
 <?php require './include/footer.php';?>

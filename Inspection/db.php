@@ -23,7 +23,7 @@ class DataBase extends Config {
 
     public function fetch_table2021_g($initial_page,$limit) {
         
-        $sql ="SELECT * FROM premise_report_detail_grovern WHERE DATE(date_of_inspection) BETWEEN '2020-07-01' AND '2022-06-30' LIMIT $initial_page, $limit ";
+        $sql ="SELECT * FROM premise_report_detail_grovern WHERE DATE(date_of_inspection) BETWEEN '2020-07-01' AND '2021-06-30' ORDER BY date_of_inspection DESC LIMIT $initial_page, $limit ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();
@@ -32,7 +32,7 @@ class DataBase extends Config {
     }
     public function fetch_table2021_p($initial_page,$limit) {
         
-        $sql ="SELECT * FROM premise_report_detail_private WHERE DATE(date_of_inspection) BETWEEN '2020-07-01' AND '2022-06-30' LIMIT $initial_page, $limit";
+        $sql ="SELECT * FROM premise_report_detail_private WHERE DATE(date_of_inspection) BETWEEN '2020-07-01' AND '2021-06-30' ORDER BY date_of_inspection DESC LIMIT $initial_page, $limit";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();
@@ -42,7 +42,7 @@ class DataBase extends Config {
 
     public function count_inspection_2021($type) {
         
-        $sql ="SELECT COUNT(*) as sum FROM $type WHERE DATE(date_of_inspection) BETWEEN '2020-07-01' AND '2022-06-30'";
+        $sql ="SELECT COUNT(*) as sum FROM $type WHERE DATE(date_of_inspection) BETWEEN '2020-07-01' AND '2021-06-30'";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();
@@ -50,9 +50,9 @@ class DataBase extends Config {
         return $result;
     }
 
-    public function data_score_g($id) {
+    public function data_score_g($inspection_id) {
         
-        $sql ="SELECT * FROM compliance_score_government WHERE `id` = $id ";
+        $sql ="SELECT * FROM compliance_score_government WHERE `inspection_id` = '$inspection_id' ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetch();
@@ -60,9 +60,9 @@ class DataBase extends Config {
         return $result;
     }
 
-    public function Data_2021_g($id) {
+    public function Data_2021_g($inspection_id) {
         
-        $sql ="SELECT * FROM premise_report_detail_grovern WHERE `id` = $id ";
+        $sql ="SELECT * FROM premise_report_detail_grovern WHERE `inspection_id` = '$inspection_id' ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetch();
@@ -73,7 +73,7 @@ class DataBase extends Config {
 
     public function fetch_table2022_g($initial_page,$limit) {
         
-        $sql ="SELECT * FROM premise_report_detail_grovern WHERE DATE(date_of_inspection) BETWEEN '2022-07-01' AND '2023-01-01' LIMIT $initial_page, $limit ";
+        $sql ="SELECT * FROM premise_report_detail_grovern WHERE DATE(date_of_inspection) BETWEEN '2021-07-01' AND '2022-06-30' ORDER BY date_of_inspection DESC  LIMIT $initial_page, $limit ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();
@@ -83,7 +83,7 @@ class DataBase extends Config {
 
     public function fetch_table2022_p($initial_page,$limit) {
         
-        $sql ="SELECT * FROM premise_report_detail_private WHERE DATE(date_of_inspection) BETWEEN '2022-07-01' AND '2023-01-01' LIMIT $initial_page, $limit";
+        $sql ="SELECT * FROM premise_report_detail_private WHERE DATE(date_of_inspection) BETWEEN '2021-07-01' AND '2022-06-30' ORDER BY date_of_inspection DESC LIMIT $initial_page, $limit";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();
@@ -93,7 +93,7 @@ class DataBase extends Config {
 
     public function count_inspection_2022($type) {
         
-        $sql ="SELECT COUNT(*) as sum FROM $type WHERE DATE(date_of_inspection) BETWEEN '2022-07-01' AND '2023-01-01'";
+        $sql ="SELECT COUNT(*) as sum FROM $type WHERE DATE(date_of_inspection) BETWEEN '2021-07-01' AND '2022-06-30'";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();

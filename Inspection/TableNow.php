@@ -139,7 +139,7 @@ $fetch_table_now_g = $db->fetch_table2023_g($initial_page,$limit);
                 }}else{ 
                 ?>
                 <tr>
-                    <td colspan="10" class="fw-bold fs-4 text-center py-lg-5">No data founded</td>
+                    <td colspan="12" class="fw-bold fs-4 text-center py-lg-5">No data founded</td>
                 </tr>
                 <?php    
                     };
@@ -244,7 +244,7 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
                 }}else{ 
                 ?>
                 <tr>
-                    <td colspan="10" class="fw-bold fs-4 text-center py-lg-5">No data founded</td>
+                    <td colspan="12" class="fw-bold fs-4 text-center py-lg-5">No data founded</td>
                 </tr>
                 <?php    
                     };
