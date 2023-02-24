@@ -113,7 +113,9 @@ $_SESSION['user_type'] = $user_type;
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./Table2021.php?type=government">2020-2021</a></li>
                             <li><a class="dropdown-item" href="./Table2022.php?type=government">2021-2022</a></li>
-                            <li><a class="dropdown-item" href="./TableNow.php?type=government">2022-now</a></li>
+                            <li><a class="dropdown-item" href="./TableNow.php?type=government">2022-2023</a></li>
+                            <li><a class="dropdown-item" href="./Table2024.php?type=government">2023-2024</a></li>
+                            <li><a class="dropdown-item" href="./Table2025.php?type=government">2024-2025</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -124,7 +126,9 @@ $_SESSION['user_type'] = $user_type;
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./Table2021.php?type=private">2020-2021</a></li>
                             <li><a class="dropdown-item" href="./Table2022.php?type=private">2021-2022</a></li>
-                            <li><a class="dropdown-item" href="./TableNow.php?type=private">2022-now</a></li>
+                            <li><a class="dropdown-item" href="./TableNow.php?type=private">2022-2023</a></li>
+                            <li><a class="dropdown-item" href="./Table2024.php?type=private">2023-2024</a></li>
+                            <li><a class="dropdown-item" href="./Table2025.php?type=private">2024-2025</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

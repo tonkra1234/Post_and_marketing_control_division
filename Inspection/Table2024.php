@@ -36,18 +36,18 @@ $db = new DataBase();
     </div>
     <?php if($type === 'government'):?>
     <p class="text-dark fw-bold">
-        Government table 2023
+        Government table 2024
     </p>
     <?php elseif($type === 'private'):?>
     <p class="text-dark fw-bold">
-        Private table 2023
+        Private table 2024
     </p>
     <?php endif?>
 </div>
 <?php if($type === 'government'):?>
 <?php
  
-$fetch_table_now_g = $db->fetch_table2023_g($initial_page,$limit);
+$fetch_table_now_g = $db->fetch_table2024_g($initial_page,$limit);
 
 ?>
 
@@ -152,7 +152,7 @@ $fetch_table_now_g = $db->fetch_table2023_g($initial_page,$limit);
 <?php $type_required ='government_detail2023';?>
 <?php elseif($type === 'private'):?>
 <?php
-$fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
+$fetch_table_now_p = $db->fetch_table2024_p($initial_page,$limit);
 
 ?>
 
@@ -262,7 +262,7 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
 <div class="Items">
 
     <?php  
-  $result = $db->count_inspection_2023($type_required); 
+  $result = $db->count_inspection_2024($type_required);
 
   // get total roll number    
   $total_rows = $result['sum'];              

@@ -358,7 +358,7 @@ class DataBase extends Config {
 
     public function fetch_table2023_g($initial_page,$limit) {
         
-        $sql ="SELECT * FROM government_detail2023 ORDER BY `date_of_inspection` DESC LIMIT $initial_page, $limit ";
+        $sql ="SELECT * FROM government_detail2023 WHERE `date_of_inspection` BETWEEN '2022-07-01' AND '2023-06-30' ORDER BY `date_of_inspection` DESC LIMIT $initial_page, $limit ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();
@@ -368,7 +368,7 @@ class DataBase extends Config {
     
     public function fetch_table2023_p($initial_page,$limit) {
         
-        $sql ="SELECT * FROM private_detail2023 ORDER BY `date_of_inspection` DESC LIMIT $initial_page, $limit";
+        $sql ="SELECT * FROM private_detail2023 WHERE `date_of_inspection` BETWEEN '2022-07-01' AND '2023-06-30' ORDER BY `date_of_inspection` DESC LIMIT $initial_page, $limit";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetchAll();
@@ -378,7 +378,7 @@ class DataBase extends Config {
 
     public function count_inspection_2023($type) {
         
-        $sql ="SELECT COUNT(*) as sum FROM $type ";
+        $sql ="SELECT COUNT(*) as sum FROM $type WHERE `date_of_inspection` BETWEEN '2022-07-01' AND '2023-06-30' ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetch();
@@ -558,6 +558,66 @@ class DataBase extends Config {
             'dzongkhag' => $dzongkhag,
         ]);
         $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function fetch_table2024_g($initial_page,$limit) {
+        
+        $sql ="SELECT * FROM government_detail2023 WHERE `date_of_inspection` BETWEEN '2023-07-01' AND '2024-06-30' ORDER BY `date_of_inspection` DESC LIMIT $initial_page, $limit ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+    
+    public function fetch_table2024_p($initial_page,$limit) {
+        
+        $sql ="SELECT * FROM private_detail2023 WHERE `date_of_inspection` BETWEEN '2023-07-01' AND '2024-06-30' ORDER BY `date_of_inspection` DESC LIMIT $initial_page, $limit";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function count_inspection_2024($type) {
+        
+        $sql ="SELECT COUNT(*) as sum FROM $type WHERE `date_of_inspection` BETWEEN '2023-07-01' AND '2024-06-30' ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function fetch_table2025_g($initial_page,$limit) {
+        
+        $sql ="SELECT * FROM government_detail2023 WHERE `date_of_inspection` BETWEEN '2024-07-01' AND '2025-06-30' ORDER BY `date_of_inspection` DESC LIMIT $initial_page, $limit ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+    
+    public function fetch_table2025_p($initial_page,$limit) {
+        
+        $sql ="SELECT * FROM private_detail2023 WHERE `date_of_inspection` BETWEEN '2024-07-01' AND '2025-06-30' ORDER BY `date_of_inspection` DESC LIMIT $initial_page, $limit";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function count_inspection_2025($type) {
+        
+        $sql ="SELECT COUNT(*) as sum FROM $type WHERE `date_of_inspection` BETWEEN '2024-07-01' AND '2025-06-30' ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
 
         return $result;
     }
