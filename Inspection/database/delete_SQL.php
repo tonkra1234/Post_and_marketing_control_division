@@ -2,16 +2,18 @@
 include '../db.php';
 
 $inspectiondelete = $_POST['inspectiondelete'];
-$inspectionId = $_POST['inspectionId'];
+$Id = $_POST['Id'];
+
 $db = new DataBase();
 
 if($inspectiondelete === 'government'){
-    if ($db->move_inspection_g($inspectionId)) {
-        $db->delete_inspection_g($inspectionId);
+    if ($db->move_inspection_g($Id)) {
+        $db->delete_inspection_g($Id);
     }
 }elseif ($inspectiondelete === 'private') {
-    if ($db->move_inspection_p($inspectionId)) {
-        $db->delete_inspection_p($inspectionId);
+    if ($db->move_inspection_p($Id)) {
+        $db->delete_inspection_p($Id);
     }
 }
+
 ?>

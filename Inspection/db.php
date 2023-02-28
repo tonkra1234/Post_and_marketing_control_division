@@ -410,38 +410,38 @@ class DataBase extends Config {
         return $result;
     }
 
-    public function delete_inspection_g($inspection_id) {
-        $sql = "DELETE FROM government_detail2023 WHERE inspection_id=:inspection_id";
+    public function delete_inspection_g($id) {
+        $sql = "DELETE FROM government_detail2023 WHERE `id` = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
-            'inspection_id' => $inspection_id,
+            'id' => $id,
         ]);
         return true;
     }
 
-    public function move_inspection_g($inspection_id) {
-        $sql = "INSERT INTO trash_g SELECT * FROM government_detail2023 WHERE inspection_id=:inspection_id";
+    public function move_inspection_g($id) {
+        $sql = "INSERT INTO trash_g SELECT * FROM government_detail2023 WHERE `id` = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
-            'inspection_id' => $inspection_id,
+            'id' => $id,
         ]);
         return true;
     }
 
-    public function delete_inspection_p($inspection_id) {
-        $sql = "DELETE FROM private_detail2023 WHERE inspection_id=:inspection_id";
+    public function delete_inspection_p($id) {
+        $sql = "DELETE FROM private_detail2023 WHERE `id` = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
-            'inspection_id' => $inspection_id,
+            'id' => $id,
         ]);
         return true;
     }
 
-    public function move_inspection_p($inspection_id) {
-        $sql = "INSERT INTO trash_p SELECT * FROM private_detail2023 WHERE inspection_id=:inspection_id";
+    public function move_inspection_p($id) {
+        $sql = "INSERT INTO trash_p SELECT * FROM private_detail2023 WHERE `id` = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
-            'inspection_id' => $inspection_id,
+            'id' => $id,
         ]);
         return true;
     }

@@ -123,10 +123,10 @@ $fetch_table_now_g = $db->fetch_table2023_g($initial_page,$limit);
                         </a>
                     </td>
                     <td>
-                        <input type="hidden" value="<?php echo $row["id"]; ?>" id="Id" name="Id">
+                        <input type="hidden" value="<?php echo $row["inspection_id"]; ?>" id="inspection_id" name="inspection_id">
                         <input type="hidden" value="government" id="delete_type" name="delete_type">
                         <button type="button" class="delete_button btn btn-danger"
-                            value="<?php echo $row["inspection_id"]; ?>">
+                            value="<?php echo $row["id"]; ?>">
                             Delete
                         </button>
                     </td>
@@ -228,10 +228,10 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
                         </a>
                     </td>
                     <td>
-                        <input type="hidden" value="<?php echo $row["id"]; ?>" id="Id" name="Id">
+                        <input type="hidden" value="<?php echo $row["inspection_id"]; ?>" id="inspection_id" name="inspection_id">
                         <input type="hidden" value="private" id="delete_type" name="delete_type">
                         <button type="button" class="delete_button btn btn-danger"
-                            value="<?php echo $row["inspection_id"]; ?>">
+                            value="<?php echo $row["id"]; ?>">
                             Delete
                         </button>
                     </td>
@@ -239,9 +239,10 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
                 </tr>
 
                 <?php
-                $number++;
+                    $number++;
                     require './Modal/Now_p.php';
-                }}else{ 
+                }
+            }else{ 
                 ?>
                 <tr>
                     <td colspan="12" class="fw-bold fs-4 text-center py-lg-5">No data founded</td>
@@ -307,8 +308,8 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
 <script>
     $('.delete_button').click(function (e) {
         e.preventDefault();
-        var inspectionId = $(this).val();
-        var Id = $('#Id').val();
+        var Id = $(this).val();
+        var inspectionId = $('#inspection_id').val();
         var delete_type = $('#delete_type').val();
 
         Swal.fire({
@@ -327,6 +328,7 @@ $fetch_table_now_p = $db->fetch_table2023_p($initial_page,$limit);
                     data: {
                         'inspectiondelete': delete_type,
                         'inspectionId': inspectionId,
+                        'Id': Id,
                     },
                     success: function (reponse) {
                         $('#refresh-delete' + Id).hide(1000);
