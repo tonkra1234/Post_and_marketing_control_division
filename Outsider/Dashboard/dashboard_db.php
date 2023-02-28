@@ -242,7 +242,7 @@ class Dashboard extends Config {
 
     public function result_financial_2022_g_2() {
     
-        $sql ="SELECT COUNT(*) as Sum from `government_detail2023` WHERE `date_of_inspection` BETWEEN '2023-01-01' AND '2023-06-30' ";
+        $sql ="SELECT COUNT(*) as Sum from `government_detail2023` WHERE `date_of_inspection` BETWEEN '2022-07-01' AND '2023-06-30' ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetch();
@@ -302,7 +302,7 @@ class Dashboard extends Config {
 
     public function result_financial_2022_p_2() {
     
-        $sql ="SELECT COUNT(*) as Sum from `private_detail2023` WHERE `date_of_inspection` BETWEEN '2023-01-01' AND '2023-06-30' ";
+        $sql ="SELECT COUNT(*) as Sum from `private_detail2023` WHERE `date_of_inspection` BETWEEN '2022-07-01' AND '2023-06-30' ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result= $stmt->fetch();
@@ -330,7 +330,25 @@ class Dashboard extends Config {
         return $result;
     }
 
-    
+    public function count_financial_human_2021(){
+
+        $sql ="SELECT count(*) as sum FROM premise_report_detail_grovern WHERE NOT `type_of_premise` IN ('Veterinary Hospital', 'Renewable Natural Resources Extension center', 'Livestock Extension Center') AND date_of_inspection BETWEEN '2021-07-01' AND '2022-06-30'; ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function count_financial_veterinary_2021(){
+
+        $sql ="SELECT count(*) as sum FROM premise_report_detail_grovern WHERE `type_of_premise` IN ('Veterinary Hospital', 'Renewable Natural Resources Extension center', 'Livestock Extension Center') AND date_of_inspection BETWEEN '2021-07-01' AND '2022-06-30'; ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
     
     
 }
