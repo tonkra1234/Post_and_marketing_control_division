@@ -21,6 +21,18 @@ $Year_data_p_now = $db->Year_data_private_now();
 require './Dashboard/array_score.php';
 
 
+$g_2020 = ($db->result_financial_2020_g())[0]['Sum']+($db->result_financial_2020_g())[1]['Sum'];
+$g_2021 = ($db->count_financial_veterinary_2021())['sum']+($db->count_financial_human_2021())['sum'];
+$g_2022 = ($db->result_financial_2022_g_2())['Sum'];
+$g_2023 = ($db->result_financial_2023_g())['Sum'];
+$g_2024 = ($db->result_financial_2024_g())['Sum'];
+
+$p_2020 = ($db->result_financial_2020_p())[0]['Sum']+($db->result_financial_2020_p())[1]['Sum'];
+$p_2021 = ($db->result_financial_2021_p())[0]['Sum']+($db->result_financial_2021_p())[1]['Sum'];
+$p_2022 = ($db->result_financial_2022_p_2())['Sum'];
+$p_2023 = ($db->result_financial_2023_p())['Sum'];
+$p_2024 = ($db->result_financial_2024_p())['Sum'];
+
 $Dzongkhag_govern = [];
 $Sum_dzongkhag_govern = [];
 

@@ -98,7 +98,7 @@ require './Dashboard/dashboard_back.php';
             <canvas id="Pie_govern" class="px-2 w-100 h-100"></canvas>
         </div>
     </div>
-    <div class="col-lg-6 col-12 shadow mb-5">
+    <div class="col-lg-6 col-12 shadow">
         <div class="d-flex align-items-center justify-content-between">
             <span class="pt-2 fw-bold">Number of private facility in Bhutan</span>
             <div class="pt-2">
@@ -111,77 +111,7 @@ require './Dashboard/dashboard_back.php';
             <canvas id="Pie_private" class="px-2 w-100 h-100"></canvas>
         </div>
     </div>
-    <div class="col-lg-6 col-12 shadow mb-5">
-        <div class="d-flex align-items-center justify-content-between">
-            <span class="pt-3 fw-bold">Financial number of inspection</span>
-        </div>
-        <hr class="my-2">
-        <div class="row">
-            <div class="col-lg-6 col-12">
-                <h5>Government</h5>
-                <table class="table table-striped table-bordered border-dark">
-                    <thead>
-                        <tr class="table-success">
-                            <th scope="col">Year</th>
-                            <th scope="col">Number</th>
-                        </tr>
-                        <tr>
-                            <td>2020-2021</td>
-                            <td><?php echo $g_2020;?></td>
-                        </tr>
-                        <tr>
-                            <td>2021-2022</td>
-                            <td><?php echo $g_2021;?></td>
-                        </tr>
-                        <tr>
-                            <td>2022-2023</td>
-                            <td><?php echo $g_2022;?></td>
-                        </tr>
-                        <tr>
-                            <td>2023-2024</td>
-                            <td><?php echo $g_2023;?></td>
-                        </tr>
-                        <tr>
-                            <td>2024-2025</td>
-                            <td><?php echo $g_2024;?></td>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="col-lg-6 col-12">
-                <h5>Private</h5>
-                <table class="table table-striped table-bordered border-dark">
-                    <thead>
-                        <tr class="table-primary">
-                            <th scope="col">Year</th>
-                            <th scope="col">Number</th>
-                        </tr>
-                        <tr>
-                            <td>2020-2021</td>
-                            <td><?php echo $p_2020;?></td>
-                        </tr>
-                        <tr>
-                            <td>2021-2022</td>
-                            <td><?php echo $p_2021;?></td>
-                        </tr>
-                        <tr>
-                            <td>2022-2023</td>
-                            <td><?php echo $p_2022;?></td>
-                        </tr>
-                        <tr>
-                            <td>2023-2024</td>
-                            <td><?php echo $p_2023;?></td>
-                        </tr>
-                        <tr>
-                            <td>2024-2025</td>
-                            <td><?php echo $p_2024;?></td>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-8 col-12 shadow">
+    <div class="col-lg-6 col-12 shadow">
         <div class="d-flex align-items-center justify-content-between">
             <span class="pt-3 fw-bold">Compliance score</span>
         </div>

@@ -18,7 +18,6 @@
 
         var dzongkhag_veterinary = <?php echo json_encode($Dzongkhag_veterinary); ?>;
         var sum_dzongkhag_veterinary = <?php echo json_encode($Sum_dzongkhag_veterinary); ?>;
-
         var label_score = <?php echo json_encode($label_score); ?>;
         var score_2020 = <?php echo json_encode($score_2020); ?>;
         var score_2021 = <?php echo json_encode($score_2021); ?>;
@@ -26,15 +25,28 @@
         var score_2023 = <?php echo json_encode($score_2023); ?>;
         var score_2024 = <?php echo json_encode($score_2024); ?>;
 
+        var g_2020 = <?php echo json_encode($g_2020); ?>;
+        var g_2021 = <?php echo json_encode($g_2021); ?>;
+        var g_2022 = <?php echo json_encode($g_2022); ?>;
+        var g_2023 = <?php echo json_encode($g_2023); ?>;
+        var g_2024 = <?php echo json_encode($g_2024); ?>;
+
+        var p_2020 = <?php echo json_encode($p_2020); ?>;
+        var p_2021 = <?php echo json_encode($p_2021); ?>;
+        var p_2022 = <?php echo json_encode($p_2022); ?>;
+        var p_2023 = <?php echo json_encode($p_2023); ?>;
+        var p_2024 = <?php echo json_encode($p_2024); ?>;
+
+
         Chart.register(ChartDataLabels);
         
         new Chart(Bar_govern, {
             type: 'bar',
             data: {
-            labels: year,
+            labels: [2020,2021,2022,2023,2024],
             datasets: [{
                 label: 'Number of inspection each year',
-                data: number,
+                data: [g_2020,g_2021,g_2022,g_2023,g_2024],
                 borderWidth: 1,
             }]
             },
@@ -78,10 +90,10 @@
         new Chart(Bar_private, {
             type: 'bar',
             data: {
-            labels: year_private,
+            labels: [2020,2021,2022,2023,2024],
             datasets: [{
                 label: 'Number of inspection each year',
-                data: number_private,
+                data: [p_2020,p_2021,p_2022,p_2023,p_2024],
                 borderWidth: 1
             }]
             },
