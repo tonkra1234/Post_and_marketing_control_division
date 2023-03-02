@@ -50,7 +50,7 @@ class DataBase extends Config {
                             $Date_Expiry, $Storage_Condition, $Pharmaceutical_Form, $Presentation,
                             $Diluent, $Diluent_Number, $SLP_Received, $Labels_Received,
                             $Samples_Received, $Reviewer_Assigned, $Deadline_Assessment, $Certificate_Issue_Date,$Remarks) {
-        $sql = "INSERT INTO pre_approve (Application_ID,Product_Name,Manufacturer,Requesting_Agency,Date_Application,Lot_Number,Lot_Size,Date_Manufacture,Date_Expiry,Storage_Condition,Pharmaceutical_Form,Presentation,Diluent,Diluent_Number,SLP_Received,Labels_Received,Samples_Received,Reviewer_Assigned,Deadline_Assessment,Certificate_Issue_Date,Remarks) 
+        $sql = "INSERT INTO log_sheet (Application_ID,Product_Name,Manufacturer,Requesting_Agency,Date_Application,Lot_Number,Lot_Size,Date_Manufacture,Date_Expiry,Storage_Condition,Pharmaceutical_Form,Presentation,Diluent,Diluent_Number,SLP_Received,Labels_Received,Samples_Received,Reviewer_Assigned,Deadline_Assessment,Certificate_Issue_Date,Remarks) 
         VALUES(:Application_ID,:Product_Name,:Manufacturer,:Requesting_Agency,:Date_Application,:Lot_Number,:Lot_Size,:Date_Manufacture,:Date_Expiry,:Storage_Condition,:Pharmaceutical_Form,:Presentation,:Diluent,:Diluent_Number,:SLP_Received,:Labels_Received,:Samples_Received,:Reviewer_Assigned,:Deadline_Assessment,:Certificate_Issue_Date,:Remarks)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
@@ -134,6 +134,90 @@ class DataBase extends Config {
         return true;
     }
 
+    public function ChecklistB() {
+
+        $sql ="SELECT * FROM `checklistb`  ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function ChecklistC() {
+
+        $sql ="SELECT * FROM `checklistc`  ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+        
+        return $result;
+    }
+
+    public function insert_instruction($Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode) {
+        $sql = "INSERT INTO work_instruction_list (RegistrationNo,AuthorizationNo,Type_vaccine,Batch_no,Date_Manufacture,Date_Expiry,Manufacturer,Quantity,Vial,checklistB,checklistC) 
+        VALUES(:RegistrationNoEncode,:AuthorizationNoEncode,:Type_vaccine,:Batch_no,:Date_Manufacture,:Date_Expiry,:Manufacturer,:Quantity,:Vial,:checklistBEncode,:checklistCEncode)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'RegistrationNoEncode' => $RegistrationNoEncode,
+            'AuthorizationNoEncode' => $AuthorizationNoEncode,
+            'Type_vaccine' => $Type_vaccine,
+            'Batch_no' => $Batch_no,
+            'Date_Manufacture' => $Date_Manufacture,
+            'Date_Expiry' => $Date_Expiry,
+            'Manufacturer' => $Manufacturer,
+            'Quantity' => $Quantity,
+            'Vial' => $Vial,
+            'checklistBEncode' => $checklistBEncode,
+            'checklistCEncode' => $checklistCEncode,
+        ]);
+        return true;
+    }
+
+    public function fetch_instruction() {
+
+        $sql ="SELECT * FROM `work_instruction_list`  ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function fetch_each_instruction($id) {
+
+        $sql ="SELECT * FROM `work_instruction_list` WHERE id = :id ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function edit_instruction($id,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode) {
+
+        $sql = "UPDATE work_instruction_list SET RegistrationNo=:RegistrationNoEncode, AuthorizationNo=:AuthorizationNoEncode, Type_vaccine=:Type_vaccine, Batch_no=:Batch_no, Date_Manufacture=:Date_Manufacture, Date_Expiry=:Date_Expiry, Manufacturer=:Manufacturer, Quantity=:Quantity, Vial=:Vial, checklistB=:checklistBEncode, checklistC=:checklistCEncode WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+            'RegistrationNoEncode' => $RegistrationNoEncode,
+            'AuthorizationNoEncode' => $AuthorizationNoEncode,
+            'Type_vaccine' => $Type_vaccine,
+            'Batch_no' => $Batch_no,
+            'Date_Manufacture' => $Date_Manufacture,
+            'Date_Expiry' => $Date_Expiry,
+            'Manufacturer' => $Manufacturer,
+            'Quantity' => $Quantity,
+            'Vial' => $Vial,
+            'checklistBEncode' => $checklistBEncode,
+            'checklistCEncode' => $checklistCEncode,
+        ]);
+        
+        return true;
+         
+    }
 
 }
 

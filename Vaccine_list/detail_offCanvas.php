@@ -115,14 +115,14 @@
           <h6>Labels and Leaflets recieved</h6>
         </div>
         <div class="col-md-6">
-          <?php echo $result['Labels_Recieved'];?>
+          <?php echo $result['Labels_Received'];?>
         </div>
         <hr class="my-1">
         <div class="col-md-6">
           <h6>Samples Recieved</h6>
         </div>
         <div class="col-md-6">
-          <?php echo $result['Samples_Recieved'];?>
+          <?php echo $result['Samples_Received'];?>
         </div>
         <hr class="my-1">
         <div class="col-md-6">

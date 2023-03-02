@@ -88,11 +88,11 @@ $user_name = $session->user();
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-12 d-grid my-2 mx-auto">
+                            <!-- <div class="col-12 d-grid my-2 mx-auto">
                                 <a href="./Recalled_product/home.php" role="button"
                                     class="btn btn-3 p-3 fs-5 fw-bolder text-white">List of recalled
                                     products</a>
-                            </div>
+                            </div> -->
                             <div class="col-12 d-grid my-2 mx-auto">
                                 <a href="./Vaccine_list/home.php" role="button"
                                     class="btn btn-5 p-3 fs-5 fw-bolder text-white">Vaccince list ( Log

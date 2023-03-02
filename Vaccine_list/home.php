@@ -20,12 +20,12 @@ $obj = new DataBase;
     <div class="row">
         <div class="col-lg-12 d-flex justify-content-between align-items-center">
             <div>
-                <h4 class="mt-auto mb-1">Vaccine list in repository</h4>
+                <h4 class="mt-auto mb-1">Vaccine public list</h4>
             </div>
             <div>
                 <a class="btn btn-primary" href="./add_page.php">
                     <div class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-plus"></i>
-                        <div class="ms-2 d-none d-sm-block">Add new manufacturer</div>
+                        <div class="ms-2 d-none d-sm-block">Add new vaccine</div>
                     </div>
                 </a>
             </div>

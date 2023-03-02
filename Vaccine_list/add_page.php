@@ -132,7 +132,7 @@ require './include/header.php';
                                 <option value="No">No</option>
                                 <option value="NA">NA</option>
                             </select>
-                            <label for="floatingInput">Labels Received</label>
+                            <label for="floatingInput">Labels Recieved</label>
                         </div>
                     </div>
                     <div class="col-lg-4 col-12">
@@ -143,7 +143,7 @@ require './include/header.php';
                                 <option value="No">No</option>
                                 <option value="NA">NA</option>
                             </select>
-                            <label for="floatingInput">Samples Received</label>
+                            <label for="floatingInput">Samples Recieved</label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">

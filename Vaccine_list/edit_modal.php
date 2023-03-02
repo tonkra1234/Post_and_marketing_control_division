@@ -5,7 +5,7 @@
         <div class="modal-content">
             <form id="edit-existing" method="POST" action="./edit_SQL.php">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit the manufacturer</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit the vaccine</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -126,7 +126,7 @@
                                     <option value="No">No</option>
                                     <option value="NA">NA</option>
                                 </select>
-                                <label for="floatingInput">Labels Received</label>
+                                <label for="floatingInput">Labels Recieved</label>
                             </div>
                         </div>
                         <div class="col-lg-4 col-12">
@@ -139,7 +139,7 @@
                                     <option value="No">No</option>
                                     <option value="NA">NA</option>
                                 </select>
-                                <label for="floatingInput">Samples Received</label>
+                                <label for="floatingInput">Samples Recieved</label>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">
