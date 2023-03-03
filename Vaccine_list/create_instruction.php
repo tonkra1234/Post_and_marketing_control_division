@@ -11,8 +11,8 @@ $db = new DataBase;
     <div class="mx-1">
         /
     </div>
-    <a href="./home.php" class="link-secondary">
-        Vaccine list
+    <a href="./list_instruction.php" class="link-secondary">
+        List working instruction for vaccine
     </a>
     <div class="mx-1">
         /
@@ -57,6 +57,13 @@ $db = new DataBase;
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Lot_name" name="Lot_name"
+                                placeholder="Lot_name" required>
+                            <label for="floatingInput">Lot name</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Manufacturer" name="Manufacturer"
                                 placeholder="Manufacturer of medicine" required>
                             <label for="floatingInput">Manufacturer</label>
@@ -69,7 +76,7 @@ $db = new DataBase;
                             <label for="floatingInput">Type of vaccine</label>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Batch_no" name="Batch_no" placeholder="Batch_no"
                                 required>
@@ -88,6 +95,14 @@ $db = new DataBase;
                             <input type="date" class="form-control" id="Date_Expiry" name="Date_Expiry"
                                 placeholder="Date of Expiry" required>
                             <label for="floatingInput">Date of Expiry</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="importing_country" name="importing_country">
+                                    <?php include './include/country_select.php';?>
+                            </select>
+                            <label for="floatingInput">Importing country</label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">

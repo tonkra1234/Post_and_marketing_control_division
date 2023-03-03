@@ -38,6 +38,7 @@ $db = new DataBase;
                     <th scope="col">Type of vaccine</th>
                     <th scope="col">Mfg. date</th>
                     <th scope="col">Exp. date</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -55,6 +56,13 @@ $db = new DataBase;
                     <td><?php echo $result['Date_Manufacture'];?></td>
                     <td><?php echo $result['Date_Expiry'];?></td>
                     <td>
+                        <?php if($result["show_status"] === 'Verified'): ?>
+                            <span class="badge rounded-pill bg-success"><?php echo $result["show_status"]; ?></span>
+                        <?php elseif($result["show_status"] === 'Unverified'): ?>
+                            <span class="badge rounded-pill bg-danger"><?php echo $result["show_status"]; ?></span>
+                        <?php endif; ?>
+                    </td>
+                    <td>
                         <div class="d-grid">
                             <a href="./edit_instruction.php?id=<?php echo $result['id'];?>" role="button" class="btn btn-warning btn-sm rounded-pill d-grid py-1 my-1">
                                 Edit
@@ -65,8 +73,13 @@ $db = new DataBase;
                                 Detail
                             </a>
                             <a href="./working_instruction_report.php?id=<?php echo $result['id'];?>" role="button" class="btn btn-secondary btn-sm rounded-pill d-grid py-1 my-1">
-                                Report
+                                Work instruction
                             </a>
+                            <?php if($result["show_status"] === 'Verified'): ?>
+                            <a href="./certification.php?id=<?php echo $result['id'];?>" role="button" class="btn btn-success btn-sm rounded-pill d-grid py-1 my-1">
+                                Certification
+                            </a>
+                            <?php endif; ?>
                         </div>
                     </td>
                 </tr>

@@ -13,8 +13,8 @@ $result = $db->fetch_each_instruction($id);
     <div class="mx-1">
         /
     </div>
-    <a href="./home.php" class="link-secondary">
-        Vaccine list
+    <a href="./list_instruction.php" class="link-secondary">
+        List working instruction for vaccine
     </a>
     <div class="mx-1">
         /
@@ -62,6 +62,13 @@ $result = $db->fetch_each_instruction($id);
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Lot_name" name="Lot_name"
+                                placeholder="Lot_name" value="<?php echo $result['lot_name'];?>" required>
+                            <label for="floatingInput">Lot name</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Manufacturer" name="Manufacturer"
                                 placeholder="Manufacturer of medicine" value="<?php echo $result['Manufacturer']?>" required>
                             <label for="floatingInput">Manufacturer</label>
@@ -74,7 +81,7 @@ $result = $db->fetch_each_instruction($id);
                             <label for="floatingInput">Type of vaccine</label>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Batch_no" name="Batch_no" placeholder="Batch_no" value="<?php echo $result['Batch_no']?>"
                                 required>
@@ -93,6 +100,15 @@ $result = $db->fetch_each_instruction($id);
                             <input type="date" class="form-control" id="Date_Expiry" name="Date_Expiry" value="<?php echo $result['Date_Expiry']?>"
                                 placeholder="Date of Expiry" required>
                             <label for="floatingInput">Date of Expiry</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="importing_country" name="importing_country">
+                                <option value="<?php echo $result['importing_country'];?>"><?php echo $result['importing_country'];?></option>
+                                    <?php include './include/country_select.php';?>
+                            </select>
+                            <label for="floatingInput">Importing country</label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
@@ -193,6 +209,16 @@ $result = $db->fetch_each_instruction($id);
                                     ?>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="show_status" name="show_status">
+                                <option value="<?php echo $result['show_status'];?>"><?php echo $result['show_status'];?></option>
+                                <option value="Verified">Verified</option>
+                                <option value="Unverified">Unverified</option>
+                            </select>
+                            <label for="floatingInput">Status</label>
+                        </div>
                     </div>
                 </div>
                 <button class="btn btn-warning w-100" type="submit">Edit</button>

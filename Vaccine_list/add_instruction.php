@@ -19,7 +19,8 @@ $RegistrationNo = $util->testInput($_POST['RegistrationNo']);
 $RegistrationNoList = [$RegistrationNoCheck,$RegistrationNo];
 $AuthorizationNoList = [$AuthorizationNoCheck,$AuthorizationNo];
 
-
+$importing_country = $util->testInput($_POST['importing_country']);
+$Lot_name = $util->testInput($_POST['Lot_name']);
 $Manufacturer = $util->testInput($_POST['Manufacturer']);
 $Type_vaccine = $util->testInput($_POST['Type_vaccine']);
 $Batch_no = $util->testInput($_POST['Batch_no']);
@@ -72,7 +73,7 @@ $checklistBEncode = json_encode($checklistB);
 $checklistCEncode = json_encode($checklistC);
 
 
-if ($db->insert_instruction($Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode)){
+if ($db->insert_instruction($importing_country,$Lot_name,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode)){
     
     echo "<script>Swal.fire(
         'New working instruction record successfully!',

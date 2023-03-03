@@ -5,10 +5,11 @@ $db = new DataBase();
 
 $id= (isset($_GET['id']))?$_GET['id']:'';
 
-$result = $db->fetch_each_instruction($id);;
+$result = $db->fetch_each_instruction($id);
+$header = $db->header_work();
 
 $pdf=new FPDF();
-$pdf->SetTitle($result['Manufacturer']);
+$pdf->SetTitle(html_entity_decode($result['Manufacturer']));
 $pdf->AddPage('L');
   
 $pdf->SetFont('Arial','B',12);
@@ -24,10 +25,10 @@ $pdf->cell(61,7.5,'Effective Date',1,0);
 $pdf->cell(61,7.5,'Review Date',1,0);
 $pdf->cell(61,7.5,'Version No.',1,1);
 $pdf->SetX(40);
-$pdf->cell(61,7.5,'DRA-WI-D2_14_01',1,0);
-$pdf->cell(61,7.5,'27-09-2022',1,0);
-$pdf->cell(61,7.5,'27-09-2024',1,0);
-$pdf->cell(61,7.5,'03',1,0);
+$pdf->cell(61,7.5,$header['Document_Number'],1,0);
+$pdf->cell(61,7.5,$header['Effective_Date'],1,0);
+$pdf->cell(61,7.5,$header['Review_Date'],1,0);
+$pdf->cell(61,7.5,$header['Version_Number'],1,0);
 
 // Information
 
@@ -36,25 +37,25 @@ $pdf->Ln('25');
 $pdf->SetFont('Arial','B',12);
 $pdf->cell(274,10,'Working instruction Detail',1,2,'C');
 $pdf->SetFont('Arial','',12);
-$pdf->cell(274,10,'Registration Number: '.json_decode($result['RegistrationNo'])[1],1,1,'L');
-$pdf->cell(274,10,'Authorization Number: '.json_decode($result['AuthorizationNo'])[1],1,1,'L');
-$pdf->cell(274,10,'Type of vaccine: '.$result['Type_vaccine'],1,1,'L');
-$pdf->cell(274,10,'Manufacturer: '.$result['Manufacturer'],1,1,'L');
-$pdf->cell(274,10,'Batch/Lot no:'.$result['Batch_no'],1,1,'L');
-$pdf->cell(137,10,'Mfg date: '.$result['Date_Manufacture'],1,0,'L');
-$pdf->cell(137,10,'Exp date: '.$result['Date_Expiry'],1,1,'L');
-$pdf->cell(274,10,'Quantity: '.$result['Quantity'] ,1,1,'L');
-$pdf->cell(274,10,'Vial: '.$result['Vial'],1,1,'L');
+$pdf->cell(274,10,'Registration Number: '.html_entity_decode(json_decode($result['RegistrationNo'])[1]),1,1,'L');
+$pdf->cell(274,10,'Authorization Number: '.html_entity_decode(json_decode($result['AuthorizationNo'])[1]),1,1,'L');
+$pdf->cell(274,10,'Type of vaccine: '.html_entity_decode($result['Type_vaccine']),1,1,'L');
+$pdf->cell(274,10,'Manufacturer: '.html_entity_decode($result['Manufacturer']),1,1,'L');
+$pdf->cell(274,10,'Batch/Lot no: '.html_entity_decode($result['Batch_no']),1,1,'L');
+$pdf->cell(137,10,'Mfg date: '.html_entity_decode($result['Date_Manufacture']),1,0,'L');
+$pdf->cell(137,10,'Exp date: '.html_entity_decode($result['Date_Expiry']),1,1,'L');
+$pdf->cell(274,10,'Quantity: '.html_entity_decode($result['Quantity']) ,1,1,'L');
+$pdf->cell(274,10,'Vial: '.html_entity_decode($result['Vial']),1,1,'L');
 
 
 $pdf->Ln();
 
 $pdf->AddPage('L');
+$pdf->SetFont('Arial','B',12);
 
 // observation report
 $pdf->cell(137,10,'B. Cold chain conditions',0,1,'L');
 // header
-$pdf->SetFont('Arial','B',12);
 
 $pdf->cell(110,7,'Particulars',1,0,'L');
 $pdf->cell(20,7,'Details',1,0,'L');
@@ -66,15 +67,16 @@ $results = json_decode($result['checklistB']);
 foreach ($results as $resultB) {
     $pdf->cell(110,7,$resultB[2],1,0,'L');
     $pdf->cell(20,7,$resultB[0],1,0,'L');
-    $pdf->Multicell(144,7,$resultB[1],1,1,);
+    $pdf->Multicell(144,7,html_entity_decode($resultB[1]),1,1,);
 }
 
 $pdf->Ln('5');
 
+$pdf->SetFont('Arial','B',12);
+
 // observation report
 $pdf->cell(137,10,'C. Documentary Verification',0,1,'L');
-// header
-$pdf->SetFont('Arial','B',12);
+
 
 $pdf->cell(110,7,'Particulars',1,0,'L');
 $pdf->cell(20,7,'Details',1,0,'L');
@@ -86,7 +88,7 @@ $results = json_decode($result['checklistC']);
 foreach ($results as $resultC) {
     $pdf->cell(110,7,$resultC[2],1,0,'L');
     $pdf->cell(20,7,$resultC[0],1,0,'L');
-    $pdf->Multicell(144,7,$resultC[1],1,1,);
+    $pdf->Multicell(144,7,html_entity_decode($resultC[1]),1,1,);
 }
 
 // $pdf->AddPage('L');
@@ -97,7 +99,7 @@ $pdf->cell(137,7,'Verify by:',1,1,'L');
 $pdf->cell(137,25,'',1,0,'L');
 $pdf->cell(137,25,'',1,1,'L');
 
-$pdf->Output('I',$result['Manufacturer'].'.pdf');
+$pdf->Output('I',html_entity_decode($result['Manufacturer']).'.pdf');
 
 
 ?>

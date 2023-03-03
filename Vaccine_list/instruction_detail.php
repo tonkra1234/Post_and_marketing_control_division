@@ -20,6 +20,20 @@
             </div>
             <hr class="my-1">
             <div class="col-md-6">
+                <h6>Lot name</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['lot_name'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Importing country</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['importing_country'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
                 <h6>Manufacturer</h6>
             </div>
             <div class="col-md-6">

@@ -154,13 +154,15 @@ class DataBase extends Config {
         return $result;
     }
 
-    public function insert_instruction($Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode) {
-        $sql = "INSERT INTO work_instruction_list (RegistrationNo,AuthorizationNo,Type_vaccine,Batch_no,Date_Manufacture,Date_Expiry,Manufacturer,Quantity,Vial,checklistB,checklistC) 
-        VALUES(:RegistrationNoEncode,:AuthorizationNoEncode,:Type_vaccine,:Batch_no,:Date_Manufacture,:Date_Expiry,:Manufacturer,:Quantity,:Vial,:checklistBEncode,:checklistCEncode)";
+    public function insert_instruction($importing_country,$Lot_name,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode) {
+        $sql = "INSERT INTO work_instruction_list (RegistrationNo,AuthorizationNo,Type_vaccine,Batch_no,Date_Manufacture,Date_Expiry,Manufacturer,Quantity,Vial,checklistB,checklistC,importing_country,lot_name,show_status) 
+        VALUES(:RegistrationNoEncode,:AuthorizationNoEncode,:Type_vaccine,:Batch_no,:Date_Manufacture,:Date_Expiry,:Manufacturer,:Quantity,:Vial,:checklistBEncode,:checklistCEncode,:importing_country,:Lot_name,'Unverified')";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'RegistrationNoEncode' => $RegistrationNoEncode,
             'AuthorizationNoEncode' => $AuthorizationNoEncode,
+            'importing_country' => $importing_country,
+            'Lot_name' => $Lot_name,
             'Type_vaccine' => $Type_vaccine,
             'Batch_no' => $Batch_no,
             'Date_Manufacture' => $Date_Manufacture,
@@ -196,14 +198,17 @@ class DataBase extends Config {
         return $result;
     }
 
-    public function edit_instruction($id,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode) {
+    public function edit_instruction($show_status,$importing_country,$Lot_name,$id,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode) {
 
-        $sql = "UPDATE work_instruction_list SET RegistrationNo=:RegistrationNoEncode, AuthorizationNo=:AuthorizationNoEncode, Type_vaccine=:Type_vaccine, Batch_no=:Batch_no, Date_Manufacture=:Date_Manufacture, Date_Expiry=:Date_Expiry, Manufacturer=:Manufacturer, Quantity=:Quantity, Vial=:Vial, checklistB=:checklistBEncode, checklistC=:checklistCEncode WHERE id=:id";
+        $sql = "UPDATE work_instruction_list SET RegistrationNo=:RegistrationNoEncode, AuthorizationNo=:AuthorizationNoEncode, Type_vaccine=:Type_vaccine, Batch_no=:Batch_no, Date_Manufacture=:Date_Manufacture, Date_Expiry=:Date_Expiry, Manufacturer=:Manufacturer, Quantity=:Quantity, Vial=:Vial, checklistB=:checklistBEncode, checklistC=:checklistCEncode, importing_country=:importing_country,lot_name =:Lot_name,show_status=:show_status WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'id' => $id,
             'RegistrationNoEncode' => $RegistrationNoEncode,
             'AuthorizationNoEncode' => $AuthorizationNoEncode,
+            'show_status' => $show_status,
+            'importing_country' => $importing_country,
+            'Lot_name' => $Lot_name,
             'Type_vaccine' => $Type_vaccine,
             'Batch_no' => $Batch_no,
             'Date_Manufacture' => $Date_Manufacture,
@@ -217,6 +222,26 @@ class DataBase extends Config {
         
         return true;
          
+    }
+
+    public function header_work() {
+        
+        $sql ="SELECT * FROM `working_instruction_header` ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
+    }
+
+    public function header_cer() {
+        
+        $sql ="SELECT * FROM `certification_header` ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result= $stmt->fetch();
+
+        return $result;
     }
 
 }

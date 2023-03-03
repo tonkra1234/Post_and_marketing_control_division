@@ -20,7 +20,8 @@ $RegistrationNo = $util->testInput($_POST['RegistrationNo']);
 $RegistrationNoList = [$RegistrationNoCheck,$RegistrationNo];
 $AuthorizationNoList = [$AuthorizationNoCheck,$AuthorizationNo];
 
-
+$importing_country = $util->testInput($_POST['importing_country']);
+$Lot_name = $util->testInput($_POST['Lot_name']);
 $Manufacturer = $util->testInput($_POST['Manufacturer']);
 $Type_vaccine = $util->testInput($_POST['Type_vaccine']);
 $Batch_no = $util->testInput($_POST['Batch_no']);
@@ -72,8 +73,10 @@ $AuthorizationNoEncode = json_encode($AuthorizationNoList);
 $checklistBEncode = json_encode($checklistB);
 $checklistCEncode = json_encode($checklistC);
 
+$show_status = $util->testInput($_POST['show_status']);
 
-if ($db->edit_instruction($id,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode)){
+
+if ($db->edit_instruction($show_status,$importing_country,$Lot_name,$id,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode)){
     
     echo "<script>Swal.fire(
         'Edit successfully!',
