@@ -127,7 +127,6 @@ $result = $db->fetch_each_instruction($id);
                                 <option value="Viral vector">Viral vector</option>
                             </select>
                             <label for="floatingInput">Type of vaccine<span class="text-danger">*</span></label>
-                            <label for="floatingInput">Type of vaccine</label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
@@ -338,7 +337,7 @@ $result = $db->fetch_each_instruction($id);
                     <div class="col-lg-8 col-12">
                         <div class="form-floating mb-3">
                             <textarea class="form-control" id="Remark" name="Remark" placeholder="Remark"
-                                style="height: 100px"><?php echo $result['Remark']?>"</textarea>
+                                style="height: 100px"><?php echo $result['Remark']?></textarea>
                             <label for="floatingInput">Remarks</label>
                         </div>
                     </div>
