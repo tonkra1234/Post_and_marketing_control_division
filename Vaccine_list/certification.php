@@ -15,11 +15,13 @@ $pdf->AddPage();
   
 $pdf->SetFont('Arial','B',12);
 
-$image1 = "./image/logo-original-removebg-preview.png";
+$image1 = "./image/new_logo.png";
 
-$image ='./image/logo.png';
+$image ='./image/new_logo.png';
 $image2 = './image/logo2.png';
 $image3 = './image/center.png';
+
+$image4 = './image/new_header.jpg';
 
 // Header
 
@@ -38,9 +40,11 @@ $pdf->cell(42.5,5,$header['Version_Number'],1,0);
 
 $pdf->Ln(5);
 
-$pdf->cell(50,37,$pdf->Image($image2, $pdf->GetX()+9, $pdf->GetY()+3, 32),0,0);
-$pdf->Cell(90,37,$pdf->Image($image3, $pdf->GetX()+5, $pdf->GetY()+5, 80),0,0);
-$pdf->cell(50,37,$pdf->Image($image, $pdf->GetX()+9, $pdf->GetY()+1, 32),0,1);
+// $pdf->cell(50,37,$pdf->Image($image2, $pdf->GetX()+9, $pdf->GetY()+3, 32),0,0);
+// $pdf->Cell(90,37,$pdf->Image($image3, $pdf->GetX()+5, $pdf->GetY()+5, 80),0,0);
+// $pdf->cell(50,37,$pdf->Image($image, $pdf->GetX()+9, $pdf->GetY()+1, 32),0,1);
+
+$pdf->Cell(190,37,$pdf->Image($image4, $pdf->GetX()+12, $pdf->GetY()+5, 164),0,1);
 
 $pdf->Ln(10);
 $pdf->cell(190,5,'Regulation No: ',0,1);
@@ -57,8 +61,24 @@ $pdf->SetFont('Arial','B',10);
 $pdf->cell(190,5,'A. Details of Vaccine',0,1);
 $pdf->SetFont('Arial','',10);
 
-$mfg_date = date_format(date_create($result['Date_Manufacture']),'d-M-Y');
-$expire_date = date_format(date_create($result['Date_Expiry']),'d-M-Y');
+if($result['Date_Manufacture'] === '0000-00-00' || $result['Date_Manufacture'] === NULL ){
+    $mfg_date = 'N/A';
+}else{
+    $mfg_date = date_format(date_create($result['Date_Manufacture']),'d-M-Y');
+}
+
+if($result['Date_Expiry'] === '0000-00-00' || $result['Date_Expiry'] === NULL ){
+    $expire_date = 'N/A';
+}else{
+    $expire_date = date_format(date_create($result['Date_Expiry']),'d-M-Y');
+}
+
+if($result['Certificate_Issue_Date'] === '0000-00-00' || $result['Certificate_Issue_Date'] === NULL ){
+    $Certificate_Issue_Date = '';
+}else{
+    $Certificate_Issue_Date = date_format(date_create($result['Certificate_Issue_Date']),'d-M-Y');
+}
+
 
 $pdf->Ln(5);
 $pdf->SetWidths(array(24, 24, 24, 24, 25, 24, 24, 24));
@@ -87,7 +107,7 @@ $pdf->SetFont('Arial','B',10);
 $pdf->cell(190,5,'C. Documentary verification',0,1);
 $pdf->SetFont('Arial','',10);
 
-$resultB = json_decode($result['checklistC']) ;
+$resultB = json_decode($result['checklistC']);
 
 $pdf->Ln(5);
 $pdf->SetWidths(array(32, 32, 32, 32, 32, 32));
@@ -102,7 +122,7 @@ $pdf->Ln(249-$Y1);
 // Signature
 $pdf->SetFont('Arial','B',10);
 $pdf->Ln(20);
-$pdf->cell(90,7,'Lot release Date : ',0,0,'L');
+$pdf->cell(90,7,'Lot release Date : '.$Certificate_Issue_Date,0,0,'L');
 $pdf->cell(90,7,'Drug controller',0,1,'R');
 
 $pdf->Output('I','Certification-'.html_entity_decode($result['Manufacturer']).'.pdf');

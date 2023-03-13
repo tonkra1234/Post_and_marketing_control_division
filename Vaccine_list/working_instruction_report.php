@@ -16,6 +16,18 @@ $pdf->SetFont('Arial','B',12);
 
 $image1 = "./image/logo-original-removebg-preview.png";
 
+if($result['Date_Manufacture'] === '0000-00-00' || $result['Date_Manufacture'] === NULL ){
+    $mfg_date = 'N/A';
+}else{
+    $mfg_date = date_format(date_create($result['Date_Manufacture']),'d-M-Y');
+}
+
+if($result['Date_Expiry'] === '0000-00-00' || $result['Date_Expiry'] === NULL ){
+    $expire_date = 'N/A';
+}else{
+    $expire_date = date_format(date_create($result['Date_Expiry']),'d-M-Y');
+}
+
 // Header
 $pdf->cell(30,30,$pdf->Image($image1, $pdf->GetX()+2, $pdf->GetY()+2, 25),1,0);
 $pdf->cell(244,15,'Working Instruction for Vaccine Lot Release',1,2,'C');
@@ -42,8 +54,8 @@ $pdf->cell(274,10,'Authorization Number: '.html_entity_decode(json_decode($resul
 $pdf->cell(274,10,'Type of vaccine: '.html_entity_decode($result['Type_vaccine']),1,1,'L');
 $pdf->cell(274,10,'Manufacturer: '.html_entity_decode($result['Manufacturer']),1,1,'L');
 $pdf->cell(274,10,'Batch/Lot no: '.html_entity_decode($result['Batch_no']),1,1,'L');
-$pdf->cell(137,10,'Mfg date: '.html_entity_decode($result['Date_Manufacture']),1,0,'L');
-$pdf->cell(137,10,'Exp date: '.html_entity_decode($result['Date_Expiry']),1,1,'L');
+$pdf->cell(137,10,'Mfg date: '.$mfg_date,1,0,'L');
+$pdf->cell(137,10,'Exp date: '.$expire_date,1,1,'L');
 $pdf->cell(274,10,'Quantity: '.html_entity_decode($result['Quantity']) ,1,1,'L');
 $pdf->cell(274,10,'Vial: '.html_entity_decode($result['Vial']),1,1,'L');
 

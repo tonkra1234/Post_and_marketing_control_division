@@ -11,6 +11,8 @@ $util = new Util();
 $number_checklistb = count($db->ChecklistB());
 $number_checklistc = count($db->ChecklistC());
 
+// Certification
+
 $id = $util->testInput($_POST['id']);
 $AuthorizationNo = $util->testInput($_POST['AuthorizationNo']);
 $AuthorizationNoCheck = $util->testInput($_POST['AuthorizationNoCheck']);
@@ -29,6 +31,22 @@ $Date_Manufacture = $util->testInput($_POST['Date_Manufacture']);
 $Date_Expiry = $util->testInput($_POST['Date_Expiry']);
 $Quantity = $util->testInput($_POST['Quantity']);
 $Vial = $util->testInput($_POST['Vial']);
+
+// Public 
+$Application_number = $util->testInput($_POST['Application_number']);
+$Requesting_Agency = $util->testInput($_POST['Requesting_Agency']);
+$Storage_Condition = $util->testInput($_POST['Storage_Condition']);
+$Date_Application = $util->testInput($_POST['Date_Application']);
+$Certificate_Issue_Date = $util->testInput($_POST['Certificate_Issue_Date']);
+$Pharmaceutical_Form = $util->testInput($_POST['Pharmaceutical_Form']);
+$Diluent = $util->testInput($_POST['Diluent']);
+$Diluent_Number = $util->testInput($_POST['Diluent_Number']);
+$SLP_Received = $util->testInput($_POST['SLP_Received']);
+$Labels_Received = $util->testInput($_POST['Labels_Received']);
+$Samples_Received = $util->testInput($_POST['Samples_Received']);
+$Reviewer_Assigned = $util->testInput($_POST['Reviewer_Assigned']);
+$Deadline_Assessment = $util->testInput($_POST['Deadline_Assessment']);
+$Remark = $util->testInput($_POST['Remark']);
 
 $checklistB = array();
 $checklistC = array();
@@ -76,24 +94,43 @@ $checklistCEncode = json_encode($checklistC);
 $show_status = $util->testInput($_POST['show_status']);
 
 
-if ($db->edit_instruction($show_status,$importing_country,$Lot_name,$id,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode)){
+// if ($db->edit_instruction($show_status,$importing_country,$Lot_name,$id,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode)){
     
-    echo "<script>Swal.fire(
-        'Edit successfully!',
-        'Please, click button to continue!',
-        'success'
-      ).then(function() {
-        window.location = './list_instruction.php';
-      });
-      </script>";
+//     echo "<script>Swal.fire(
+//         'Edit successfully!',
+//         'Please, click button to continue!',
+//         'success'
+//       ).then(function() {
+//         window.location = './list_instruction.php';
+//       });
+//       </script>";
 
-}else{
-    echo "<script>Swal.fire(
-        'Warning there are some problems',
-        'Please, click button to back to home page!',
-      );
-    </>";
-}
+// }else{
+//     echo "<script>Swal.fire(
+//         'Warning there are some problems',
+//         'Please, click button to back to home page!',
+//       );
+//     </>";
+// }
+
+if ($db->edit_vaccine($show_status,$id,$Remark,$Deadline_Assessment,$Reviewer_Assigned,$Samples_Received,$Labels_Received,$SLP_Received,$Diluent_Number,$Diluent,$Pharmaceutical_Form,$Certificate_Issue_Date,$Date_Application,$Storage_Condition,$Requesting_Agency,$Application_number,$importing_country,$Lot_name,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode)){
+    
+        echo "<script>Swal.fire(
+            'Edit successfully!',
+            'Please, click button to continue!',
+            'success'
+          ).then(function() {
+            window.location = './list_instruction.php';
+          });
+          </script>";
+    
+    }else{
+        echo "<script>Swal.fire(
+            'Warning there are some problems',
+            'Please, click button to back to home page!',
+          );
+        </>";
+    }
 
 
 

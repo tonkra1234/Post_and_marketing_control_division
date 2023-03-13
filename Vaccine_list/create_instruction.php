@@ -11,6 +11,12 @@ $db = new DataBase;
     <div class="mx-1">
         /
     </div>
+    <a href="./home.php" class="link-secondary">
+        Home
+    </a>
+    <div class="mx-1">
+        /
+    </div>
     <a href="./list_instruction.php" class="link-secondary">
         List working instruction for vaccine
     </a>
@@ -57,65 +63,171 @@ $db = new DataBase;
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Application_number" name="Application_number"
+                                placeholder="Application_number" required>
+                            <label for="floatingInput">Application number<span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Lot_name" name="Lot_name"
                                 placeholder="Lot_name" required>
-                            <label for="floatingInput">Lot name</label>
+                            <label for="floatingInput">Vaccine name<span class="text-danger">*</span></label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Manufacturer" name="Manufacturer"
                                 placeholder="Manufacturer of medicine" required>
-                            <label for="floatingInput">Manufacturer</label>
+                            <label for="floatingInput">Manufacturer<span class="text-danger">*</span></label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="Type_vaccine" name="Type_vaccine"
-                                placeholder="Type_vaccine" required>
-                            <label for="floatingInput">Type of vaccine</label>
+                            <select class="form-select" id="importing_country" name="importing_country">
+                                    <?php include './include/country_select.php';?>
+                            </select>
+                            <label for="floatingInput">Importing country<span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Requesting_Agency" name="Requesting_Agency"
+                                placeholder="Requesting Agency" required>
+                            <label for="floatingInput">Requesting Agency<span class="text-danger">*</span></label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Batch_no" name="Batch_no" placeholder="Batch_no"
                                 required>
-                            <label for="floatingInput">Batch/Lot No.</label>
+                            <label for="floatingInput">Batch/Lot No.<span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Type_vaccine" name="Type_vaccine"
+                                placeholder="Type_vaccine" required>
+                            <label for="floatingInput">Type of vaccine<span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Storage_Condition" name="Storage_Condition"
+                                placeholder="Storage Condition">
+                            <label for="floatingInput">Storage Condition</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="Date_Application" name="Date_Application"
+                                placeholder="Date_Application of medicine" required>
+                            <label for="floatingInput">Date of Application<span class="text-danger">*</span></label>
                         </div>
                     </div>
                     <div class="col-lg-4 col-6">
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control" id="Date_Manufacture" name="Date_Manufacture"
-                                placeholder="Date_Manufacture" required>
+                                placeholder="Date_Manufacture">
                             <label for="floatingInput">Date of Manufacture</label>
                         </div>
                     </div>
                     <div class="col-lg-4 col-6">
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control" id="Date_Expiry" name="Date_Expiry"
-                                placeholder="Date of Expiry" required>
+                                placeholder="Date of Expiry">
                             <label for="floatingInput">Date of Expiry</label>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-4 col-6">
                         <div class="form-floating mb-3">
-                            <select class="form-select" id="importing_country" name="importing_country">
-                                    <?php include './include/country_select.php';?>
-                            </select>
-                            <label for="floatingInput">Importing country</label>
+                            <input type="date" class="form-control" id="Certificate_Issue_Date"
+                                name="Certificate_Issue_Date" placeholder="Certificate Issue Date">
+                            <label for="floatingInput">Certificate Issue Date</label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Quantity" name="Quantity" placeholder="Quantity"
                                 required>
-                            <label for="floatingInput">Quantity(Vials)</label>
+                            <label for="floatingInput">Quantity(Vials)<span class="text-danger">*</span></label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Pharmaceutical_Form" name="Pharmaceutical Form"
+                                placeholder="Pharmaceutical_Form of medicine">
+                            <label for="floatingInput">Pharmaceutical Form</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Vial" name="Vial" placeholder="Vial" required>
-                            <label for="floatingInput">Dose/vial</label>
+                            <label for="floatingInput">Dose/vial<span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Diluent" name="Diluent"
+                                placeholder="Diluent of medicine">
+                            <label for="floatingInput">Diluent</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Diluent_Number" name="Diluent_Number"
+                                placeholder="Diluent Number">
+                            <label for="floatingInput">Diluent Number</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example" id="SLP_Received"
+                                name="SLP_Received" placeholder="SLP_Received of medicine">
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="NA">NA</option>
+                            </select>
+                            <label for="floatingInput">SLP Received</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example"
+                                id="Labels_Received" name="Labels_Received" placeholder="Labels Received">
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="NA">NA</option>
+                            </select>
+                            <label for="floatingInput">Labels Recieved</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example"
+                                id="Samples_Received" name="Samples_Received" placeholder="Samples Received">
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="NA">NA</option>
+                            </select>
+                            <label for="floatingInput">Samples Recieved</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Reviewer_Assigned" name="Reviewer_Assigned"
+                                placeholder="Reviewer Assigned">
+                            <label for="floatingInput">Reviewer Assigned</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="Deadline_Assessment" name="Deadline_Assessment"
+                                placeholder="Deadline Assessment">
+                            <label for="floatingInput">Deadline Assessment</label>
                         </div>
                     </div>
                     <div class="col-md-12 col-12 my-lg-3">
@@ -203,6 +315,13 @@ $db = new DataBase;
                                     ?>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="col-lg-12 col-12">
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="Remark" name="Remark" placeholder="Remark"
+                                style="height: 100px"></textarea>
+                            <label for="floatingInput">Remarks</label>
+                        </div>
                     </div>
                 </div>
                 <button class="btn btn-success w-100" type="submit">Submit</button>

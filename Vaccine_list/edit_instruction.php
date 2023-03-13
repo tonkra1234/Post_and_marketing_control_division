@@ -13,6 +13,12 @@ $result = $db->fetch_each_instruction($id);
     <div class="mx-1">
         /
     </div>
+    <a href="./home.php" class="link-secondary">
+        Home
+    </a>
+    <div class="mx-1">
+        /
+    </div>
     <a href="./list_instruction.php" class="link-secondary">
         List working instruction for vaccine
     </a>
@@ -62,9 +68,16 @@ $result = $db->fetch_each_instruction($id);
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Application_number" name="Application_number"
+                                placeholder="Application_number" required value="<?php echo $result['Application_number'];?>">
+                            <label for="floatingInput">Application number<span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Lot_name" name="Lot_name"
                                 placeholder="Lot_name" value="<?php echo $result['lot_name'];?>" required>
-                            <label for="floatingInput">Lot name</label>
+                            <label for="floatingInput">Vaccine name</label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
@@ -76,9 +89,18 @@ $result = $db->fetch_each_instruction($id);
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="Type_vaccine" name="Type_vaccine"
-                                placeholder="Type_vaccine" value="<?php echo $result['Type_vaccine']?>" required>
-                            <label for="floatingInput">Type of vaccine</label>
+                            <select class="form-select" id="importing_country" name="importing_country">
+                                <option value="<?php echo $result['importing_country'];?>"><?php echo $result['importing_country'];?></option>
+                                    <?php include './include/country_select.php';?>
+                            </select>
+                            <label for="floatingInput">Importing country</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Requesting_Agency" name="Requesting_Agency"
+                                placeholder="Requesting Agency" required value="<?php echo $result['Requesting_Agency']?>">
+                            <label for="floatingInput">Requesting Agency<span class="text-danger">*</span></label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
@@ -88,27 +110,46 @@ $result = $db->fetch_each_instruction($id);
                             <label for="floatingInput">Batch/Lot No.</label>
                         </div>
                     </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Type_vaccine" name="Type_vaccine"
+                                placeholder="Type_vaccine" value="<?php echo $result['Type_vaccine']?>" required>
+                            <label for="floatingInput">Type of vaccine</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Storage_Condition" name="Storage_Condition"
+                                placeholder="Storage Condition" value="<?php echo $result['Storage_Condition']?>">
+                            <label for="floatingInput">Storage Condition</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="Date_Application" name="Date_Application"
+                                placeholder="Date_Application of medicine" required value="<?php echo $result['Date_Application']?>">
+                            <label for="floatingInput">Date of Application<span class="text-danger">*</span></label>
+                        </div>
+                    </div>
                     <div class="col-lg-4 col-6">
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control" id="Date_Manufacture" name="Date_Manufacture" value="<?php echo $result['Date_Manufacture']?>"
-                                placeholder="Date_Manufacture" required>
+                                placeholder="Date_Manufacture">
                             <label for="floatingInput">Date of Manufacture</label>
                         </div>
                     </div>
                     <div class="col-lg-4 col-6">
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control" id="Date_Expiry" name="Date_Expiry" value="<?php echo $result['Date_Expiry']?>"
-                                placeholder="Date of Expiry" required>
+                                placeholder="Date of Expiry">
                             <label for="floatingInput">Date of Expiry</label>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-4 col-6">
                         <div class="form-floating mb-3">
-                            <select class="form-select" id="importing_country" name="importing_country">
-                                <option value="<?php echo $result['importing_country'];?>"><?php echo $result['importing_country'];?></option>
-                                    <?php include './include/country_select.php';?>
-                            </select>
-                            <label for="floatingInput">Importing country</label>
+                            <input type="date" class="form-control" id="Certificate_Issue_Date"
+                                name="Certificate_Issue_Date" placeholder="Certificate Issue Date" value="<?php echo $result['Certificate_Issue_Date']?>">
+                            <label for="floatingInput">Certificate Issue Date</label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
@@ -120,8 +161,79 @@ $result = $db->fetch_each_instruction($id);
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Pharmaceutical_Form" name="Pharmaceutical Form"
+                                placeholder="Pharmaceutical_Form of medicine" value="<?php echo $result['Pharmaceutical_Form']?>">
+                            <label for="floatingInput">Pharmaceutical Form</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="Vial" name="Vial" placeholder="Vial" value="<?php echo $result['Vial']?>" required>
                             <label for="floatingInput">Dose/vial</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Diluent" name="Diluent"
+                                placeholder="Diluent of medicine" value="<?php echo $result['Diluent']?>">
+                            <label for="floatingInput">Diluent</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Diluent_Number" name="Diluent_Number"
+                                placeholder="Diluent Number" value="<?php echo $result['Diluent_Number']?>">
+                            <label for="floatingInput">Diluent Number</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example" id="SLP_Received"
+                                name="SLP_Received" placeholder="SLP_Received of medicine">
+                                <option value="<?php echo $result['SLP_Received']?>"><?php echo $result['SLP_Received']?></option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="NA">NA</option>
+                            </select>
+                            <label for="floatingInput">SLP Received</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example"
+                                id="Labels_Received" name="Labels_Received" placeholder="Labels Received">
+                                <option value="<?php echo $result['Labels_Received']?>"><?php echo $result['Labels_Received']?></option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="NA">NA</option>
+                            </select>
+                            <label for="floatingInput">Labels Recieved</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example"
+                                id="Samples_Received" name="Samples_Received" placeholder="Samples Received">
+                                <option value="<?php echo $result['Samples_Received']?>"><?php echo $result['Samples_Received']?></option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="NA">NA</option>
+                            </select>
+                            <label for="floatingInput">Samples Recieved</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Reviewer_Assigned" name="Reviewer_Assigned"
+                                placeholder="Reviewer Assigned" value="<?php echo $result['Reviewer_Assigned']?>">
+                            <label for="floatingInput">Reviewer Assigned</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="Deadline_Assessment" name="Deadline_Assessment"
+                                placeholder="Deadline Assessment" value="<?php echo $result['Deadline_Assessment']?>">
+                            <label for="floatingInput">Deadline Assessment</label>
                         </div>
                     </div>
                     <div class="col-md-12 col-12 my-lg-3">
@@ -209,6 +321,13 @@ $result = $db->fetch_each_instruction($id);
                                     ?>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="col-lg-8 col-12">
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="Remark" name="Remark" placeholder="Remark"
+                                style="height: 100px"><?php echo $result['Remark']?>"</textarea>
+                            <label for="floatingInput">Remarks</label>
+                        </div>
                     </div>
                     <div class="col-lg-4 col-12">
                         <div class="form-floating mb-3">

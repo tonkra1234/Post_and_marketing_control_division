@@ -81,6 +81,104 @@
             <div class="col-md-6">
                 <?php echo $result['Vial'];?>
             </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Requesting Agency</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Requesting_Agency'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Storage Condition</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Storage_Condition'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Date of Application</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Date_Application'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Certificate Issue Date</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Certificate_Issue_Date'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Pharmaceutical Form</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Pharmaceutical_Form'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Diluent</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Diluent'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Diluent Number</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Diluent_Number'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>SLP Received</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['SLP_Received'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Labels_Received</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Labels_Received'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Diluent</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Diluent'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Samples_Received</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Samples_Received'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Reviewer Assigned</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Reviewer_Assigned'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Deadline Assessment</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Deadline_Assessment'];?>
+            </div>
+            <hr class="my-1">
+            <div class="col-md-6">
+                <h6>Remarks</h6>
+            </div>
+            <div class="col-md-6">
+                <?php echo $result['Remark'];?>
+            </div>
             <hr class="my-2">
             <div class="col-md-12 col-12 my-lg-3 my-1">
                 <h5>B. cold chain condition</h5>

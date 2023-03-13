@@ -101,6 +101,16 @@ $_SESSION['user_name_pmcd'] = $user_name;
                             <li><a class="dropdown-item" href="./list_instruction.php">List</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-list rounded-3" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Plan form
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="./create_plan.php">Create</a></li>
+                            <li><a class="dropdown-item" href="./list_plan.php">List</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <div class="d-flex ms-lg-auto me-lg-5 d-none d-sm-block">
                     <div class="dropdown text-end">

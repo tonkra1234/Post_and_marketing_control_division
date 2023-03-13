@@ -22,17 +22,11 @@ $previous_page = $page_no - 1;
 $next_page = $page_no + 1;
 $adjacents = "2";
 
-
 $db = new DataBase;
-if(!empty($search_key)){
-    $total_records = $db->count_work_instruction_search($search_key);
-}else{
-    $total_records = $db->count_work_instruction();
-}
 
+$total_records = $db->count_plan_form();
 $total_records = $total_records['sum'];
 $total_no_of_pages = ceil($total_records / $total_records_per_page);
-
 
 ?>
 <div class="d-flex mt-4">
@@ -42,40 +36,17 @@ $total_no_of_pages = ceil($total_records / $total_records_per_page);
     <div class="mx-1">
         /
     </div>
-    <a href="./home.php" class="link-secondary">
-        Home
-    </a>
-    <div class="mx-1">
-        /
-    </div>
     <p class="text-dark fw-bold">
-        List working instruction for vaccine
+        List plan form for vaccine
     </p>
 </div>
 
 <div class="my-4">
     <div class="row">
-        <div class="col-lg-4 d-flex justify-content-between align-items-center">
+        <div class="col-lg-12 d-flex justify-content-between align-items-center">
             <div>
-                <h4 class="mt-auto mb-1">Work instruction list</h4>
+                <h4 class="mt-auto mb-1">Plan form list</h4>
             </div>
-        </div>
-        <div class="col-lg-8 col-12">
-            <form class="shadow rounded-3 p-lg-3 p-2" action="" method="GET" accept-charset="utf-8" style="background-color: #F7F7F7;">
-                <div class="row gap-lg-0 gap-2">
-                    <div class="col-lg-6 col-12">
-                        <input class="border w-100 form-control" type="search" name="search" placeholder="Search"
-                            aria-label="Search" value="<?php echo $search_key; ?>">
-                    </div>
-                    <div class="col-lg-3 col-12 d-grid">
-                        <button class="btn btn-secondary btn-block" type="submit"
-                            style="background-color: #31968B ;">Search Results</button>
-                    </div>
-                    <div class="col-lg-3 col-12 d-grid">
-                        <a class="btn btn-danger" role="button" href="./list_instruction.php">Clear all</a>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
     <hr>
@@ -84,58 +55,28 @@ $total_no_of_pages = ceil($total_records / $total_records_per_page);
             <thead class="table-success">
                 <tr class="text-center">
                     <th scope="col">No</th>
-                    <th scope="col">Application no.</th>
                     <th scope="col">Manufacturer</th>
-                    <th scope="col">Batch/lot number</th>
+                    <th scope="col">Name of Vaccine</th>
                     <th scope="col">Type of vaccine</th>
-                    <th scope="col">Mfg. date</th>
-                    <th scope="col">Exp. date</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Name of premises</th>
                     <th scope="col">Action</th>
-                    <th scope="col">PDF</th>
                 </tr>
             </thead>
             <tbody>
-                <?php
+                <?php 
                 $number = ($total_records_per_page*$page_no)-($total_records_per_page-1);
-                if(!empty($search_key)){
-                    $results =$db->fetch_instruction_search($offset,$total_records_per_page,$search_key);
-                }else{
-                    $results =$db->fetch_instruction($offset,$total_records_per_page);
-                }
-                
-
+                $results =$db->fetch_plan($offset,$total_records_per_page);
                 foreach($results as $result){
                 ?>
                 <tr id="refresh-delete<?php echo $result['id'];?>">
                     <th scope="row" class="text-center"><?php echo $number;?></th>
-                    <td><?php echo $result['Application_number'];?></td>
                     <td><?php echo $result['Manufacturer'];?></td>
-                    <td><?php echo $result['Batch_no'];?></td>
+                    <td><?php echo $result['Name_Vaccine'];?></td>
                     <td><?php echo $result['Type_vaccine'];?></td>
-                    <?php if ($result['Date_Manufacture'] === '0000-00-00'):?>
-                    <td>N/A</td>
-                    <?php else: ?>
-                    <td><?php echo date_format(date_create($result['Date_Manufacture']),'d-M-Y');?></td>
-                    <?php endif ;?>
-
-                    <?php if ($result['Date_Expiry'] === '0000-00-00'):?>
-                    <td>N/A</td>
-                    <?php else: ?>
-                    <td><?php echo date_format(date_create($result['Date_Expiry']),'d-M-Y');?></td>
-                    <?php endif ;?>
-
-                    <td>
-                        <?php if($result["show_status"] === 'Verified'): ?>
-                        <span class="badge rounded-pill bg-success"><?php echo $result["show_status"]; ?></span>
-                        <?php elseif($result["show_status"] === 'Unverified'): ?>
-                        <span class="badge rounded-pill bg-danger"><?php echo $result["show_status"]; ?></span>
-                        <?php endif; ?>
-                    </td>
+                    <td><?php echo $result['Premises_name'];?></td>
                     <td>
                         <div class="d-grid">
-                            <a href="./edit_instruction.php?id=<?php echo $result['id'];?>" role="button"
-                                class="btn btn-warning btn-sm rounded-pill d-grid py-1 my-1">
+                            <a href="./edit_plan.php?id=<?php echo $result['id'];?>" role="button" class="btn btn-warning btn-sm rounded-pill d-grid py-1 my-1">
                                 Edit
                             </a>
                             <a class="btn btn-info rounded-pill d-grid py-1 my-1" data-bs-toggle="offcanvas"
@@ -143,25 +84,16 @@ $total_no_of_pages = ceil($total_records / $total_records_per_page);
                                 aria-controls="#Detail<?php echo $result['id'];?>">
                                 Detail
                             </a>
+                            <a href="./plan_report.php?id=<?php echo $result['id'];?>" role="button" class="btn btn-secondary btn-sm rounded-pill d-grid py-1 my-1">
+                                Plan form
+                            </a>
                         </div>
-                    </td>
-                    <td>
-                        <a href="./working_instruction_report.php?id=<?php echo $result['id'];?>" role="button"
-                            class="btn btn-secondary btn-sm rounded-pill d-grid py-1 my-1">
-                            Work instruction
-                        </a>
-                        <?php if($result["show_status"] === 'Verified'): ?>
-                        <a href="./certification.php?id=<?php echo $result['id'];?>" role="button"
-                            class="btn btn-success btn-sm rounded-pill d-grid py-1 my-1">
-                            Certification
-                        </a>
-                        <?php endif; ?>
                     </td>
                 </tr>
 
                 <?php 
                     $number++;
-                    include './instruction_detail.php';
+                    include './plan_detail.php';
                 }
                 ?>
             </tbody>
@@ -183,7 +115,8 @@ $total_no_of_pages = ceil($total_records / $total_records_per_page);
                     <?php endif; ?>
 
                     <?php if ($page_no > 3): ?>
-                    <li class="start page-item"><a href="?page_no=1&search=<?php echo $search_key;?>"
+                    <li class="start page-item"><a
+                            href="?page_no=1&search=<?php echo $search_key;?>"
                             class="page-link">1</a></li>
                     <li class="dots page-item"><a class="page-link" href="#">...</a></li>
                     <?php endif; ?>
