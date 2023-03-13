@@ -45,7 +45,7 @@ $db = new DataBase;
                                     <option value="Yes">Yes</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control" id="" name="RegistrationNo">
+                            <input type="text" class="form-control" id="RegistrationNo" name="RegistrationNo" placeholder="Registration number">
                         </div>
                     </div>
                     <div class="col-lg-12 col-12">
@@ -58,7 +58,7 @@ $db = new DataBase;
                                     <option value="Yes">Yes</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control" id="AuthorizationNo" name="AuthorizationNo">
+                            <input type="text" class="form-control" id="AuthorizationNo" name="AuthorizationNo" placeholder="Authorization number">
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
@@ -106,8 +106,20 @@ $db = new DataBase;
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="Type_vaccine" name="Type_vaccine"
-                                placeholder="Type_vaccine" required>
+                            <select class="form-select" aria-label="Default select example"
+                                id="Type_vaccine" name="Type_vaccine" placeholder="Type of vaccine" required>
+                                <option value="">Select</option>
+                                <option value="Live attenuated vaccine">Live attenuated vaccine</option>
+                                <option value="Inactivated vaccine">Inactivated vaccine</option>
+                                <option value="Polysaccharide vaccine">Polysaccharide vaccine</option>
+                                <option value="Conjugated">Conjugated</option>
+                                <option value="Toxoid">Toxoid</option>
+                                <option value="Recombinant">Recombinant</option>
+                                <option value="Combination">Combination</option>
+                                <option value="Lypholized">Lypholized</option>
+                                <option value="mRNA">mRNA</option>
+                                <option value="Viral vector">Viral vector</option>
+                            </select>
                             <label for="floatingInput">Type of vaccine<span class="text-danger">*</span></label>
                         </div>
                     </div>

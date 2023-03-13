@@ -112,7 +112,7 @@ $resultB = json_decode($result['checklistC']);
 $pdf->Ln(5);
 $pdf->SetWidths(array(32, 32, 32, 32, 32, 32));
 $pdf->SetFont('Arial','B',10);
-$pdf->Row(array('Batch Release certified','Summary Lot Protocol','Analytical Report','Invoice','Airway','Packing list'));
+$pdf->Row(array('Batch Release certification','Summary Lot Protocol','Analytical Report','Invoice','Airway','Packing list'));
 $pdf->SetFont('Arial','',10);
 $pdf->Row(array(html_entity_decode($resultB[0][0]),html_entity_decode($resultB[1][0]),html_entity_decode($resultB[2][0]),html_entity_decode($resultB[3][0]),html_entity_decode($resultB[4][0]),html_entity_decode($resultB[5][0])));
 
