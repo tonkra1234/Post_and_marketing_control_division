@@ -49,7 +49,7 @@ $result = $db->fetch_each_instruction($id);
                                     <option value="Yes">Yes</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control" id="RegistrationNo" name="RegistrationNo" value="<?php echo json_decode($result['RegistrationNo'])[1]?>">
+                            <input type="text" class="form-control" id="RegistrationNo" name="RegistrationNo" value="<?php echo json_decode($result['RegistrationNo'])[1]?>" placeholder="Registration number">
                         </div>
                     </div>
                     <div class="col-lg-12 col-12">
@@ -63,7 +63,7 @@ $result = $db->fetch_each_instruction($id);
                                     <option value="Yes">Yes</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control" id="AuthorizationNo" name="AuthorizationNo" value="<?php echo json_decode($result['AuthorizationNo'])[1]?>">
+                            <input type="text" class="form-control" id="AuthorizationNo" name="AuthorizationNo" value="<?php echo json_decode($result['AuthorizationNo'])[1]?>" placeholder="Authorization number">
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">

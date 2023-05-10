@@ -10,7 +10,6 @@ $util = new Util();
 
 $number_checklistb = count($db->ChecklistB());
 $number_checklistc = count($db->ChecklistC());
-
 // Certification
 
 $id = $util->testInput($_POST['id']);
@@ -27,8 +26,16 @@ $Lot_name = $util->testInput($_POST['Lot_name']);
 $Manufacturer = $util->testInput($_POST['Manufacturer']);
 $Type_vaccine = $util->testInput($_POST['Type_vaccine']);
 $Batch_no = $util->testInput($_POST['Batch_no']);
-$Date_Manufacture = $util->testInput($_POST['Date_Manufacture']);
-$Date_Expiry = $util->testInput($_POST['Date_Expiry']);
+if(empty($_POST['Date_Manufacture'])){
+    $Date_Manufacture = '0000-00-00';
+}else{
+    $Date_Manufacture = $_POST['Date_Manufacture'];
+}
+if(empty($_POST['Date_Expiry'])){
+    $Date_Expiry = '0000-00-00';
+}else{
+    $Date_Expiry = $_POST['Date_Expiry'];
+}
 $Quantity = $util->testInput($_POST['Quantity']);
 $Vial = $util->testInput($_POST['Vial']);
 
@@ -36,8 +43,17 @@ $Vial = $util->testInput($_POST['Vial']);
 $Application_number = $util->testInput($_POST['Application_number']);
 $Requesting_Agency = $util->testInput($_POST['Requesting_Agency']);
 $Storage_Condition = $util->testInput($_POST['Storage_Condition']);
-$Date_Application = $util->testInput($_POST['Date_Application']);
-$Certificate_Issue_Date = $util->testInput($_POST['Certificate_Issue_Date']);
+
+if(empty($_POST['Date_Application'])){
+    $Date_Application = '0000-00-00';
+}else{
+    $Date_Application = $util->testInput($_POST['Date_Application']);
+}
+if(empty($_POST['Certificate_Issue_Date'])){
+    $Certificate_Issue_Date = '0000-00-00';
+}else{
+    $Certificate_Issue_Date = $_POST['Certificate_Issue_Date'];
+}
 $Pharmaceutical_Form = $util->testInput($_POST['Pharmaceutical_Form']);
 $Diluent = $util->testInput($_POST['Diluent']);
 $Diluent_Number = $util->testInput($_POST['Diluent_Number']);
@@ -45,7 +61,12 @@ $SLP_Received = $util->testInput($_POST['SLP_Received']);
 $Labels_Received = $util->testInput($_POST['Labels_Received']);
 $Samples_Received = $util->testInput($_POST['Samples_Received']);
 $Reviewer_Assigned = $util->testInput($_POST['Reviewer_Assigned']);
-$Deadline_Assessment = $util->testInput($_POST['Deadline_Assessment']);
+
+if(empty($_POST['Deadline_Assessment'])){
+    $Deadline_Assessment = '0000-00-00';
+}else{
+    $Deadline_Assessment = $util->testInput($_POST['Deadline_Assessment']);
+}
 $Remark = $util->testInput($_POST['Remark']);
 
 $checklistB = array();
@@ -112,25 +133,24 @@ $show_status = $util->testInput($_POST['show_status']);
 //       );
 //     </>";
 // }
-
 if ($db->edit_vaccine($show_status,$id,$Remark,$Deadline_Assessment,$Reviewer_Assigned,$Samples_Received,$Labels_Received,$SLP_Received,$Diluent_Number,$Diluent,$Pharmaceutical_Form,$Certificate_Issue_Date,$Date_Application,$Storage_Condition,$Requesting_Agency,$Application_number,$importing_country,$Lot_name,$Manufacturer,$Type_vaccine,$Batch_no,$Date_Manufacture,$Date_Expiry,$Quantity,$Vial,$RegistrationNoEncode,$AuthorizationNoEncode,$checklistBEncode,$checklistCEncode)){
     
-        echo "<script>Swal.fire(
-            'Edit successfully!',
-            'Please, click button to continue!',
-            'success'
-          ).then(function() {
-            window.location = './list_instruction.php';
-          });
-          </script>";
+    echo "<script>Swal.fire(
+        'Edit successfully!',
+        'Please, click button to continue!',
+        'success'
+        ).then(function() {
+        window.location = './list_instruction.php';
+        });
+        </script>";
     
-    }else{
+}else{
         echo "<script>Swal.fire(
             'Warning there are some problems',
             'Please, click button to back to home page!',
           );
         </>";
-    }
+}
 
 
 

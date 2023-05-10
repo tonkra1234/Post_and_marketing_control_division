@@ -72,7 +72,7 @@ if(isset($_POST['submit'])){
                      <div class="d-flex">
                         <div class="w-100 text-center">
                            <img src="./image/logo.png" alt="logo" width="150px" class="mb-2">
-                           <h1 class="mb-3 text-primary" style="font-size: 3rem;">Medical Product Surveillance System</h1>
+                           <h1 class="mb-3 text-success" style="font-size: 3rem;">Welcome</h1>
                         </div>
                      </div>
                      <form action="" method="post" class="bg-light p-3 shadow rounded">

@@ -25,18 +25,18 @@ $image4 = './image/new_header.jpg';
 
 // Header
 
-$pdf->cell(20,20,$pdf->Image($image1, $pdf->GetX()+2, $pdf->GetY()+2, 16),1,0);
-$pdf->cell(170,10,'Sample format for vaccine lot release certification',1,2,'C');
-$pdf->SetFont('Arial','',10);
-$pdf->cell(42.5,5,'Document Number',1,0);
-$pdf->cell(42.5,5,'Effective Date',1,0);
-$pdf->cell(42.5,5,'Review Date',1,0);
-$pdf->cell(42.5,5,'Version No.',1,1);
-$pdf->SetX(30);
-$pdf->cell(42.5,5,$header['Document_Number'],1,0);
-$pdf->cell(42.5,5,$header['Effective_Date'],1,0);
-$pdf->cell(42.5,5,$header['Review_Date'],1,0);
-$pdf->cell(42.5,5,$header['Version_Number'],1,0);
+// $pdf->cell(20,20,$pdf->Image($image1, $pdf->GetX()+2, $pdf->GetY()+2, 16),1,0);
+// $pdf->cell(170,10,'Sample format for vaccine lot release certification',1,2,'C');
+// $pdf->SetFont('Arial','',10);
+// $pdf->cell(42.5,5,'Document Number',1,0);
+// $pdf->cell(42.5,5,'Effective Date',1,0);
+// $pdf->cell(42.5,5,'Review Date',1,0);
+// $pdf->cell(42.5,5,'Version No.',1,1);
+// $pdf->SetX(30);
+// $pdf->cell(42.5,5,$header['Document_Number'],1,0);
+// $pdf->cell(42.5,5,$header['Effective_Date'],1,0);
+// $pdf->cell(42.5,5,$header['Review_Date'],1,0);
+// $pdf->cell(42.5,5,$header['Version_Number'],1,0);
 
 $pdf->Ln(5);
 
@@ -49,6 +49,7 @@ $pdf->Cell(190,37,$pdf->Image($image4, $pdf->GetX()+12, $pdf->GetY()+5, 164),0,1
 $pdf->Ln(10);
 $pdf->cell(190,5,'Regulation No: ',0,1);
 $pdf->SetFont('Arial','B',10);
+$pdf->Ln(10);
 $pdf->cell(190,5,'LOT RELEASE CERTIFICATE',0,1,'C');
 $pdf->SetFont('Arial','',10);
 $pdf->Ln(5);
